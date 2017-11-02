@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.compare3dao;
+import dao.RestaurantDAO;
 import dto.Menu;
 import dto.Restaurant;
 
@@ -35,14 +35,14 @@ public class compare3servlet extends HttpServlet {
 		
 		
 		
-		compare3dao d =compare3dao.getInstance();
+		RestaurantDAO d =RestaurantDAO.getInstance();
 		
-		Restaurant r = d.selectOneRestaurantByNum(num);
-		List<Menu> m = d.selectOneMenuByNum(r.getrId());
+		Restaurant rst = d.selectOneRestaurantByRid(num);
+		List<Menu> m = d.selectOneMenuByNum(rst.getrId());
 
 		
 		
-		req.setAttribute("Restaurant", r);
+		req.setAttribute("Restaurant", rst);
 		req.setAttribute("Menu", m);
 		for(Menu mm : m )
 			System.out.println(m);
