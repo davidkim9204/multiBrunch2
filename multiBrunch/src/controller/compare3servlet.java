@@ -15,7 +15,7 @@ import dto.Menu;
 import dto.Restaurant;
 
 
-@WebServlet("/minyoungservlet.do")
+@WebServlet("/compareservlet.do")
 public class compare3servlet extends HttpServlet {
 
 	/**

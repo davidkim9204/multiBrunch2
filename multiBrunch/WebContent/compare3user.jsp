@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="minyoungservlet.do" method="get" name="frm">
+<form action="compareservlet.do" method="get" name="frm">
 <table>
 	<tr>
 	<td>번호</td>
