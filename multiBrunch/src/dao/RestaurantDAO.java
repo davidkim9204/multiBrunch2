@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import dto.Menu;
 import dto.Restaurant;
 
 public class RestaurantDAO {
@@ -140,5 +140,50 @@ public class RestaurantDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
+	
+	public List<Menu> selectOneMenuByNum(int rId) {
+		List<Menu> list = new ArrayList<>();
+		String sql = "select * from Menu where rId = ?";
+		Menu m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, rId);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				m = new Menu();
+				m.setmId(rs.getInt("mId"));
+				m.setmPicture1(rs.getString("mPicture1"));
+				m.setmName(rs.getString("mName"));
+				list.add(m);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	
 }
