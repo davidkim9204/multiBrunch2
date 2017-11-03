@@ -10,21 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.mainSearchDao;
+import dao.RestaurantDAO;
 import dto.Restaurant;
 
-@WebServlet("/result.do")
-public class restaurantListServlet extends HttpServlet{
+@WebServlet("/ChosenRestaurantsServlet")
+public class ChosenRestaurantsServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = "/result.jsp";
-		mainSearchDao mDao = mainSearchDao.getInstance();
-		List<Restaurant> rList = mDao.selectRestaurants();
-		
-		req.setAttribute("rList", rList);
+		RestaurantDAO bDao = RestaurantDAO.getInstance();
+		List<Restaurant> RestaurantList = bDao.selectChosenRestaurants("kor",100,5000);
+		req.setAttribute("RestaurantList", RestaurantList);
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
-		dispatcher.forward(req, resp);
+		req.getRequestDispatcher("result.jsp").forward(req, resp);
 	}
-	
-	
 }

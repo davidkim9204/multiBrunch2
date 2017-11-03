@@ -115,8 +115,11 @@ text-align: center;
 	</nav>
 	
 	
-	<form class="mainPageSearchForm" role="search" method="get" action="RestaurantServlet">
-	<input type="text" name="command" value="Restaurant_list" hidden="true">
+<!-- 	<form class="mainPageSearchForm" role="search" method="get" action=RestaurantServlet> -->
+<!-- 	<input type="text" name="command" value="Restaurant_list" hidden="true"> -->
+	<form class="mainPageSearchForm" role="search" method="get" action=ChosenRestaurantsServlet>
+<!-- 	<input type="text" name="r.rCategory" value="kor" hidden="true"> -->
+	
 		<div class="mainSearch">
 			<select id="categorySelect" class="selectpicker">
 				<option>분류

@@ -239,6 +239,40 @@ public class RestaurantDAO {
 		System.out.println(list);
 		return list;
 	}
+	
+	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance, int mPrice){
+		String sql = "select r.rName, r.rDistance, r.rRate from restaurant r, menu m "
+				+ "where r.rCategory=? and r.rDistance=? and m.mPrice=?";
+		List<Restaurant> list = new ArrayList<Restaurant>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Restaurant rst = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, rCategory);
+			pstmt.setInt(2, rDistance);
+			pstmt.setInt(3, mPrice);
+			rs = pstmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				rst = new Restaurant();
+				rst.setrName(rs.getString("rName"));
+				rst.setrDistance(rs.getInt("rDistance"));
+				list.add(rst);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}
+	
+	
 
 	
 	
