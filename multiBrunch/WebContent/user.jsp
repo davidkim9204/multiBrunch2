@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>전송페이지D</title>
+<title>전송페이지</title>
 
 </head>
 <body>
