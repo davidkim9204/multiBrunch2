@@ -14,177 +14,99 @@ public class Menu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** mId. */
-	private Integer mid;
+	private Integer mId;
 
 	/** mName. */
-	private String mname;
+	private String mName;
 
 	/** mPrice. */
-	private Integer mprice;
+	private Integer mPrice;
 
 	/** mPicture1. */
-	private String mpicture1;
+	private String mPicture1;
 
 	/** mPicture2. */
-	private String mpicture2;
+	private String mPicture2;
 
 	/** 새 테이블. */
 	private Restaurant restaurant;
 
-	/**
-	 * 생성자.
-	 */
-	public Menu() {
+	/** mCategory. */
+	private String mCategory;
+	
+	public Menu(){
+		
+	}
+	
+
+	public Integer getmId() {
+		return mId;
 	}
 
-	/**
-	 * mId을 설정합니다..
-	 * 
-	 * @param mid
-	 *            mId
-	 */
-	public void setMid(Integer mid) {
-		this.mid = mid;
+	public void setmId(Integer mId) {
+		this.mId = mId;
 	}
 
-	/**
-	 * mId을 가져옵니다..
-	 * 
-	 * @return mId
-	 */
-	public Integer getMid() {
-		return this.mid;
+	public String getmName() {
+		return mName;
 	}
 
-	/**
-	 * mName을 설정합니다..
-	 * 
-	 * @param mname
-	 *            mName
-	 */
-	public void setMname(String mname) {
-		this.mname = mname;
+	public void setmName(String mName) {
+		this.mName = mName;
 	}
 
-	/**
-	 * mName을 가져옵니다..
-	 * 
-	 * @return mName
-	 */
-	public String getMname() {
-		return this.mname;
+	public Integer getmPrice() {
+		return mPrice;
 	}
 
-	/**
-	 * mPrice을 설정합니다..
-	 * 
-	 * @param mprice
-	 *            mPrice
-	 */
-	public void setMprice(Integer mprice) {
-		this.mprice = mprice;
+	public void setmPrice(Integer mPrice) {
+		this.mPrice = mPrice;
 	}
 
-	/**
-	 * mPrice을 가져옵니다..
-	 * 
-	 * @return mPrice
-	 */
-	public Integer getMprice() {
-		return this.mprice;
+	public String getmPicture1() {
+		return mPicture1;
 	}
 
-	/**
-	 * mPicture1을 설정합니다..
-	 * 
-	 * @param mpicture1
-	 *            mPicture1
-	 */
-	public void setMpicture1(String mpicture1) {
-		this.mpicture1 = mpicture1;
+	public void setmPicture1(String mPicture1) {
+		this.mPicture1 = mPicture1;
 	}
 
-	/**
-	 * mPicture1을 가져옵니다..
-	 * 
-	 * @return mPicture1
-	 */
-	public String getMpicture1() {
-		return this.mpicture1;
+	public String getmPicture2() {
+		return mPicture2;
 	}
 
-	/**
-	 * mPicture2을 설정합니다..
-	 * 
-	 * @param mpicture2
-	 *            mPicture2
-	 */
-	public void setMpicture2(String mpicture2) {
-		this.mpicture2 = mpicture2;
+	public void setmPicture2(String mPicture2) {
+		this.mPicture2 = mPicture2;
 	}
 
-	/**
-	 * mPicture2을 가져옵니다..
-	 * 
-	 * @return mPicture2
-	 */
-	public String getMpicture2() {
-		return this.mpicture2;
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
 
-	/**
-	 * 새 테이블을 설정합니다..
-	 * 
-	 * @param restaurant
-	 *            새 테이블
-	 */
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
 
-	/**
-	 * 새 테이블을 가져옵니다..
-	 * 
-	 * @return 새 테이블
-	 */
-	public Restaurant getRestaurant() {
-		return this.restaurant;
+	public String getmCategory() {
+		return mCategory;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((mid == null) ? 0 : mid.hashCode());
-		return result;
+	public void setmCategory(String mCategory) {
+		this.mCategory = mCategory;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Menu other = (Menu) obj;
-		if (mid == null) {
-			if (other.mid != null) {
-				return false;
-			}
-		} else if (!mid.equals(other.mid)) {
-			return false;
-		}
-		return true;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Menu [mId=" + mId + ", mName=" + mName + ", mPrice=" + mPrice + ", mPicture1=" + mPicture1
+				+ ", mPicture2=" + mPicture2 + ", restaurant=" + restaurant + ", mCategory=" + mCategory + "]";
+	}
+	
+	
+
 
 }

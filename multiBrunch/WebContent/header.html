@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	.navbar-header-div{
+		border: 1px solid black;
+		height: 50px;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.navbar-brand{
+		display:inline;
+		left: 20%;
+		position: absolute;
+	}
+	
+	.form-inline{
+		display: inline;
+		left: 60%;
+		position: absolute;
+	}
+	
+	.navbar-login{
+		display: inline;
+		left: 80%;
+		position: absolute;
+		height: 30px;
+		
+	}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-faded">
+		<div class="navbar-header-div" id="navbar-header-div">
+			<a class="navbar-brand" id="header_homelink" href="#">
+				MultiBrunch 
+			</a>
+
+			<form class="form-inline" id="header_search">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+			
+			<a class="navbar-login" id="navbar-login" href="#" >login</a>
+		</div>
+	</nav>
+</body>
+</html>

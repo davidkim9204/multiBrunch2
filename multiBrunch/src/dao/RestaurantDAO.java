@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import dto.Menu;
 import dto.Restaurant;
 
 public class RestaurantDAO {
@@ -81,14 +81,42 @@ public class RestaurantDAO {
 	}
 
 	// 게시판 글 상세 내용 보기 :글번호로 찾아온다. : 실패 null,
-	public Restaurant selectOneRestaurantByRid(String rid) {
+	public Restaurant selectOneRestaurantByRid(String rId) {
 		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
 		Restaurant rst = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rid);
+			pstmt.setString(1, rId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rst = new Restaurant();
+				rst.setrId(rs.getInt("rId"));
+				rst.setrName(rs.getString("rName"));
+				rst.setrAddress(rs.getString("rAddress"));
+				rst.setrDistance(rs.getInt("rDistance"));
+				rst.setrOpenhours(rs.getString("rOpenhours"));
+				rst.setrTel(rs.getString("rTel"));
+				rst.setrRate(rs.getInt("rRate"));
+				rst.setrCategory(rs.getString("rCategory"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		return rst;
+	}
+	
+	public Restaurant selectOneRestaurantByInt(int rId) {
+		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
+		Restaurant rst = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rId);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rst = new Restaurant();
@@ -140,5 +168,50 @@ public class RestaurantDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
+	
+	public List<Menu> selectOneMenuByNum(int rId) {
+		List<Menu> list = new ArrayList<>();
+		String sql = "select * from Menu where rId = ?";
+		Menu m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, rId);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				m = new Menu();
+				m.setmId(rs.getInt("mId"));
+				m.setmPicture1(rs.getString("mPicture1"));
+				m.setmName(rs.getString("mName"));
+				list.add(m);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	
 }
