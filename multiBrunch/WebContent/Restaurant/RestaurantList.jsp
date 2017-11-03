@@ -37,7 +37,7 @@
 			<c:forEach var="Restaurant" items="${RestaurantList }">
 				<tr class="record" align="center">
 					<td width="40px">${Restaurant.rId }</td>
-					<td width="350px"><a href="RestaurantServlet?command=Restaurant_view&rId=${Restaurant.rId}">
+					<td width="350px"><a href="ReMeservlet.do?userid=${Restaurant.rId}">
 							${Restaurant.rName } </a></td>
 					<td width="78px">${Restaurant.rCategory}</td>
 					<td width="78px">${Restaurant.rDistance} m</td>
@@ -46,8 +46,9 @@
 				</tr>
 			</c:forEach>
 		</table><br>
-		<form action="compare3.do" method="get" name="frm" align="center">
-		<input type="button" value = "비교하기 " class="compare3" />
+		<form action="compareservlet.do" method="get" name="frm" align="center">
+			<input type="text" name="userid" value="1" hidden="true">
+			<input type="submit" value = "비교하기 " class="compare3" />
 		</form>
 	</div>
 </body>

@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DB;
-import dto.MenuDto;
-import dto.RestaurantDto;
+import dao.RestaurantDAO;
+import dto.Menu;
+import dto.Restaurant;
 
 @WebServlet("/ReMeservlet.do")
 public class ResMeServlet extends HttpServlet {
@@ -24,9 +24,9 @@ public class ResMeServlet extends HttpServlet {
 		
 		int num=Integer.parseInt(request.getParameter("userid"));
 		
-		DB pDao =DB.getInstance();
-		RestaurantDto resvo =pDao.selectOneRestaurantByNum(num);
-		List<MenuDto> Menulist =pDao.selectOneBoardByNum(resvo.getrId());
+		RestaurantDAO pDao =RestaurantDAO.getInstance();
+		Restaurant resvo =pDao.selectOneRestaurantByInt(num);
+		List<Menu> Menulist =pDao.selectOneBoardByNum(resvo.getrId());
 //		for(Menu m : Menulist)
 //			System.out.println(m);
 //		

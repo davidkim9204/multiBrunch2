@@ -18,7 +18,7 @@ public class RestaurantDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost/multibrunch_db","root","890128");
+					"jdbc:mysql://localhost/multibrunch_db","root","mysql");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class RestaurantDAO {
 				rst.setrName(rs.getString("rName"));
 				rst.setrAddress(rs.getString("rAddress"));
 				rst.setrDistance(rs.getInt("rDistance"));
-				rst.setrOpenhours(rs.getString("rOpenhours"));
+				rst.setrOpenHours(rs.getString("rOpenHours"));
 				rst.setrTel(rs.getString("rTel"));
 				rst.setrRate(rs.getInt("rRate"));
 				rst.setrCategory(rs.getString("rCategory"));
@@ -69,7 +69,7 @@ public class RestaurantDAO {
 			pstmt.setString(1, rst.getrName());
 			pstmt.setString(2, rst.getrAddress());
 			pstmt.setInt(3, rst.getrDistance());
-			pstmt.setString(4, rst.getrOpenhours());
+			pstmt.setString(4, rst.getrOpenHours());
 			pstmt.setString(5, rst.getrTel());
 			pstmt.setInt(6, rst.getrRate());
 			pstmt.setString(7, rst.getrCategory());
@@ -96,7 +96,7 @@ public class RestaurantDAO {
 				rst.setrName(rs.getString("rName"));
 				rst.setrAddress(rs.getString("rAddress"));
 				rst.setrDistance(rs.getInt("rDistance"));
-				rst.setrOpenhours(rs.getString("rOpenhours"));
+				rst.setrOpenHours(rs.getString("rOpenHours"));
 				rst.setrTel(rs.getString("rTel"));
 				rst.setrRate(rs.getInt("rRate"));
 				rst.setrCategory(rs.getString("rCategory"));
@@ -124,7 +124,7 @@ public class RestaurantDAO {
 				rst.setrName(rs.getString("rName"));
 				rst.setrAddress(rs.getString("rAddress"));
 				rst.setrDistance(rs.getInt("rDistance"));
-				rst.setrOpenhours(rs.getString("rOpenhours"));
+				rst.setrOpenHours(rs.getString("rOpenHours"));
 				rst.setrTel(rs.getString("rTel"));
 				rst.setrRate(rs.getInt("rRate"));
 				rst.setrCategory(rs.getString("rCategory"));
@@ -146,7 +146,7 @@ public class RestaurantDAO {
 			pstmt.setString(1, rst.getrName());
 			pstmt.setString(2, rst.getrAddress());
 			pstmt.setInt(3, rst.getrDistance());
-			pstmt.setString(4, rst.getrOpenhours());
+			pstmt.setString(4, rst.getrOpenHours());
 			pstmt.setString(5, rst.getrTel());
 			pstmt.setInt(6, rst.getrRate());
 			pstmt.setString(7, rst.getrCategory());
@@ -212,6 +212,34 @@ public class RestaurantDAO {
 
 		return list;
 	}
+	
+	public List<Menu> selectOneBoardByNum(int rId) {
+		String sql = "select * from menu where rId = ?";
+		List<Menu> list = new ArrayList<Menu>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rId);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				Menu bVo = new Menu();
+				bVo.setmId(rs.getInt("mId"));
+				bVo.setmName(rs.getString("mName"));
+				bVo.setmPrice(rs.getInt("mPrice"));
+				bVo.setmPicture1(rs.getString("mPicture1"));
+				bVo.setmPicture2(rs.getString("mPicture2"));
+//				bVo.setmPrice(rs.getInt("rId"));
+				list.add(bVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		System.out.println(list);
+		return list;
+	}
+
 	
 	
 }

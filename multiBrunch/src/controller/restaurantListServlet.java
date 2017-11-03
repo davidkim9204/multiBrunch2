@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.mainSearchDao;
-import dto.RestaurantDto;
+import dto.Restaurant;
 
 @WebServlet("/result.do")
 public class restaurantListServlet extends HttpServlet{
@@ -19,7 +19,7 @@ public class restaurantListServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = "/result.jsp";
 		mainSearchDao mDao = mainSearchDao.getInstance();
-		List<RestaurantDto> rList = mDao.selectRestaurants();
+		List<Restaurant> rList = mDao.selectRestaurants();
 		
 		req.setAttribute("rList", rList);
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);

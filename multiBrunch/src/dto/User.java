@@ -12,236 +12,61 @@ import java.util.Set;
  */
 public class User implements Serializable {
 
-	/** serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
-	/** uId. */
-	private Integer uid;
-
-	/** uName. */
-	private String uname;
-
-	/** uEmail. */
-	private String uemail;
-
-	/** uPassword. */
-	private String upassword;
-
-	/** uGender. */
-	private String ugender;
-
-	/** uAge. */
-	private Integer uage;
-
-	/** uPreference. */
-	private String upreference;
-
-	/** 새 테이블 목록. */
-	private Set<Comment> commentSet;
-
-	/**
-	 * 생성자.
-	 */
-	public User() {
-		this.commentSet = new HashSet<Comment>();
+	private int uId;
+	private String uName;
+	private String uEmail;
+	private String uPassword;
+	private String uGender;
+	private int uAge;
+	private String uPreference;
+	
+	
+	public int getuId() {
+		return uId;
 	}
-
-	/**
-	 * uId을 설정합니다..
-	 * 
-	 * @param uid
-	 *            uId
-	 */
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setuId(int uId) {
+		this.uId = uId;
 	}
-
-	/**
-	 * uId을 가져옵니다..
-	 * 
-	 * @return uId
-	 */
-	public Integer getUid() {
-		return this.uid;
+	public String getuName() {
+		return uName;
 	}
-
-	/**
-	 * uName을 설정합니다..
-	 * 
-	 * @param uname
-	 *            uName
-	 */
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
-
-	/**
-	 * uName을 가져옵니다..
-	 * 
-	 * @return uName
-	 */
-	public String getUname() {
-		return this.uname;
+	public String getuEmail() {
+		return uEmail;
 	}
-
-	/**
-	 * uEmail을 설정합니다..
-	 * 
-	 * @param uemail
-	 *            uEmail
-	 */
-	public void setUemail(String uemail) {
-		this.uemail = uemail;
+	public void setuEmail(String uEmail) {
+		this.uEmail = uEmail;
 	}
-
-	/**
-	 * uEmail을 가져옵니다..
-	 * 
-	 * @return uEmail
-	 */
-	public String getUemail() {
-		return this.uemail;
+	public String getuPassword() {
+		return uPassword;
 	}
-
-	/**
-	 * uPassword을 설정합니다..
-	 * 
-	 * @param upassword
-	 *            uPassword
-	 */
-	public void setUpassword(String upassword) {
-		this.upassword = upassword;
+	public void setuPassword(String uPassword) {
+		this.uPassword = uPassword;
 	}
-
-	/**
-	 * uPassword을 가져옵니다..
-	 * 
-	 * @return uPassword
-	 */
-	public String getUpassword() {
-		return this.upassword;
+	public String getuGender() {
+		return uGender;
 	}
-
-	/**
-	 * uGender을 설정합니다..
-	 * 
-	 * @param ugender
-	 *            uGender
-	 */
-	public void setUgender(String ugender) {
-		this.ugender = ugender;
+	public void setuGender(String uGender) {
+		this.uGender = uGender;
 	}
-
-	/**
-	 * uGender을 가져옵니다..
-	 * 
-	 * @return uGender
-	 */
-	public String getUgender() {
-		return this.ugender;
+	public int getuAge() {
+		return uAge;
 	}
-
-	/**
-	 * uAge을 설정합니다..
-	 * 
-	 * @param uage
-	 *            uAge
-	 */
-	public void setUage(Integer uage) {
-		this.uage = uage;
+	public void setuAge(int uAge) {
+		this.uAge = uAge;
 	}
-
-	/**
-	 * uAge을 가져옵니다..
-	 * 
-	 * @return uAge
-	 */
-	public Integer getUage() {
-		return this.uage;
+	public String getuPreference() {
+		return uPreference;
 	}
-
-	/**
-	 * uPreference을 설정합니다..
-	 * 
-	 * @param upreference
-	 *            uPreference
-	 */
-	public void setUpreference(String upreference) {
-		this.upreference = upreference;
+	public void setuPreference(String uPreference) {
+		this.uPreference = uPreference;
 	}
-
-	/**
-	 * uPreference을 가져옵니다..
-	 * 
-	 * @return uPreference
-	 */
-	public String getUpreference() {
-		return this.upreference;
-	}
-
-	/**
-	 * 새 테이블 목록을 설정합니다..
-	 * 
-	 * @param commentSet
-	 *            새 테이블 목록
-	 */
-	public void setCommentSet(Set<Comment> commentSet) {
-		this.commentSet = commentSet;
-	}
-
-	/**
-	 * 새 테이블를 추가합니다..
-	 * 
-	 * @param comment
-	 *            새 테이블
-	 */
-	public void addComment(Comment comment) {
-		this.commentSet.add(comment);
-	}
-
-	/**
-	 * 새 테이블 목록을 가져옵니다..
-	 * 
-	 * @return 새 테이블 목록
-	 */
-	public Set<Comment> getCommentSet() {
-		return this.commentSet;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
-		return result;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		User other = (User) obj;
-		if (uid == null) {
-			if (other.uid != null) {
-				return false;
-			}
-		} else if (!uid.equals(other.uid)) {
-			return false;
-		}
-		return true;
-	}
+	public String toString() {
+		return "MemberVO [uId=" + uId + ", uName=" + uName + ", uEmail=" + uEmail + ", uPassword=" + uPassword
+				+ ", uGender=" + uGender + ", uAge=" + uAge + ", uPreference=" + uPreference + "]";
+	}	
 
 }

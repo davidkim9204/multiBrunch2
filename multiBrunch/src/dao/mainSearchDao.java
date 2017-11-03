@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.RestaurantDto;
+import dto.Restaurant;
+
 
 public class mainSearchDao {
 	private Connection conn;
@@ -30,9 +31,9 @@ public class mainSearchDao {
 		return instance;
 	}
 
-	public List<RestaurantDto> selectRestaurants() {
+	public List<Restaurant> selectRestaurants() {
 		String sql = "select * from restaurant";
-		List<RestaurantDto> list = new ArrayList<RestaurantDto>();
+		List<Restaurant> list = new ArrayList<Restaurant>();
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -40,7 +41,7 @@ public class mainSearchDao {
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				RestaurantDto rDTO = new RestaurantDto();
+				Restaurant rDTO = new Restaurant();
 				rDTO.setrId(rs.getInt("rId"));
 				rDTO.setrName(rs.getString("rName"));
 				rDTO.setrAddress(rs.getString("rAddress"));

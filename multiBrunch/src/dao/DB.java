@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.MenuDto;
-import dto.RestaurantDto;
+import dto.Menu;
+import dto.Restaurant;
+
 
 public class DB {
 	private Connection conn;
@@ -26,7 +26,7 @@ public class DB {
 	private DB() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/multibrunch_db", "root", "890128");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/multibrunch_db", "root", "mysql");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,9 +37,9 @@ public class DB {
 	}
 
 //메뉴 리스트에 담기	
-		public List<MenuDto> selectOneBoardByNum(int rId) {
+		public List<Menu> selectOneBoardByNum(int rId) {
 			String sql = "select * from menu where rId = ?";
-			List<MenuDto> list = new ArrayList<MenuDto>();
+			List<Menu> list = new ArrayList<Menu>();
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			try {
@@ -47,7 +47,7 @@ public class DB {
 				pstmt.setInt(1, rId);
 				rs = pstmt.executeQuery();
 				while (rs.next()){
-					MenuDto bVo = new MenuDto();
+					Menu bVo = new Menu();
 					bVo.setmId(rs.getInt("mId"));
 					bVo.setmName(rs.getString("mName"));
 					bVo.setmPrice(rs.getInt("mPrice"));
@@ -90,9 +90,9 @@ public class DB {
 //		return bVo;
 //	}
 
-	public RestaurantDto selectOneRestaurantByNum(int rId) {
+	public Restaurant selectOneRestaurantByNum(int rId) {
 		String sql = "select * from restaurant where rId = ?";
-		RestaurantDto bVo = null;
+		Restaurant bVo = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -100,7 +100,7 @@ public class DB {
 			pstmt.setInt(1, rId);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				bVo = new RestaurantDto();
+				bVo = new Restaurant();
 
 				bVo.setrId(rs.getInt("rId"));
 				bVo.setrName(rs.getString("rName"));

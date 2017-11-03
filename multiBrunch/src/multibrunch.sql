@@ -75,7 +75,7 @@ CREATE TABLE Restaurant
 
 CREATE TABLE User
 (
-	uId int DEFAULT 1 NOT NULL AUTO_INCREMENT,
+	uId int NOT NULL AUTO_INCREMENT,
 	uName varchar(20) NOT NULL,
 	uEmail varchar(50) NOT NULL,
 	uPassword varchar(15) NOT NULL,

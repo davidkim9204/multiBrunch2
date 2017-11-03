@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDao;
-import dto.UserVo;
+import dto.User;
 
 @WebServlet("/userUpdate.do")
 public class UserUpdateServlet extends HttpServlet{
@@ -25,7 +25,7 @@ public class UserUpdateServlet extends HttpServlet{
 		String uEmail = req.getParameter("uEmail");
 		UserDao uDao = UserDao.getInstance();
 		
-		UserVo uVo = uDao.selectUser(uEmail);
+		User uVo = uDao.selectUser(uEmail);
 		req.setAttribute("uVo", uVo);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("user/userUpdate.jsp");
@@ -43,7 +43,7 @@ public class UserUpdateServlet extends HttpServlet{
 		String uAge = req.getParameter("uAge");
 		String uPreference = req.getParameter("uPreference");
 		
-		UserVo uVo = new UserVo();
+		User uVo = new User();
 		uVo.setuName(uName);
 		uVo.setuEmail(uEmail);
 		uVo.setuPassword(uPassword);

@@ -13,7 +13,7 @@ public class Restaurant {
 
 	private int rDistance;
 
-	private String rOpenhours;
+	private String rOpenHours;
 
 	private String rTel;
 
@@ -57,12 +57,12 @@ public class Restaurant {
 		this.rDistance = rDistance;
 	}
 
-	public String getrOpenhours() {
-		return rOpenhours;
+	public String getrOpenHours() {
+		return rOpenHours;
 	}
 
-	public void setrOpenhours(String rOpenhours) {
-		this.rOpenhours = rOpenhours;
+	public void setrOpenHours(String rOpenhours) {
+		this.rOpenHours = rOpenhours;
 	}
 
 	public String getrTel() {
@@ -108,7 +108,7 @@ public class Restaurant {
 	@Override
 	public String toString() {
 		return "Restaurant [rId=" + rId + ", rName=" + rName + ", rAddress=" + rAddress + ", rDistance=" + rDistance
-				+ ", rOpenhours=" + rOpenhours + ", rTel=" + rTel + ", rRate=" + rRate + ", rCategory=" + rCategory
+				+ ", rOpenhours=" + rOpenHours + ", rTel=" + rTel + ", rRate=" + rRate + ", rCategory=" + rCategory
 				+ ", commentSet=" + commentSet + ", menuSet=" + menuSet + "]";
 	}
 

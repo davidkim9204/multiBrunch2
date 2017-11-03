@@ -10,158 +10,46 @@ import java.io.Serializable;
  */
 public class Comment implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
-	/** cId. */
-	private Integer cid;
-
-	/** cContents. */
-	private String ccontents;
-
-	/** cRate. */
-	private Integer crate;
-
-	/** 새 테이블. */
-	private User user;
-
-	/** 새 테이블. */
-	private Restaurant restaurant;
-
-	/**
-	 * 생성자.
-	 */
-	public Comment() {
+	private int id;
+	private int num;
+	private String content;
+	private String writer;
+	private int RestaurantNum;
+	public int getId() {
+		return id;
 	}
-
-	/**
-	 * cId을 설정합니다..
-	 * 
-	 * @param cid
-	 *            cId
-	 */
-	public void setCid(Integer cid) {
-		this.cid = cid;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	/**
-	 * cId을 가져옵니다..
-	 * 
-	 * @return cId
-	 */
-	public Integer getCid() {
-		return this.cid;
+	public int getNum() {
+		return num;
 	}
-
-	/**
-	 * cContents을 설정합니다..
-	 * 
-	 * @param ccontents
-	 *            cContents
-	 */
-	public void setCcontents(String ccontents) {
-		this.ccontents = ccontents;
+	public void setNum(int num) {
+		this.num = num;
 	}
-
-	/**
-	 * cContents을 가져옵니다..
-	 * 
-	 * @return cContents
-	 */
-	public String getCcontents() {
-		return this.ccontents;
+	public String getContent() {
+		return content;
 	}
-
-	/**
-	 * cRate을 설정합니다..
-	 * 
-	 * @param crate
-	 *            cRate
-	 */
-	public void setCrate(Integer crate) {
-		this.crate = crate;
+	public void setContent(String content) {
+		this.content = content;
 	}
-
-	/**
-	 * cRate을 가져옵니다..
-	 * 
-	 * @return cRate
-	 */
-	public Integer getCrate() {
-		return this.crate;
+	public String getWriter() {
+		return writer;
 	}
-
-	/**
-	 * 새 테이블을 설정합니다..
-	 * 
-	 * @param user
-	 *            새 테이블
-	 */
-	public void setUser(User user) {
-		this.user = user;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
-
-	/**
-	 * 새 테이블을 가져옵니다..
-	 * 
-	 * @return 새 테이블
-	 */
-	public User getUser() {
-		return this.user;
+	public int getRestaurantNum() {
+		return RestaurantNum;
 	}
-
-	/**
-	 * 새 테이블을 설정합니다..
-	 * 
-	 * @param restaurant
-	 *            새 테이블
-	 */
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
+	public void setRestaurantNum(int RestaurantNum) {
+		this.RestaurantNum = RestaurantNum;
 	}
-
-	/**
-	 * 새 테이블을 가져옵니다..
-	 * 
-	 * @return 새 테이블
-	 */
-	public Restaurant getRestaurant() {
-		return this.restaurant;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
-		return result;
+	public String toString() {
+		return "CommentVO [id=" + id + ", num=" + num + ", content=" + content + ", writer=" + writer + ", RestaurantNum="
+				+ RestaurantNum + "]";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Comment other = (Comment) obj;
-		if (cid == null) {
-			if (other.cid != null) {
-				return false;
-			}
-		} else if (!cid.equals(other.cid)) {
-			return false;
-		}
-		return true;
-	}
 
 }
