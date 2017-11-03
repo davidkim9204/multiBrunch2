@@ -31,19 +31,29 @@ public class compare3servlet extends HttpServlet {
 		resp.setContentType("text/html;charset=UTF-8");	
 		
 		
-		int num=Integer.parseInt(req.getParameter("userid"));
+//		int num=Integer.parseInt(req.getParameter("userid"));
+//		
+//		RestaurantDAO d =RestaurantDAO.getInstance();
+//		
+//		Restaurant rst = d.selectOneRestaurantByInt(num);
+//		List<Menu> m = d.selectOneMenuByNum(rst.getrId());
 		
-		RestaurantDAO d =RestaurantDAO.getInstance();
+		String[] value = req.getParameterValues("comsel");
+		for(String val : value)	{
+			
+			RestaurantDAO d =RestaurantDAO.getInstance();
+			
+			Restaurant rst = d.selectOneRestaurantByRid(val);
+			List<Menu> m = d.selectOneMenuByNum(rst.getrId());
+			
+			req.setAttribute("Restaurant", rst);
+			req.setAttribute("Menu", m);
+		}
 		
-		Restaurant rst = d.selectOneRestaurantByInt(num);
-		List<Menu> m = d.selectOneMenuByNum(rst.getrId());
 
-		
-		req.setAttribute("Restaurant", rst);
-		req.setAttribute("Menu", m);
-		for(Menu mm : m )
-			System.out.println(m);
-		
+//		for(Menu mm : m )
+//			System.out.println(m);
+
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("compare3.jsp");

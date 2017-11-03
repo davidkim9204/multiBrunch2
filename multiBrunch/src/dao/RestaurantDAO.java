@@ -81,14 +81,15 @@ public class RestaurantDAO {
 	}
 
 	// 게시판 글 상세 내용 보기 :글번호로 찾아온다. : 실패 null,
-	public Restaurant selectOneRestaurantByRid(String rId) {
+	public Restaurant selectOneRestaurantByRid(String value) {
 		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
 		Restaurant rst = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rId);
+			pstmt.setString(1, value);
+					
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rst = new Restaurant();
