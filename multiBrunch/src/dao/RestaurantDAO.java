@@ -81,7 +81,35 @@ public class RestaurantDAO {
 	}
 
 	// 게시판 글 상세 내용 보기 :글번호로 찾아온다. : 실패 null,
-	public Restaurant selectOneRestaurantByRid(int rId) {
+	public Restaurant selectOneRestaurantByRid(String rId) {
+		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
+		Restaurant rst = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, rId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rst = new Restaurant();
+				rst.setrId(rs.getInt("rId"));
+				rst.setrName(rs.getString("rName"));
+				rst.setrAddress(rs.getString("rAddress"));
+				rst.setrDistance(rs.getInt("rDistance"));
+				rst.setrOpenhours(rs.getString("rOpenhours"));
+				rst.setrTel(rs.getString("rTel"));
+				rst.setrRate(rs.getInt("rRate"));
+				rst.setrCategory(rs.getString("rCategory"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		return rst;
+	}
+	
+	public Restaurant selectOneRestaurantByInt(int rId) {
 		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
 		Restaurant rst = null;
 		PreparedStatement pstmt = null;

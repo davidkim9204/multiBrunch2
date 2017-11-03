@@ -33,14 +33,11 @@ public class compare3servlet extends HttpServlet {
 		
 		int num=Integer.parseInt(req.getParameter("userid"));
 		
-		
-		
 		RestaurantDAO d =RestaurantDAO.getInstance();
 		
-		Restaurant rst = d.selectOneRestaurantByRid(num);
+		Restaurant rst = d.selectOneRestaurantByInt(num);
 		List<Menu> m = d.selectOneMenuByNum(rst.getrId());
 
-		
 		
 		req.setAttribute("Restaurant", rst);
 		req.setAttribute("Menu", m);
