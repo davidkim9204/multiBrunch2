@@ -40,13 +40,11 @@ public class UserDao {
 		String sql = "select uPassword from User where uEmail=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		//System.out.println(uEmail);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uEmail);
 			rs = pstmt.executeQuery();
-			//System.out.println(uEmail);
-			//System.out.println(uPassword);
+
 			if (rs.next()) {
 				if (rs.getString("uPassword") != null && rs.getString("uPassword").equals(uPassword)) {
 					result = 1;
@@ -68,7 +66,6 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		//System.out.println(result);
 		return result;
 	}
 
@@ -84,7 +81,7 @@ public class UserDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				uVo = new UserVo();
-				uVo.setuId(rs.getInt("uId"));
+//				uVo.setuId(rs.getInt("uId"));
 				uVo.setuName(rs.getString("uName"));
 				uVo.setuEmail(rs.getString("uEmail"));
 				uVo.setuPassword(rs.getString("uPassword"));
@@ -134,6 +131,7 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(result);
 		return result;
 	}
 
@@ -188,7 +186,6 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(result);
 		return result;
 	}
 }

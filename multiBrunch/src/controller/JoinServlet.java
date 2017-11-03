@@ -31,7 +31,6 @@ public class JoinServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 
-		String uId = req.getParameter("uId");
 		String uName = req.getParameter("uName");
 		String uEmail = req.getParameter("uEmail");
 		String uPassword = req.getParameter("uPassword");
@@ -39,8 +38,7 @@ public class JoinServlet extends HttpServlet{
 		String uAge = req.getParameter("uAge");
 		String uPreference = req.getParameter("uPreference");
 		
-		UserVo uVo = new UserVo();
-		uVo.setuAge(Integer.parseInt(uId));		
+		UserVo uVo = new UserVo();		
 		uVo.setuName(uName);
 		uVo.setuEmail(uEmail);
 		uVo.setuPassword(uPassword);
