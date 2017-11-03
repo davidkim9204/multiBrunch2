@@ -18,7 +18,7 @@ public class RestaurantDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost/multibrunch_db","root","mysql");
+					"jdbc:mysql://localhost/multibrunch_db","root","890128");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
