@@ -126,7 +126,7 @@
 		<div class="mainSearch">
 			<select name="categorySelect" id="categorySelect"
 				class="selectpicker">
-				<option>분류
+				<option>분류ㅇ
 					<option value="kor">한식</option>
             <option value="ch">중식</option>
             <option value="jp">일식</option>
