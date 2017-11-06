@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.CommentVO;
+import dto.Comment;
 
 public class CommentDao {
 	private static CommentDao instance;
@@ -34,7 +34,7 @@ public class CommentDao {
 	}
 
 	// 하나의 커멘트를 삽입하는 기능
-	public int insertComment(CommentVO cVo) {
+	public int insertComment(Comment cVo) {
 		String sql = "INSERT INTO comment VALUES(0,?,?,?,?)";
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -87,17 +87,17 @@ public class CommentDao {
 	}
 
 	// 하나의 게시물에 대한 모든 커멘트를 얻어오는 기능
-	public List<CommentVO> selectAllComments(int RestaurantNum){
+	public List<Comment> selectAllComments(int RestaurantNum){
 		String sql = "SELECT * FROM comment WHERE c_Restaurant_num=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<CommentVO> list = new ArrayList<>();
+		List<Comment> list = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, RestaurantNum);
 			rs = pstmt.executeQuery();
 			while( rs.next() ){
-				CommentVO cVo = new CommentVO();
+				Comment cVo = new Comment();
 				cVo.setId(rs.getInt("c_id"));
 				cVo.setNum(rs.getInt("c_num"));
 				cVo.setContent(rs.getString("c_content"));

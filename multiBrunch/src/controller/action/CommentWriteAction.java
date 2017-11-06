@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CommentDao;
-import dto.CommentVO;
+import dto.Comment;
 
 public class CommentWriteAction implements Action{
 
@@ -15,7 +15,7 @@ public class CommentWriteAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//넘어오는 파라미터를 먼저 줏어보죠
-		CommentVO cVo = new CommentVO();
+		Comment cVo = new Comment();
 		cVo.setContent(request.getParameter("content"));
 		cVo.setWriter(request.getParameter("writer"));
 		cVo.setRestaurantNum(Integer.parseInt(

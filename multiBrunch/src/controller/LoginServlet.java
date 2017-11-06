@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import dto.UserVo;
+import dto.User;
 
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet{
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet{
 		int result = uDao.userCheck(uEmail, uPassword);
 		
 		if(result==1) {
-			UserVo uVo = uDao.selectUser(uEmail);
+			User uVo = uDao.selectUser(uEmail);
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
 			req.setAttribute("message", "로그인에 성공했습니다.");

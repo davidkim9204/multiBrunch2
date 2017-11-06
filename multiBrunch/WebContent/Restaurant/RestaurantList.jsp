@@ -18,7 +18,7 @@
 	<form action="logout.do" method="get" name="frm" align="right">
 		<input type="button" value = "로그아웃 " class="logout" />
 	</form>
-	
+	<form action="compareservlet.do" method="get">
 	<div id="wrap" align="center">
 		<h1>맛집 리스트</h1>
 		<table class="list">
@@ -34,20 +34,28 @@
 				<th>평점</th>
 				<th>선택</th>
 			</tr>
+			
 			<c:forEach var="Restaurant" items="${RestaurantList }">
 				<tr class="record" align="center">
 					<td width="40px">${Restaurant.rId }</td>
-					<td width="350px"><a href="RestaurantServlet?command=Restaurant_view&rId=${Restaurant.rId}">
+					<td width="350px"><a href="ReMeservlet.do?userid=${Restaurant.rId}">
 							${Restaurant.rName } </a></td>
 					<td width="78px">${Restaurant.rCategory}</td>
 					<td width="78px">${Restaurant.rDistance} m</td>
 					<td width="78px">${Restaurant.rRate } / 10</td>
-					<td width="40px"><input type="checkbox" value="${Restaurant.rId }"/></td>
+					<td width="40px">				
+					<input type="checkbox" name="comsel" value="${Restaurant.rId }"/></td>
+					<td><input type="submit"></td>
 				</tr>
-			</c:forEach>
-		</table><br>
-		<form action="compare3.do" method="get" name="frm" align="center">
-		<input type="button" value = "비교하기 " class="compare3" />
+				
+			</c:forEach>		
+		</table>
+		</div>
+		</form>
+		<br>
+		<form action="Restaurant/comsel.jsp" method="post" name="frm" align="center">
+<!-- 			<input type="text" name="userid" value="1" hidden="true"> -->
+			<input type="submit" value = "비교하기 " class="compare3" />
 		</form>
 	</div>
 </body>

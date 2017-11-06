@@ -6,18 +6,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>  
+</head>
 <body>
-<c:forEach var="rList" items="${rList }">
-<tr>
-	<td>${rList.rId}<td>
-	<td>${rList.rName}<td>
-	<td>${rList.rAddress}<td>
-	<td>${rList.rDistance}<td>
-	<td>${rList.rOpenHours}<td>
-	<td>${rList.rTel}<td>
-	<td>${rList.rRate}<td>
-</tr>
-</c:forEach>
+<table class="list">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>분류</th>
+			<th>거리</th>
+			<th>평점</th>
+			<th>선택</th>
+		</tr>
+		<c:forEach var="Restaurant" items="${RestaurantList }">
+			<tr class="record" align="center">
+				<td width="40px">${Restaurant.rId }</td>
+				<td width="350px"><a
+					href="ReMeservlet.do?userid=${Restaurant.rId}">
+						${Restaurant.rName } </a></td>
+				<td width="78px">${Restaurant.rCategory}</td>
+				<td width="78px">${Restaurant.rDistance} m</td>
+				<td width="78px">${Restaurant.rRate } / 10</td>
+				<td width="40px"><input type="checkbox"
+					value="${Restaurant.rId }" /></td>
+			</tr>
+		</c:forEach>
+		</table>
 </body>
 </html>

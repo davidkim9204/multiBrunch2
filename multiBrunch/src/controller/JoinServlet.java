@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import dto.UserVo;
+import dto.User;
 
 @WebServlet("/join.do")
 public class JoinServlet extends HttpServlet{
@@ -38,7 +38,7 @@ public class JoinServlet extends HttpServlet{
 		String uAge = req.getParameter("uAge");
 		String uPreference = req.getParameter("uPreference");
 		
-		UserVo uVo = new UserVo();		
+		User uVo = new User();
 		uVo.setuName(uName);
 		uVo.setuEmail(uEmail);
 		uVo.setuPassword(uPassword);

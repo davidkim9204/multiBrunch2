@@ -58,7 +58,10 @@
 
 			</table>
 
-			<br> <br> <input type="button" id="back" value="이전페이지">
+			<br> <br> 
+			<input type="button" id="back" value="이전페이지" onclick="location.href='javascript:history.back()'">
+			
+
 
 		</form>
 

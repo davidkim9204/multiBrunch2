@@ -8,9 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RestaurantDAO;
 import dao.CommentDao;
-import dto.CommentVO;
+import dao.RestaurantDAO;
+import dto.Comment;
 import dto.Restaurant;
 
 public class RestaurantViewAction implements Action {
@@ -23,7 +23,7 @@ public class RestaurantViewAction implements Action {
 		
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
 		Restaurant rst = bDao.selectOneRestaurantByRid(rid);
-		List<CommentVO> list = CommentDao.getInstance()
+		List<Comment> list = CommentDao.getInstance()
 				.selectAllComments(Integer.parseInt(rid));
 		
 		request.setAttribute("Restaurant", rst);

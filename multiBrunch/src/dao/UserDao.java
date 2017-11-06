@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.UserVo;
+import dto.User;
+
 
 public class UserDao {
 	
@@ -70,8 +71,8 @@ public class UserDao {
 	}
 
 	// 사용자(이메일)로 회원 정보 가져오기
-	public UserVo selectUser(String uEmail) {
-		UserVo uVo = null;
+	public User selectUser(String uEmail) {
+		User uVo = null;
 		String sql = "select * from User where uEmail = ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -80,8 +81,9 @@ public class UserDao {
 			pstmt.setString(1, uEmail);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				uVo = new UserVo();
 //				uVo.setuId(rs.getInt("uId"));
+				uVo = new User();
+				uVo.setuId(rs.getInt("uId"));
 				uVo.setuName(rs.getString("uName"));
 				uVo.setuEmail(rs.getString("uEmail"));
 				uVo.setuPassword(rs.getString("uPassword"));
@@ -136,7 +138,7 @@ public class UserDao {
 	}
 
 	// 회원정보 DB에 추가하기
-	public int insertUser(UserVo uVo) {
+	public int insertUser(User uVo) {
 		int result = -1;
 		String sql = "insert into User values(0, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
@@ -163,7 +165,7 @@ public class UserDao {
 	}
 
 	// 회원정보 업데이트
-	public int updateUser(UserVo uVo) {
+	public int updateUser(User uVo) {
 		int result = -1;
 		String sql = "update User set uName=?, uPassword=?, uGender=?, uAge=?, uPreference=? where uEmail=?";
 		PreparedStatement pstmt = null;
