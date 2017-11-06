@@ -241,6 +241,8 @@ public class RestaurantDAO {
 		return list;
 	}
 	
+	
+	
 	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance, int mPrice){
 		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate from restaurant r, menu m "
 				+ "where r.rCategory=? and r.rDistance=? and m.mPrice=?";
@@ -275,6 +277,31 @@ public class RestaurantDAO {
 		
 	}
 	
+	public List<Menu> selectAllMenus() {
+		String sql = "select * from menu";
+		List<Menu> list = new ArrayList<Menu>();
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()){
+				Menu bVo = new Menu();
+				bVo.setmId(rs.getInt("mId"));
+				bVo.setmName(rs.getString("mName"));
+				bVo.setmPrice(rs.getInt("mPrice"));
+				bVo.setmPicture1(rs.getString("mPicture1"));
+				bVo.setmPicture2(rs.getString("mPicture2"));
+//				bVo.setmPrice(rs.getInt("rId"));
+				list.add(bVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		System.out.println(list);
+		return list;
+	}
 	
 
 	

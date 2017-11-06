@@ -13,6 +13,6 @@ public class mainSearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("main.html").forward(req, resp);
+		req.getRequestDispatcher("main.jsp").forward(req, resp);
 	}
 }
