@@ -51,11 +51,9 @@ public class UserUpdateServlet extends HttpServlet{
 		uVo.setuAge(Integer.parseInt(uAge));
 		uVo.setuPreference(uPreference);
 		
-		System.out.println(uVo.getuName());
 		UserDao uDao = UserDao.getInstance();
 		
 		uDao.updateUser(uVo);
-		System.out.println(uVo.getuName());
 		resp.sendRedirect("login.do");
 	}
 	

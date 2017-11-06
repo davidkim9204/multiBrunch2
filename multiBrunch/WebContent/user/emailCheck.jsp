@@ -6,20 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원관리</title>
-<script type = "text/javascript" src="script/user.js"></script>
+<script type="text/javascript" src="script/user.js"></script>
 </head>
 <body>
 	<h2>이메일주소 중복확인</h2>
-	<form action = "emailCheck.do" method = "get" name = "frm">
-	이메일주소 <input type = "text" name = "uEmail" value = "${uEmail}">
-		<input type = "submit" value = "중복 체크">
-	<br> 
+	<form action="emailCheck.do" method="get" name="frm">
+		이메일주소 <input type="text" name="uEmail" value="${uEmail}">
+		 <input type="submit" value="중복 체크"> <br>
+			
 		<c:if test="${result == 1 }">
-			<script type = "text/javascript">
-			opener.document.frm.uEmail.value="";
+			<script type="text/javascript">
+				opener.document.frm.uEmail.value = "";
 			</script>
-			${uEmail}는 이미 사용중인 이메일주소입니다.
-			<input type = "button" value = "사용" class = "cancel" onclick = "emailok()">
+			${uEmail}는 이미 사용중입니다.
+		</c:if>
+		
+		<c:if test="${result == -1 }">
+			${uEmail}은 사용 가능합니다.
+			<input type="button" value="사용" class="cancel" onclick="emailok()">
 		</c:if>
 	</form>
 </body>

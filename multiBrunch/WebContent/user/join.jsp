@@ -34,8 +34,8 @@
 	</tr>
 	<tr>
 		<td>성별 </td>
-		<td><input type = "radio" name = "uGender" value = "male" checked = "checked">남자
-		<input type = "radio" name = "uGender" value = "female">여자</td>
+		<td><input type = "radio" name = "uGender" value = "m" checked = "checked">남자
+		<input type = "radio" name = "uGender" value = "f">여자</td>
 	</tr>
 	<tr>
 		<td>나이 </td>
