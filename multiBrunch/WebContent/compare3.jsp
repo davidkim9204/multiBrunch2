@@ -16,19 +16,14 @@
    </form>
 
    <div id="compare" align="center">
-      <h1>식당 3개 비교</h1>
+      <h1>맛집 비교</h1>
       <form method="get" enctype="multipart/form-data" name="frm">
          <table>
             <tr>
-               <th></th>
-               <th><input type="button" id="c1" value="선택1"></th>
-               <th><input type="button" id="c2" value="선택2"></th>
-               <th><input type="button" id="c3" value="선택3"></th>
-            </tr>
-            <tr>
                <th>레스토랑 이름</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
-                  <td>${Restaurant.rName}</td>
+                  <td><a href="ReMeservlet.do?userid=${Restaurant.rId}">
+                     ${Restaurant.rName } </a></td>
                </c:forEach>
             </tr>
             <tr>
