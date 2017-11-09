@@ -1,10 +1,11 @@
-/*package dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,34 +35,84 @@ public class CommentDao {
 	}
 
 	// 하나의 커멘트를 삽입하는 기능
+	public List<Comment> selectComment(int rId) {
+		String sql = "select * from comment where rId = ?";
+		List<Comment> list = new ArrayList<Comment>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Comment bVo = new Comment();
+				bVo.setcId(rs.getInt("cId"));
+				bVo.setcContents(rs.getString("cContents"));
+				bVo.setcRate(rs.getInt("cRate"));
+				bVo.setuId(rs.getInt("uId"));
+				list.add(bVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		System.out.println(list);
+		return list;
+	}
+
+	/*public List<Comment> selectAllComment() {
+		String sql = "select * from comment order by cId desc";
+		List<Comment> list = new ArrayList<Comment>();
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Comment bVo = new Comment();
+
+				bVo.setcId(rs.getInt("cId"));
+				bVo.setcContents(rs.getString("cContents"));
+				bVo.setcRate(rs.getInt("cRate"));
+				bVo.setuId(rs.getInt("uId"));
+				bVo.setuId(rs.getInt("rId"));
+				list.add(bVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		}
+		return list;
+	}*/
+
+	// 하나의 커멘트를 삽입하는 기능
 	public int insertComment(Comment cVo) {
 		String sql = "INSERT INTO comment VALUES(0,?,?,?,?)";
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cVo.getNum());
-			pstmt.setString(2, cVo.getContent());
-			pstmt.setString(3, cVo.getWriter());
-			pstmt.setInt(4, cVo.getRestaurantNum());
+			pstmt.setString(1, cVo.getcContents());
+			pstmt.setInt(2, cVo.getcRate());
+			pstmt.setInt(3, cVo.getuId());
+			pstmt.setInt(4, cVo.getrId());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
-				if( pstmt != null )
+				if (pstmt != null)
 					pstmt.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		return result;
 
 	}
-	// 하나의 커멘트를 삭제하는 기능
-	public int deleteComment(int cId){
+
+//	// 하나의 커멘트를 삭제하는 기능
+	public int deleteCommentByRestaurantNum(int cId) {
 		String sql = "DELETE FROM comment WHERE c_id = ?";
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -74,45 +125,6 @@ public class CommentDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if( pstmt != null )
-					pstmt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return result;
-
-	
-	}
-
-	// 하나의 게시물에 대한 모든 커멘트를 얻어오는 기능
-	public List<Comment> selectAllComments(int RestaurantNum){
-		String sql = "SELECT * FROM comment WHERE c_Restaurant_num=?";
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<Comment> list = new ArrayList<>();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, RestaurantNum);
-			rs = pstmt.executeQuery();
-			while( rs.next() ){
-				Comment cVo = new Comment();
-				cVo.setcId(rs.getInt("c_id"));
-				cVo.setcNum(rs.getInt("c_num"));
-				cVo.setcContent(rs.getString("c_content"));
-				cVo.setcWriter(rs.getString("c_writer"));
-				cVo.setcRestaurantNum(rs.getInt("c_Restaurant_num"));
-				list.add(cVo);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				if (rs != null)
-					rs.close();
 				if (pstmt != null)
 					pstmt.close();
 			} catch (SQLException e) {
@@ -120,49 +132,18 @@ public class CommentDao {
 				e.printStackTrace();
 			}
 		}
-		return list;
-	}
-	
-	
-
-	// 하나의 게시물에 대한 모든 커멘트를 삭제하는 기능
-	public int deleteCommentByRestaurantNum(int RestaurantNum){
-		String sql = "DELETE FROM comment WHERE c_Restaurant_num = ?";
-		PreparedStatement pstmt = null;
-		int result = 0;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,RestaurantNum);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if( pstmt != null )
-					pstmt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 		return result;
-
-	
 	}
 	
-	
-
-	// 하나의 게시물에 대해 가장 큰 댓글번호를 얻어오는 기능
-	public int getMaxNumComment(int RestaurantNum) {
-		String sql = "SELECT MAX(c_num) FROM comment WHERE c_Restaurant_num = ?";
+	public int getMaxNumComment(int boardNum) {
+		String sql = "SELECT MAX(c_num) FROM comment WHERE cId = ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int maxNum = 0;
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, RestaurantNum);
+			pstmt.setInt(1, boardNum);
 			rs = pstmt.executeQuery();
 			if (rs.next())
 				maxNum = rs.getInt(1);
@@ -184,4 +165,3 @@ public class CommentDao {
 	}
 
 }
-*/

@@ -1,4 +1,4 @@
-/*package controller.action;
+package controller.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,15 +23,14 @@ public class RestaurantViewAction implements Action {
 		
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
 		Restaurant rst = bDao.selectOneRestaurantByRid(rid);
-		List<Comment> list = CommentDao.getInstance()
-				.selectAllComments(Integer.parseInt(rid));
-		
+		/*List<Comment> list = CommentDao.getInstance()
+				.selectAllComment();
+		*/
 		request.setAttribute("Restaurant", rst);
-		request.setAttribute("commentList", list);
+		//request.setAttribute("commentList", list);
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
 }
-*/

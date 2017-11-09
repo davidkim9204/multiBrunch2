@@ -1,4 +1,4 @@
-/*package controller.action;
+package controller.action;
 
 import java.io.IOException;
 
@@ -15,11 +15,10 @@ public class CommentDeleteAction implements Action{
 		// TODO Auto-generated method stub
 		int cid = Integer.parseInt(request.getParameter("cid"));
 		int num = Integer.parseInt(request.getParameter("RestaurantNum"));
-		CommentDao.getInstance().deleteComment(cid);
+		CommentDao.getInstance().deleteCommentByRestaurantNum(cid);
 		
 		response.sendRedirect("RestaurantServlet?command=Restaurant_view&num="
 		+num);
 	}
 
 }
-*/

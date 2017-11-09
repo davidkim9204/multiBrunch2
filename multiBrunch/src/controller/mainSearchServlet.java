@@ -21,11 +21,14 @@ public class mainSearchServlet extends HttpServlet {
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
 		List<Restaurant> RestaurantList = bDao.selectAllRestaurants();
 		List<Restaurant> resultRestaurantList = new ArrayList<>();
-		
-		//resultRestaurantList.add(RestaurantList.get(0).getrName().toString());
-		RestaurantList.get(1).getrName().toString();
-		
-		req.setAttribute("RestaurantList", resultRestaurantList);
+		resultRestaurantList.add(RestaurantList.get(0));
+		resultRestaurantList.add(RestaurantList.get(1));
+		resultRestaurantList.add(RestaurantList.get(2));
+		resultRestaurantList.add(RestaurantList.get(3));
+		resultRestaurantList.add(RestaurantList.get(4));
+		// resultRestaurantList.add(RestaurantList.get(0).getrName().toString());
+
+		req.setAttribute("resultRestaurantList", resultRestaurantList);
 		req.getRequestDispatcher("main.jsp").forward(req, resp);
 	}
 }

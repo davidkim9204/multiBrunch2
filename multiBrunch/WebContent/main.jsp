@@ -115,37 +115,36 @@
 										<option value="15000" style="color: black;">10000 ~
 											15000</option>
 										<option value="20000" style="color: black;">15000 ~</option>
-									</select> <input type="IMAGE" src="assets/images/frypan.png"  width="48px" height="48px" style="vertical-align:middle; margin-bottom : 11px;"  name="submit" value="submit">
+									</select> <input type="IMAGE" src="assets/images/frypan.png"
+										width="48px" height="48px"
+										style="vertical-align: middle; margin-bottom: 11px;"
+										name="submit" value="submit">
 								</div>
 							</form>
 
-							<br>
-							<br>
-							<br>
-							<br>
+							<br> <br> <br> <br>
 							<div class="btn-lg">
-								인기순위 <br>
-								<br>
-								<br>
+								인기순위 <br> <br> <br>
 								<p>
-									1. 우리동네맛집<br>
-									<br> 2. test2<br>
-									<br> 3. test3<br>
-									<br> 4. test4<br>
-									<br> 5. test5<br>
-									<br>
+									<c:forEach var="resultRestaurantList"
+										items="${resultRestaurantList}" varStatus="myIndex">
+										<td>${myIndex.index+1}</td>
+										<td><a
+											href="ReMeservlet.do?userid=${resultRestaurantList.rId}">
+												${resultRestaurantList.rName } </a></td>
+										<br>
+										<br>
+									</c:forEach>
+									<!--                            1. 우리동네맛집<br> <br> 2. test2<br> <br> 3. -->
+									<!--                            test3<br> <br> 4. test4<br> <br> 5. test5<br> -->
+									<!--                            <br> -->
 								</p>
 							</div>
 							<div class="btn-lg1">
-								오늘의 추천 <br>
-								<br>
-								<br>
+								오늘의 추천 <br> <br> <br>
 								<p>
-									1. 느그집맛집<br>
-									<br> 2. test2<br>
-									<br> 3. test3<br>
-									<br> 4. test4<br>
-									<br> 5. test5<br>
+									1. 느그집맛집<br> <br> 2. test2<br> <br> 3.
+									test3<br> <br> 4. test4<br> <br> 5. test5<br>
 									<br>
 								</p>
 							</div>

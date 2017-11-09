@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DB;
+import dao.CommentDao;
+import dao.RestaurantDAO;
 import dto.Comment;
 import dto.Menu;
 import dto.Restaurant;
@@ -25,16 +26,17 @@ public class ResMeServlet extends HttpServlet {
 		
 		int num=Integer.parseInt(request.getParameter("userid"));
 		
-		DB pDao =DB.getInstance();
+		RestaurantDAO pDao =RestaurantDAO.getInstance();
+		CommentDao cDao = CommentDao.getInstance();
 		
-		Restaurant resvo =pDao.selectOneRestaurantByNum(num);
+		Restaurant resvo =pDao.selectOneRestaurantByInt(num);
 		List<Menu> Menulist =pDao.selectOneBoardByNum(resvo.getrId());
-		List<Comment> commentlist = pDao.selectAllComment();
+		//List<Comment> commentlist = cDao.selectAllComment();
 		
 //		for(Comment c : commentlist) 
 //			System.out.println(c.getcId()+" "+c.getcContents()+ " "+ c.getcRate());
 		
-		request.setAttribute("commentlist", commentlist);
+		//request.setAttribute("commentlist", commentlist);
 		request.setAttribute("menulist", Menulist);
 		request.setAttribute("Restaurant", resvo);
 		

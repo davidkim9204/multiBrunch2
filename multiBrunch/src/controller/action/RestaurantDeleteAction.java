@@ -1,4 +1,4 @@
-/*package controller.action;
+package controller.action;
 
 import java.io.IOException;
 
@@ -22,4 +22,3 @@ public class RestaurantDeleteAction implements Action {
 		new RestaurantListAction().execute(request, response);
 	}
 }
-*/
