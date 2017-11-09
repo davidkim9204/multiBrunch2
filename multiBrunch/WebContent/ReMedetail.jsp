@@ -11,67 +11,105 @@
 <title>Insert title here</title>
 <style>
 table {
-	width: 700px;
+	border: 1px solid #bcbcbc;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+}
+
+td {
+	border: 1px solid #444444;
+	font-size: 15px;
+	height: 150px;
 }
 
 h1 {
-	font-size: 20px;
-	color: blue;
+	text-align: center;
+	font-size: 25px;
+}
+
+img {
+	width: 150px;
+	height: 150px;
 }
 </style>
 </head>
 <body>
-	<table class="table" border="2" align="center">
-		<caption>
-			<h1>음식점 상세 설명<h1>
-		</caption>
-		<tbody align="center">
-			<tr>
-				<td>이름</td>
-				<td colspan="3">데이터2</td>
-			</tr>
-			<tr>
-				<td>사진</td>
-				<td>데이터2</td>
-				<td>데이터3</td>
-				<td>데이터4</td>
-			</tr>
-			<tr>
-				<td>메뉴</td>
-				<td colspan="3">데이터2</td>
-			</tr>
-			<tr>
-				<td>평점</td>
-				<td>데이터2</td>
-				<td>거리</td>
-				<td>데이터2</td>
-			</tr>
-			<tr>
-				<td>댓글</td>
-				<td colspan="2">데이터2</td>
-				<td>별점</td>
-			</tr>
-		</tbody>
-	</table>
 
+<form action="btn.do" method="get" align="right">
+		<input type="submit" value="로그아웃" name=Restaurant.rId+1>
+		<input type="submit" value="수정" name=Restaurant.rId+2>
+		<input type="submit" value="삽입" name=Restaurant.rId+3>
+		<input type="submit" value="삭제" name=Restaurant.rId+4>
+</form>
+	<h1>음식 상세페이지</h1>
+			<table align="center">
+				<tr>
+					<td>이름</td>
+					<td colspan="3">${Restaurant.rName}</td>
+				</tr>
+				<tr>
+					<td id="p">사진</td>
+					<c:forEach var="menu" items="${menulist}">
+						<td><img src="${menu.mPicture1}"></td>
+					</c:forEach>
+					</td>
+				</tr>
+				<tr>
+					<td>메뉴</td>
+					<td colspan="3"><c:forEach var="menu" items="${menulist}">
+						${menu.mName}<br>
+						</c:forEach></td>
+				</tr>
+				<tr>
+					<td>평점</td>
+					<td>${Restaurant.rRate}</td>
+					<td>거리</td>
+					<td>${Restaurant.rDistance}KM</td>
+				</tr>
+				<tr>
+					<td>댓글</td>
+					<td colspan="2"><c:forEach var="comment"
+							items="${commentlist}">
+						${comment.cContents}<br>
+						</c:forEach></td>
+					<td><c:forEach var="comment" items="${commentlist}">
+							<c:choose>
+								<c:when test="${comment.cRate eq 1}">
+							        ★☆☆☆☆<br>
+								</c:when>
 
+								<c:when test="${comment.cRate eq 2}">
+							        ★★☆☆☆<br>
+								</c:when>
 
-	<%-- <c:forEach var="menu" items="${menulist}">
-메뉴 아이디:${menu.mId}<br>
-메뉴 이름:${menu.mName}<br>
-메뉴 그림1:${menu.mPicture1}<br>
-메뉴 그림2:${menu.mPicture2}<br>
-메뉴 가격:${menu.mPrice}<br>
-<br>
-</c:forEach>
-<br>
-음식점 아이디:${Restaurant.rName}<br>
-음식점 제목:${Restaurant.rAddress}<br>
-음식점 출판사:${Restaurant.rDistance}<br>
-음식점 오픈시간:${Restaurant.rOpenHours}<br>
-음식점 전번:${Restaurant.rTel}<br>
-음식점 평판:${Restaurant.rRate}<br>
-음식점 목록:${Restaurant.rCategory}<br> --%>
+								<c:when test="${comment.cRate eq 3}">
+	        					★★★☆☆<br>
+								</c:when>
 
+								<c:when test="${comment.cRate eq 4}">
+	        					★★★★☆<br>
+								</c:when>
+
+								<c:when test="${comment.cRate eq 5}">
+	        					★★★★★<br>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+				</tr>
+				<tr>
+				<td>댓글쓰기</td>
+				<td>
+				<form action="commentwrite.do" method="get">
+					아이디&nbsp;<input type="text" name="uId"><br>
+					내&nbsp;&nbsp; 용&nbsp;<input type="text" name="comment"><br>
+					평&nbsp;&nbsp; 점&nbsp;<input type="text" name="Rate"><br>
+					<input type="hidden" name="rName" value="${Restaurant.rId}">
+					<input type="submit" value="댓글달기">
+				</form>
+				</td>
+				</tr>
+			</table>
+			
 </body>
 </html>

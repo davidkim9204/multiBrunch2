@@ -1,4 +1,4 @@
-package controller.action;
+/*package controller.action;
 
 import java.io.IOException;
 
@@ -22,3 +22,4 @@ public class CommentDeleteAction implements Action{
 	}
 
 }
+*/

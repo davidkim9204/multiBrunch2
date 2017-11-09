@@ -1,4 +1,4 @@
-package controller.action;
+/*package controller.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,3 +34,4 @@ public class RestaurantViewAction implements Action {
 		dispatcher.forward(request, response);
 	}
 }
+*/

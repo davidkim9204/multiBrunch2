@@ -1,4 +1,4 @@
-package dao;
+/*package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -98,11 +98,11 @@ public class CommentDao {
 			rs = pstmt.executeQuery();
 			while( rs.next() ){
 				Comment cVo = new Comment();
-				cVo.setId(rs.getInt("c_id"));
-				cVo.setNum(rs.getInt("c_num"));
-				cVo.setContent(rs.getString("c_content"));
-				cVo.setWriter(rs.getString("c_writer"));
-				cVo.setRestaurantNum(rs.getInt("c_Restaurant_num"));
+				cVo.setcId(rs.getInt("c_id"));
+				cVo.setcNum(rs.getInt("c_num"));
+				cVo.setcContent(rs.getString("c_content"));
+				cVo.setcWriter(rs.getString("c_writer"));
+				cVo.setcRestaurantNum(rs.getInt("c_Restaurant_num"));
 				list.add(cVo);
 			}
 		} catch (SQLException e) {
@@ -184,3 +184,4 @@ public class CommentDao {
 	}
 
 }
+*/
