@@ -11,7 +11,7 @@ h1 {
 }
 
 table {
-	width: 100%;
+/* 	width: 100%; */
 	border-collapse: collapse;
 	font-color: #000022;
 	font-size: 12px; /* 글꼴 크기 */
@@ -31,11 +31,6 @@ th {
 	background: #004080;
 	padding: 7px;
 	color: white;
-}
-
-img {
-	width: 220px; /* 이미지 너비(가로) */
-	height: 300px; /* 이미지 높이(세로) */
 }
 
 a {

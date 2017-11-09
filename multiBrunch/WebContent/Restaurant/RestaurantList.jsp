@@ -61,25 +61,24 @@
             <td colspan="6" style="border: #000022; text-align: right"><a
                href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
          </tr>
-         <tr>
-            <th>번호</th>
-            <th>이름</th>
-            <th>분류</th>
-            <th>거리</th>
-            <th>평점</th>
-            <th>선택</th>
-         </tr>
-         
+
          <c:forEach var="Restaurant" items="${RestaurantList }">
             <tr class="record" align="center">
-               <td width="40px">${Restaurant.rId }</td>
-               <td width="350px"><a href="ReMeservlet.do?userid=${Restaurant.rId}">
-                     ${Restaurant.rName } </a></td>
-               <td width="78px">${Restaurant.rCategory}</td>
-               <td width="78px">${Restaurant.rDistance} m</td>
-               <td width="78px">${Restaurant.rRate } / 10</td>
-               <td width="40px">            
-               <input type="checkbox" name="comsel" onClick="CountChecked(this);" value="${Restaurant.rId }"/></td>
+				<td width="300px"><img src="img/chch.jpg" width="280px" height="190px"></td>
+<%-- 				${Restaurant.Picture1 } --%>
+               <td width="350px" style="text-align:left" ><font size=5 ><a href="ReMeservlet.do?userid=${Restaurant.rId}">
+                     ${Restaurant.rName } </a></font>
+                    <br><font color=grey size=4>${Restaurant.rCategory}</font>
+                     <br><br><br><font size=3>${Restaurant.rRate } / 10</font>
+                     <br>평점
+                     </td>
+                    
+               <td width="350px" style="text-align:left"><font size=3>거리 : ${Restaurant.rDistance} m 
+               <br><br>주소 : ${Restaurant.rAddress}
+               <br><br>전화 : ${Restaurant.rTel}  
+               <br><br>선택 <input type="checkbox" style="text-align:right;" name="comsel" onClick="CountChecked(this);" value="${Restaurant.rId }"/>
+               </font>
+               </td>
             </tr>
          </c:forEach>   
          <tr>

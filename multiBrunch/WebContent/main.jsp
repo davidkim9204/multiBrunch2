@@ -115,9 +115,7 @@
 										<option value="15000" style="color: black;">10000 ~
 											15000</option>
 										<option value="20000" style="color: black;">15000 ~</option>
-									</select> <input type="IMAGE" src="assets/images/frypan.png"
-										width="48px" height="48px" align="absmiddle" name="submit"
-										value="submit">
+									</select> <input type="IMAGE" src="assets/images/frypan.png"  width="48px" height="48px" style="vertical-align:middle; margin-bottom : 11px;"  name="submit" value="submit">
 								</div>
 							</form>
 
