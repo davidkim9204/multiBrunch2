@@ -126,28 +126,28 @@
 		<div class="mainSearch">
 			<select name="categorySelect" id="categorySelect"
 				class="selectpicker">
-				<option>분류ㅇ</option>
+				<option>분류</option>
 				<option value="kor">한식</option>
             <option value="ch">중식</option>
             <option value="jp">일식</option>
          </select> 
          <select name="distanceSelect" id="distanceSelect"
 				class="selectpicker">
-            <option>거리(m)
+            <option value="0">거리(m)</option>
             
-				<option value="100">0 ~ 100</option>
-            <option value="200">100 ~ 200</option>
-            <option value="300">200 ~ 300</option>
-            <option value="400">300 ~</option>
+			<option value="100">0 ~ 100</option>
+            <option value="200">101 ~ 200</option>
+            <option value="300">201 ~ 300</option>
+            <option value="400">301 ~</option>
          </select> 
          <select name="priceSelect" id="priceSelect"
 				class="selectpicker">
-            <option>가격(원)
+            <option value="0">가격(원)</option>
             
-				<option value="5000">0 ~ 5000</option>
-            <option value="10000">5000 ~ 10000</option>
-            <option value="15000">10000 ~ 15000</option>
-            <option value="20000">15000 ~</option>
+			<option value="5000">0 ~ 5000</option>
+            <option value="10000">5001 ~ 10000</option>
+            <option value="15000">10001 ~ 15000</option>
+            <option value="20000">15001 ~</option>
          </select>
          <input type="submit" class="priceSearch" value="검색하기">
       </div>

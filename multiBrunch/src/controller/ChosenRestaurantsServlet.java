@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,17 +20,18 @@ public class ChosenRestaurantsServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = "/result.jsp";
-		Restaurant rst = new Restaurant();
-		Menu menu = new Menu();
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
 		String category = req.getParameter("categorySelect");
-		int distance = Integer.parseInt(req.getParameter("distanceSelect"));
-		int price = Integer.parseInt(req.getParameter("priceSelect"));
-		System.out.println(category+distance+price);
+		int distance1 = Integer.parseInt(req.getParameter("distanceSelect"))-100;
+		int distance2 = Integer.parseInt(req.getParameter("distanceSelect"));
+		int price1 = Integer.parseInt(req.getParameter("priceSelect"))-5000;
+		int price2 =  Integer.parseInt(req.getParameter("priceSelect"));
 		
-		List<Restaurant> RestaurantList = bDao.selectChosenRestaurants(category,distance,price);
+		List<Restaurant> RestaurantList = bDao.selectChosenRestaurants(category,distance1,distance2,price1,price2);
+		System.out.println(RestaurantList);
 		req.setAttribute("RestaurantList", RestaurantList);
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
-		req.getRequestDispatcher("result.jsp").forward(req, resp);
+		req.getRequestDispatcher(url).forward(req, resp);
+		
 	}
 }

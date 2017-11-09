@@ -243,9 +243,9 @@ public class RestaurantDAO {
 	
 	
 	
-	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance, int mPrice){
+	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance1,int rDistance2, int mPrice1, int mPrice2){
 		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate from restaurant r, menu m "
-				+ "where r.rCategory=? and r.rDistance=? and m.mPrice=?";
+				+ "where r.rId=m.rId and r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=?";
 		List<Restaurant> list = new ArrayList<Restaurant>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -254,8 +254,10 @@ public class RestaurantDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, rCategory);
-			pstmt.setInt(2, rDistance);
-			pstmt.setInt(3, mPrice);
+			pstmt.setInt(2, rDistance1);
+			pstmt.setInt(3, rDistance2);
+			pstmt.setInt(4, mPrice1);
+			pstmt.setInt(5, mPrice2);
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {

@@ -2,13 +2,13 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 create database multibrunch_db;
 
-insert into menu values(1,"Burger",5000,"","",1);
-insert into menu values(2,"Pizza",15000,"","",1);
-insert into menu values(3,"HotPizza",17000,"","",1);
-insert into menu values(4,"Burger",17000,"","",2);
-insert into menu values(5,"HotPizza",17000,"","",2);
-insert into menu values(6,"Burger",17000,"","",3);
-insert into menu values(7,"HotPizza",17000,"","",3);
+insert into menu values(1,"Burger",5000,"","",1,"kor");
+insert into menu values(2,"Pizza",15000,"","",1,"ch");
+insert into menu values(3,"HotPizza",17000,"","",1,"jp");
+insert into menu values(4,"Burger",17000,"","",2,"kor");
+insert into menu values(5,"HotPizza",17000,"","",2,"jp");
+insert into menu values(6,"Burger",17000,"","",3,"ch");
+insert into menu values(7,"HotPizza",17000,"","",3,"wf");
 
 insert into restaurant values(1,"test1","seoul",100,"3:00~4:00","02-7892-1234",3,"kor");
 insert into restaurant values(2,"test2","seoul",100,"3:00~4:00","02-7892-1234",3,"jp");
