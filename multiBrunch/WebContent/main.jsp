@@ -4,177 +4,186 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!-- select 부트스트랩 -->
-<link href="~/Content/bootstrap-select/bootstrap-select.min.css"
-	rel="stylesheet" type="text/css" />
-<script src="/Content/bootstrap-select/bootstrap-select.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Food and Restorent One page Template</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<script>
-	$(window).on('load', function() {
-		$('.selectpicker').selectpicker(
-			{
-				'selectedText' : 'cat'
-			});
-	});
-</script>
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Pacifico'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-<style>
-.mainPageSearchForm {
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 42%;
-	width: 400px;
-	height: 200px;
-	overflow: hidden;
-	margin-top: -150px;
-	margin-left: -100px;
-}
 
-.restaurantRank {
-	text-align: center;
-	position: absolute;
-	top: 60%;
-	left: 20%;
-	width: 400px;
-	height: 400px;
-	overflow: hidden;
-	margin-top: -150px;
-	margin-left: -100px;
-	border: 1px solid black;
-}
+<!--For Plugins external css-->
+<link rel="stylesheet" href="assets/css/animate/animate.css" />
+<link rel="stylesheet" href="assets/css/plugins.css" />
 
-.todaysRecommendation {
-	text-align: center;
-	position: absolute;
-	top: 60%;
-	left: 60%;
-	width: 400px;
-	height: 400px;
-	overflow: hidden;
-	margin-top: -150px;
-	margin-left: -100px;
-	border: 1px solid black;
-}
+<!--Theme custom css -->
+<link rel="stylesheet" href="assets/css/style.css">
 
-.selectpicker {
-	text-align: center;
-	height: 30px;
-}
+<!--Theme Responsive css-->
+<link rel="stylesheet" href="assets/css/responsive.css" />
 
-.navbar-header-div {
-	border: 1px solid black;
-	height: 50px;
-	width: 100%;
-	text-align: center;
-}
-
-.navbar-brand {
-	display: inline;
-	left: 20%;
-	position: absolute;
-}
-
-.form-inline {
-	display: inline;
-	left: 60%;
-	position: absolute;
-}
-
-.navbar-login {
-	display: inline;
-	left: 80%;
-	position: absolute;
-	height: 30px;
-}
-</style>
+<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
-	우리 팀 명 / 로그인/회원가입은 헤더 html파일 만들어서 공유할꺼
-	<nav class="navbar navbar-light bg-faded">
-	<div class="navbar-header-div" id="navbar-header-div">
-		<a class="navbar-brand" id="header_homelink" href="#"> MultiBrunch
-		</a>
-
-		<form class="form-inline" id="header_search">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
-
-		<a class="navbar-login" id="navbar-login" href="login.do">login</a>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<div class='preloader'>
+		<div class='loaded'>&nbsp;</div>
 	</div>
-	</nav>
+	<header id="home" class="navbar-fixed-top"> <!-- End navbar-collapse-->
 
+	<div class="main_menu_bg">
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
 
-<!--     <form class="mainPageSearchForm" role="search" method="get" action=RestaurantServlet>  -->
-<!--     <input type="text" name="command" value="Restaurant_list" hidden="true">  -->
-   <form class="mainPageSearchForm" role="search" method="get" action=ChosenRestaurantsServlet> 
-<!--    <input type="text" name="r.rCategory" value="kor" hidden="true"> -->
-		<div class="mainSearch">
-			<select name="categorySelect" id="categorySelect"
-				class="selectpicker">
-				<option>분류</option>
-				<option value="kor">한식</option>
-            <option value="ch">중식</option>
-            <option value="jp">일식</option>
-         </select> 
-         <select name="distanceSelect" id="distanceSelect"
-				class="selectpicker">
-            <option value="0">거리(m)</option>
-            
-			<option value="100">0 ~ 100</option>
-            <option value="200">101 ~ 200</option>
-            <option value="300">201 ~ 300</option>
-            <option value="400">301 ~</option>
-         </select> 
-         <select name="priceSelect" id="priceSelect"
-				class="selectpicker">
-            <option value="0">가격(원)</option>
-            
-			<option value="5000">0 ~ 5000</option>
-            <option value="10000">5001 ~ 10000</option>
-            <option value="15000">10001 ~ 15000</option>
-            <option value="20000">15001 ~</option>
-         </select>
-         <input type="submit" class="priceSearch" value="검색하기">
-      </div>
-   </form>
+					</div>
 
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
 
-	<div class="restaurantRank">
-						인기순위 <br>
-		<br>
-		<h1>1. test1</h1>
-		<br>
-		<h1>2. test2</h1>
-		<br>
-		<h1>3. test3</h1>
-		<br>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<form class="form-inline" id="header_search">
+									<input class="form-control mr-sm-2" type="text"
+										style="color: white; width: 250px;" placeholder="검색어">
+									<button class="btn btn-outline-success my-2 my-sm-0"
+										type="submit">검색</button>
+								</form>
+							</li>
+							<li><a href="login.do" class="booking">로그인</a></li>
+							<li><a href="join.do" class="booking">회원가입</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid --> </nav>
+			</div>
+		</div>
 	</div>
-	<div class="todaysRecommendation">
-		오늘의 추천 <br>
-		<br>
-		<h1>1. test1</h1>
-		<br>
-		<h1>2. test2</h1>
-		<br>
-		<h1>3. test3</h1>
-		<br>
+	</header>
+	<!-- End Header Section -->
+
+	<section id="slider" class="slider">
+	<div class="slider_overlay">
+		<div class="container">
+			<div class="row">
+				<div class="main_slider text-center">
+					<div class="col-md-12">
+						<div class="main_slider_content wow zoomIn" data-wow-duration="1s">
+							<h1>MultiBrunch</h1>
+							<form class="mainPageSearchForm" role="search" method="get"
+								action=ChosenRestaurantsServlet>
+								<!--    <input type="text" name="r.rCategory" value="kor" hidden="true"> -->
+								<div class="mainSearch">
+									<select name="categorySelect" id="categorySelect"
+										class="btn-lg">
+										<option class="btn-lg" style="color: black;">분류ㅇ</option>
+										<option value="kor" style="color: black;">한식</option>
+										<option value="ch" style="color: black;">중식</option>
+										<option value="jp" style="color: black;">일식</option>
+									</select> <select name="distanceSelect" id="distanceSelect"
+										class="btn-lg">
+										<option style="color: black;">거리(m)</option>
+										<option value="100" style="color: black;">0 ~ 100</option>
+										<option value="200" style="color: black;">100 ~ 200</option>
+										<option value="300" style="color: black;">200 ~ 300</option>
+										<option value="400" style="color: black;">300 ~</option>
+									</select> <select name="priceSelect" id="priceSelect" class="btn-lg">
+										<option style="color: black;">가격(원)</option>
+										<option value="5000" style="color: black;">0 ~ 5000</option>
+										<option value="10000" style="color: black;">5000 ~
+											10000</option>
+										<option value="15000" style="color: black;">10000 ~
+											15000</option>
+										<option value="20000" style="color: black;">15000 ~</option>
+									</select> <input type="IMAGE" src="assets/images/frypan.png"
+										width="48px" height="48px" align="absmiddle" name="submit"
+										value="submit">
+								</div>
+							</form>
+
+							<br>
+							<br>
+							<br>
+							<br>
+							<div class="btn-lg">
+								인기순위 <br>
+								<br>
+								<br>
+								<p>
+									1. 우리동네맛집<br>
+									<br> 2. test2<br>
+									<br> 3. test3<br>
+									<br> 4. test4<br>
+									<br> 5. test5<br>
+									<br>
+								</p>
+							</div>
+							<div class="btn-lg1">
+								오늘의 추천 <br>
+								<br>
+								<br>
+								<p>
+									1. 느그집맛집<br>
+									<br> 2. test2<br>
+									<br> 3. test3<br>
+									<br> 4. test4<br>
+									<br> 5. test5<br>
+									<br>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
+	</section>
 
-				</body>
+	<footer id="footer" class="footer">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="copyright wow zoomIn" data-wow-duration="3s">
+					<p>
+						Made with <i class="fa fa-heart"></i> by <a
+							href="http://bootstrapthemes.co">MultiBrunch</a>2017. All Rights
+						Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+
+	<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+	<script src="assets/js/jquery-easing/jquery.easing.1.3.js"></script>
+	<script src="assets/js/wow/wow.min.js"></script>
+	<script src="assets/js/plugins.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
 </html>
