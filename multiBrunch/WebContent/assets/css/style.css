@@ -9,9 +9,44 @@ Author URI: http://bootstrapthemes.co
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+#wrap {
+	width: 750px; /* 1024*768로 해상도를 맞추어서 설계 */
+	/* 가운데 정렬을 위한 바깥쪽 여백 설정 */
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	color: #000040; /* 글 색상 */
+}
+
+table {
+	width: 105%;
+	border-collapse: collapse;
+	font-color: #000022;
+	font-size: 12px; /* 글꼴 크기 */
+	line-height: 24px; /* 줄 간격 */
+}
+
+/* table td,th { */
+/* 	border: #d5d8df solid 2px; 경계선 색상 스타일 굵기 */
+/* } */
+
+td	{
+	padding: 9px;
+	
+}
+
+th {
+/* 	background: #004080; */
+	padding: 7px;
+	color: white;
+}
+
 html,
 body {
-    background-color: #1E2E3B;
+/*     background-color: #1E2E3B; */
     font-size: 15px;
     color: #565656;
     width: 100%;
@@ -701,7 +736,7 @@ a.navbar-brand.our_logo{
 }
 
 .main_menu_bg{
-	background:rgba(0, 0, 0, .45);
+	background:rgba(0, 0, 0, 45);
 	height: 80px;
 	
 }
@@ -744,6 +779,19 @@ a.navbar-brand.our_logo{
     margin-top: 8px;
     margin: 5px;
 }
+
+div a.booking-1{
+	border: 0px solid #fff;
+    border-radius: 4px;
+    color: white !important;
+    padding: 5px 10px;
+    margin: 20px;
+	text-align: left;
+	font-family: 'Pacifico', cursive;
+	font-size: 19px;
+
+}
+
 .main_menu_bg li a:hover.booking{
     color: #da9b31 !important;
 }

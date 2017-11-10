@@ -5,8 +5,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Restaurant List</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Pacifico'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+<!--For Plugins external css-->
+<link rel="stylesheet" href="assets/css/animate/animate.css" />
+<link rel="stylesheet" href="assets/css/plugins.css" />
+
+<!--Theme custom css -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!--Theme Responsive css-->
+<link rel="stylesheet" href="assets/css/responsive.css" />
+
+<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 <script type="text/javascript">
 	var maxChecked = 3;
 	var totalChecked = 0;
@@ -42,21 +66,59 @@
 		} 
 	} 
 </script>
-<link rel="stylesheet" type="text/css" href="css/shop.css">
-<style>
-   .logout{
-      margin-right: 20.3%;   
-   }
-</style>
+<!-- <link rel="stylesheet" type="text/css" href="css/shop.css"> -->
+
 </head>
 <body>
-   <form action="logout.do" method="get" name="frm" align="right">
-      <input type="button" value = "로그아웃 " class="logout" />
-   </form>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<div class='preloader'>
+		<div class='loaded'>&nbsp;</div>
+	</div>
+	<header id="home" class="navbar-fixed-top"> <!-- End navbar-collapse-->
+
+	<div class="main_menu_bg">
+		<div style="position: absolute; z-index:1;" >
+		<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+		</div>
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<form class="form-inline" id="header_search">
+									<input class="form-control mr-sm-2" type="text"
+										style="color: white; width: 250px;" placeholder="검색어">
+									<button class="btn btn-outline-success my-2 my-sm-0"
+										type="submit">검색</button>
+								</form>
+							</li>
+							<li><a href="logout.do" class="booking">로그아웃</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid --> </nav>
+			</div>
+		</div>
+	</div>
+	</header>
+	<!-- End Header Section -->
+
    <form action="compareservlet.do" name="form" method="get" onsubmit="return chkchk(this);">
    <div id="wrap" align="center">
-      <h1>맛집 리스트</h1>
+
       <table class="list">
+		<tr>
+            <td colspan="6" style="border: #000022; text-align: center; padding-top: 100px;	">
+            <h2>맛집 목록</h2></td>
+         </tr>
          <tr>
             <td colspan="6" style="border: #000022; text-align: right"><a
                href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
@@ -66,24 +128,26 @@
             <tr class="record" align="center">
 				<td width="300px"><img src="img/chch.jpg" width="280px" height="190px"></td>
 <%-- 				${Restaurant.Picture1 } --%>
-               <td width="350px" style="text-align:left" ><font size=5 ><a href="ReMeservlet.do?userid=${Restaurant.rId}">
+               <td width="300px" style="text-align:left" ><font size=5 ><a href="ReMeservlet.do?userid=${Restaurant.rId}">
                      ${Restaurant.rName } </a></font>
                     <br><font color=grey size=4>${Restaurant.rCategory}</font>
-                     <br><br><br><font size=3>${Restaurant.rRate } / 10</font>
+                     <br><br><br><br><font size=3>${Restaurant.rRate } / 10</font>
                      <br>평점
                      </td>
                     
-               <td width="350px" style="text-align:left"><font size=3>거리 : ${Restaurant.rDistance} m 
-               <br><br>주소 : ${Restaurant.rAddress}
-               <br><br>전화 : ${Restaurant.rTel}  
-               <br><br>선택 <input type="checkbox" style="text-align:right;" name="comsel" onClick="CountChecked(this);" value="${Restaurant.rId }"/>
+               <td width="350px" style="text-align:left"><font size=3><img alt="" src="assets/images/map.png">　:　${Restaurant.rDistance} m 
+               <br><br><img alt="" src="assets/images/home.png">　:　${Restaurant.rAddress}
+               <br><br><img alt="" src="assets/images/phone.png">　:　${Restaurant.rTel}  
+               <br>
+               <img class="line" src="assets/images/line.png" width="300px" height="10px" style="margin-top: 7px;">
+               <br><font size=2">&nbsp;선택&nbsp;</font><input type="checkbox" style="text-align:right; position: relative; top: 3px;" name="comsel" onClick="CountChecked(this);" value="${Restaurant.rId }"/>
                </font>
                </td>
             </tr>
          </c:forEach>   
          <tr>
             <td colspan="6" style="border: #000022; text-align: center">
-            <br><input type="submit" value="비교하기"></td>
+            <br><input type="submit" class="btn btn-primary" value="비교하기"></td>
          </tr>
                
       </table>
@@ -92,5 +156,30 @@
       
       <body onload="document.form.reset();">
       
+      
+	<footer id="footer" class="footer">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="copyright wow zoomIn" data-wow-duration="3s">
+					<p>
+						Made with <i class="fa fa-heart"></i> by <a
+							href="http://bootstrapthemes.co">MultiBrunch</a>2017. All Rights
+						Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+
+	<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+	<script src="assets/js/jquery-easing/jquery.easing.1.3.js"></script>
+	<script src="assets/js/wow/wow.min.js"></script>
+	<script src="assets/js/plugins.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
