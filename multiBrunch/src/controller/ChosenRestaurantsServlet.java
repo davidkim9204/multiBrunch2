@@ -26,17 +26,15 @@ public class ChosenRestaurantsServlet extends HttpServlet{
 		int distance2 = Integer.parseInt(req.getParameter("distanceSelect"));
 		int price1 = Integer.parseInt(req.getParameter("priceSelect"))-5000;
 		int price2 =  Integer.parseInt(req.getParameter("priceSelect"));
-		if(category.equals("chooseCategory")){
-			category="kor";
-		}
 		if(distance2==0){
-			distance2=100;
+			distance1=0;
+			distance2=400;
 		}
 		if(price2==0){
-			price2=5000;
+			price1=0;
+			price2=20000;
 		}
 		List<Restaurant> RestaurantList = bDao.selectChosenRestaurants(category,distance1,distance2,price1,price2);
-		
 		req.setAttribute("RestaurantList", RestaurantList);
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		req.getRequestDispatcher(url).forward(req, resp);

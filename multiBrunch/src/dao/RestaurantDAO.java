@@ -14,11 +14,11 @@ import dto.Restaurant;
 
 public class RestaurantDAO {
 	private Connection conn;
+
 	private RestaurantDAO() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost/multibrunch_db","root","mysql");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/multibrunch_db", "root", "mysql");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,6 +27,7 @@ public class RestaurantDAO {
 			e.printStackTrace();
 		}
 	}
+
 	private static RestaurantDAO instance = new RestaurantDAO();
 
 	public static RestaurantDAO getInstance() {
@@ -61,8 +62,7 @@ public class RestaurantDAO {
 	}
 
 	public void insertRestaurant(Restaurant rst) {
-		String sql = "INSERT INTO Restaurant "
-				+ "VALUES(0, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Restaurant " + "VALUES(0, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class RestaurantDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, value);
-					
+
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rst = new Restaurant();
@@ -109,7 +109,7 @@ public class RestaurantDAO {
 		}
 		return rst;
 	}
-	
+
 	public Restaurant selectOneRestaurantByInt(int rId) {
 		String sql = "SELECT * FROM Restaurant WHERE rid = ?";
 		Restaurant rst = null;
@@ -158,7 +158,6 @@ public class RestaurantDAO {
 		}
 	}
 
-
 	public void deleteRestaurant(String rid) {
 		String sql = "DELETE FROM Restaurant WHERE rid=?";
 		PreparedStatement pstmt = null;
@@ -169,10 +168,9 @@ public class RestaurantDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
+
 	public List<Menu> selectOneMenuByNum(int rId) {
 		List<Menu> list = new ArrayList<>();
 		String sql = "select * from Menu where rId = ?";
@@ -213,7 +211,7 @@ public class RestaurantDAO {
 
 		return list;
 	}
-	
+
 	public List<Menu> selectOneBoardByNum(int rId) {
 		String sql = "select * from menu where rId = ?";
 		List<Menu> list = new ArrayList<Menu>();
@@ -223,14 +221,14 @@ public class RestaurantDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, rId);
 			rs = pstmt.executeQuery();
-			while (rs.next()){
+			while (rs.next()) {
 				Menu bVo = new Menu();
 				bVo.setmId(rs.getInt("mId"));
 				bVo.setmName(rs.getString("mName"));
 				bVo.setmPrice(rs.getInt("mPrice"));
 				bVo.setmPicture1(rs.getString("mPicture1"));
 				bVo.setmPicture2(rs.getString("mPicture2"));
-//				bVo.setmPrice(rs.getInt("rId"));
+				// bVo.setmPrice(rs.getInt("rId"));
 				list.add(bVo);
 			}
 		} catch (Exception e) {
@@ -240,17 +238,60 @@ public class RestaurantDAO {
 		System.out.println(list);
 		return list;
 	}
-	
-	
-	
-	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance1,int rDistance2, int mPrice1, int mPrice2){
-		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate from restaurant r, menu m "
-				+ "where r.rId=m.rId and r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=?";
+
+/*	public List<Restaurant> selectChosenRestaurants(String rCategory1,String rCategory2,String rCategory3,String rCategory4, int rDistance1, int rDistance2, int mPrice1,
+			int mPrice2) {
+		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate "
+				+ "from restaurant r, menu m "
+				+ "where r.rId=m.rId and r.rCategory=? or r.rCategory=? or r.rCategory=? or r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=? "
+				+ "group by r.rName";
 		List<Restaurant> list = new ArrayList<Restaurant>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Restaurant rst = null;
-		
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, rCategory1);
+			pstmt.setString(2, rCategory2);
+			pstmt.setString(3, rCategory3);
+			pstmt.setString(4, rCategory4);
+			pstmt.setInt(5, rDistance1);
+			pstmt.setInt(6, rDistance2);
+			pstmt.setInt(7, mPrice1);
+			pstmt.setInt(8, mPrice2);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				rst = new Restaurant();
+				rst.setrId(rs.getInt("rId"));
+				rst.setrName(rs.getString("rName"));
+				rst.setrCategory(rs.getString("rCategory"));
+				rst.setrDistance(rs.getInt("rDistance"));
+				rst.setrRate(rs.getInt("rRate"));
+				list.add(rst);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+
+	}*/
+	
+	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance1, int rDistance2, int mPrice1,
+			int mPrice2) {
+		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate "
+				+ "from restaurant r, menu m "
+				+ "where r.rId=m.rId and r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=? "
+				+ "group by r.rName";
+		List<Restaurant> list = new ArrayList<Restaurant>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Restaurant rst = null;
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, rCategory);
@@ -268,17 +309,18 @@ public class RestaurantDAO {
 				rst.setrDistance(rs.getInt("rDistance"));
 				rst.setrRate(rs.getInt("rRate"));
 				list.add(rst);
+				
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return list;
-		
 	}
 	
+	
+
 	public List<Menu> selectAllMenus() {
 		String sql = "select * from menu";
 		List<Menu> list = new ArrayList<Menu>();
@@ -287,14 +329,14 @@ public class RestaurantDAO {
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			while (rs.next()){
+			while (rs.next()) {
 				Menu bVo = new Menu();
 				bVo.setmId(rs.getInt("mId"));
 				bVo.setmName(rs.getString("mName"));
 				bVo.setmPrice(rs.getInt("mPrice"));
 				bVo.setmPicture1(rs.getString("mPicture1"));
 				bVo.setmPicture2(rs.getString("mPicture2"));
-//				bVo.setmPrice(rs.getInt("rId"));
+				// bVo.setmPrice(rs.getInt("rId"));
 				list.add(bVo);
 			}
 		} catch (Exception e) {
@@ -304,7 +346,7 @@ public class RestaurantDAO {
 		System.out.println(list);
 		return list;
 	}
-	
+
 	public List<Restaurant> selectOneRestaurantByMenu(String mName) {
 		List<Restaurant> list = new ArrayList<>();
 		String sql = "select * from menu m, restaurant r where r.rid=m.rid and m.mName like ?";
@@ -315,7 +357,7 @@ public class RestaurantDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+mName+"%");
+			pstmt.setString(1, "%" + mName + "%");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -344,6 +386,4 @@ public class RestaurantDAO {
 		return list;
 	}
 
-	
-	
 }

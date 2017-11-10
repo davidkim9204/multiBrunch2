@@ -95,12 +95,11 @@
 								action=ChosenRestaurantsServlet>
 								<!--    <input type="text" name="r.rCategory" value="kor" hidden="true"> -->
 								<div class="mainSearch">
-									<select name="categorySelect" id="categorySelect"
-										class="btn-lg">
-										<option class="btn-lg" value="chooseCategory" style="color: black;">분류ㅇ</option>
+									<select name="categorySelect" id="categorySelect" class="btn-lg">
 										<option value="kor" style="color: black;">한식</option>
 										<option value="ch" style="color: black;">중식</option>
 										<option value="jp" style="color: black;">일식</option>
+										<option value="wf" style="color: black;">양식</option>
 									</select> <select name="distanceSelect" id="distanceSelect"
 										class="btn-lg">
 										<option value="0" style="color: black;">거리(m)</option>
