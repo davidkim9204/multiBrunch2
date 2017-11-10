@@ -62,9 +62,10 @@
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<form class="form-inline" id="header_search">
+								<form class="form-inline" role="search" id="header_search" method="get" action=SearchedRestaurantsServlet>
+<!-- 									<input type="text" name="m.Mname" value="menuSearch" hidden="true"> -->
 									<input class="form-control mr-sm-2" type="text"
-										style="color: white; width: 250px;" placeholder="검색어">
+										style="color: white; width: 250px;" placeholder="메뉴 검색" name="m.mName">
 									<button class="btn btn-outline-success my-2 my-sm-0"
 										type="submit">검색</button>
 								</form>
@@ -96,22 +97,21 @@
 								<div class="mainSearch">
 									<select name="categorySelect" id="categorySelect"
 										class="btn-lg">
-										<option class="btn-lg" style="color: black;">분류ㅇ</option>
+										<option class="btn-lg" value="chooseCategory" style="color: black;">분류ㅇ</option>
 										<option value="kor" style="color: black;">한식</option>
 										<option value="ch" style="color: black;">중식</option>
 										<option value="jp" style="color: black;">일식</option>
 									</select> <select name="distanceSelect" id="distanceSelect"
 										class="btn-lg">
-										<option style="color: black;">거리(m)</option>
+										<option value="0" style="color: black;">거리(m)</option>
 										<option value="100" style="color: black;">0 ~ 100</option>
 										<option value="200" style="color: black;">100 ~ 200</option>
 										<option value="300" style="color: black;">200 ~ 300</option>
 										<option value="400" style="color: black;">300 ~</option>
 									</select> <select name="priceSelect" id="priceSelect" class="btn-lg">
-										<option style="color: black;">가격(원)</option>
+										<option value="0" style="color: black;">가격(원)</option>
 										<option value="5000" style="color: black;">0 ~ 5000</option>
-										<option value="10000" style="color: black;">5000 ~
-											10000</option>
+										<option value="10000" style="color: black;">5000 ~	10000</option>
 										<option value="15000" style="color: black;">10000 ~
 											15000</option>
 										<option value="20000" style="color: black;">15000 ~</option>
@@ -126,26 +126,30 @@
 							<div class="btn-lg">
 								인기순위 <br> <br> <br>
 								<p>
-									<c:forEach var="resultRestaurantList"
-										items="${resultRestaurantList}" varStatus="myIndex">
+									<c:forEach var="popularRestaurantList"
+										items="${popularRestaurantList}" varStatus="myIndex">
 										<td>${myIndex.index+1}</td>
 										<td><a
-											href="ReMeservlet.do?userid=${resultRestaurantList.rId}">
-												${resultRestaurantList.rName } </a></td>
+											href="ReMeservlet.do?userid=${popularRestaurantList.rId}">
+												${popularRestaurantList.rName } </a></td>
 										<br>
 										<br>
 									</c:forEach>
-									<!--                            1. 우리동네맛집<br> <br> 2. test2<br> <br> 3. -->
-									<!--                            test3<br> <br> 4. test4<br> <br> 5. test5<br> -->
-									<!--                            <br> -->
+									
 								</p>
 							</div>
 							<div class="btn-lg1">
 								오늘의 추천 <br> <br> <br>
 								<p>
-									1. 느그집맛집<br> <br> 2. test2<br> <br> 3.
-									test3<br> <br> 4. test4<br> <br> 5. test5<br>
-									<br>
+									<c:forEach var="recommendRestaurantList"
+										items="${recommendRestaurantList}" varStatus="myIndex">
+										<td>${myIndex.index+1}</td>
+										<td><a
+											href="ReMeservlet.do?userid=${recommendRestaurantList.rId}">
+												${recommendRestaurantList.rName } </a></td>
+										<br>
+										<br>
+									</c:forEach>
 								</p>
 							</div>
 

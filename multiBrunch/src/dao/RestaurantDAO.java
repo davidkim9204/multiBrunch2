@@ -305,6 +305,44 @@ public class RestaurantDAO {
 		return list;
 	}
 	
+	public List<Restaurant> selectOneRestaurantByMenu(String mName) {
+		List<Restaurant> list = new ArrayList<>();
+		String sql = "select * from menu m, restaurant r where r.rid=m.rid and m.mName like ?";
+		System.out.println(sql);
+		Restaurant rst = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+mName+"%");
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				rst = new Restaurant();
+				rst.setrId(rs.getInt("rId"));
+				rst.setrName(rs.getString("rName"));
+				rst.setrCategory(rs.getString("rCategory"));
+				rst.setrDistance(rs.getInt("rDistance"));
+				rst.setrRate(rs.getInt("rRate"));
+				list.add(rst);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
 
 	
 	
