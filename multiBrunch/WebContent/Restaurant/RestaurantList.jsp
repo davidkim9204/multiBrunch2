@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -64,9 +64,58 @@
 			alert('2개 이상 선택 해주세요!'); 
 			return false; 
 		} 
-	} 
+	}
+	
+	   function mover(id,distance) {
+		      var time = distance/80;
+//		       time = ;
+		      var M = document.getElementById("rDistance_" +id);
+		      M.innerHTML = "걸어서 " + Math.ceil(time) + " 분 ";
+
+		   }
+
+
+		   function mout(id,distance) {
+		      
+		      var M = document.getElementById("rDistance_" +id);
+		       M.innerHTML = distance + " m";
+
+		   }
+
 </script>
 <!-- <link rel="stylesheet" type="text/css" href="css/shop.css"> -->
+
+<script type="text/javascript">
+ var stmnLEFT = 150; // 오른쪽 여백 
+ var stmnGAP1 = 0; // 위쪽 여백 
+ var stmnGAP2 = 220; // 스크롤시 브라우저 위쪽과 떨어지는 거리 
+ var stmnBASE = 150; // 스크롤 시작위치 
+ var stmnActivateSpeed = 15; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+ var stmnScrollSpeed = 4; //스크롤 속도 (클수록 느림)
+ var stmnTimer; 
+ 
+ function RefreshStaticMenu() { 
+  var stmnStartPoint, stmnEndPoint; 
+  stmnStartPoint = parseInt(document.getElementById('STATICMENU').style.top, 10); 
+  stmnEndPoint = Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2; 
+  if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1; 
+  if (stmnStartPoint != stmnEndPoint) { 
+   stmnScrollAmount = Math.ceil( Math.abs( stmnEndPoint - stmnStartPoint ) / 15 ); 
+   document.getElementById('STATICMENU').style.top = parseInt(document.getElementById('STATICMENU').style.top, 10) + ( ( stmnEndPoint<stmnStartPoint ) ? -stmnScrollAmount : stmnScrollAmount ) + 'px'; 
+   stmnRefreshTimer = stmnScrollSpeed; 
+   }
+  stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed); 
+  } 
+ function InitializeStaticMenu() {
+  document.getElementById('STATICMENU').style.right = stmnLEFT + 'px';  //처음에 오른쪽에 위치. left로 바꿔도.
+  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
+  RefreshStaticMenu();
+  }
+</script>
+
+<style type="text/css">
+#STATICMENU { margin: 0pt; padding: 7px;  position: absolute; right: 0px; top: 0px;}
+</style>
 
 </head>
 <body>
@@ -79,8 +128,8 @@
 	<header id="home" class="navbar-fixed-top"> <!-- End navbar-collapse-->
 
 	<div class="main_menu_bg">
-		<div style="position: absolute; z-index:1;" >
-		<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+		<div style="position: absolute; z-index: 1;">
+			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -94,7 +143,7 @@
 							<li>
 								<form class="form-inline" id="header_search">
 									<input class="form-control mr-sm-2" type="text"
-										style="color: white; width: 250px;" placeholder="검색어">
+										style="color: white; width: 250px;" placeholder="메뉴 검색">
 									<button class="btn btn-outline-success my-2 my-sm-0"
 										type="submit">검색</button>
 								</form>
@@ -110,53 +159,60 @@
 	</div>
 	</header>
 	<!-- End Header Section -->
+	
+	<body id="" onload="InitializeStaticMenu();">
+	
+	<form action="compareservlet.do" name="form" method="get"
+		onsubmit="return chkchk(this);">
+		<div id="wrap" align="center">
 
-   <form action="compareservlet.do" name="form" method="get" onsubmit="return chkchk(this);">
-   <div id="wrap" align="center">
+			<table class="list">
+				<tr>
+					<td colspan="6"
+						style="border: #000022; text-align: center; padding-top: 100px;">
+						<h2>맛집 목록</h2>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6" style="border: #000022; text-align: right"><a
+						href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
+				</tr>
 
-      <table class="list">
-		<tr>
-            <td colspan="6" style="border: #000022; text-align: center; padding-top: 100px;	">
-            <h2>맛집 목록</h2></td>
-         </tr>
-         <tr>
-            <td colspan="6" style="border: #000022; text-align: right"><a
-               href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
-         </tr>
+				<c:forEach var="Restaurant" items="${RestaurantList }">
+					<tr class="record" align="center">
+						<td width="300px"><img src="img/chch.jpg" width="280px"
+							height="190px"></td>
+						<%-- 				${Restaurant.Picture1 } --%>
+						<td width="300px" style="text-align: left"><font size=5><a
+								href="ReMeservlet.do?userid=${Restaurant.rId}">
+									${Restaurant.rName } </a></font> <br> <font color=grey size=4>${Restaurant.rCategory}</font>
+							<br> <br> <br> <br> <font size=3>${Restaurant.rRate }
+								/ 10</font> <br>평점</td>
 
-         <c:forEach var="Restaurant" items="${RestaurantList }">
-            <tr class="record" align="center">
-				<td width="300px"><img src="img/chch.jpg" width="280px" height="190px"></td>
-<%-- 				${Restaurant.Picture1 } --%>
-               <td width="300px" style="text-align:left" ><font size=5 ><a href="ReMeservlet.do?userid=${Restaurant.rId}">
-                     ${Restaurant.rName } </a></font>
-                    <br><font color=grey size=4>${Restaurant.rCategory}</font>
-                     <br><br><br><br><font size=3>${Restaurant.rRate } / 10</font>
-                     <br>평점
-                     </td>
-                    
-               <td width="350px" style="text-align:left"><font size=3><img alt="" src="assets/images/map.png">　:　${Restaurant.rDistance} m 
-               <br><br><img alt="" src="assets/images/home.png">　:　${Restaurant.rAddress}
-               <br><br><img alt="" src="assets/images/phone.png">　:　${Restaurant.rTel}  
-               <br>
-               <img class="line" src="assets/images/line.png" width="300px" height="10px" style="margin-top: 7px;">
-               <br><font size=2">&nbsp;선택&nbsp;</font><input type="checkbox" style="text-align:right; position: relative; top: 3px;" name="comsel" onClick="CountChecked(this);" value="${Restaurant.rId }"/>
-               </font>
-               </td>
-            </tr>
-         </c:forEach>   
-         <tr>
-            <td colspan="6" style="border: #000022; text-align: center">
-            <br><input type="submit" class="btn btn-primary" value="비교하기"></td>
-         </tr>
-               
-      </table>
-      </div>
-      </form>
-      
-      <body onload="document.form.reset();">
-      
-      
+						<td width="350px" style="text-align: left"> <img alt="" src="assets/images/map.png" /><font size=3>　:　</font><font id="rDistance_${Restaurant.rId}" onmouseover="mover(${Restaurant.rId},${Restaurant.rDistance})" onmouseout="mout(${Restaurant.rId},${Restaurant.rDistance})" size=3>${Restaurant.rDistance}
+                        m</font> <br> <br> <img alt=""
+								src="assets/images/home.png"><font size=3>　:　${Restaurant.rAddress}</font> <br>
+								<br> <img alt="" src="assets/images/phone.png"><font size=3>　:　
+								${Restaurant.rTel} </font><br> <img class="line"
+								src="assets/images/line.png" width="300px" height="10px"
+								style="margin-top: 7px;"> <br> <font size=2">&nbsp;선택&nbsp;</font><input
+								type="checkbox"
+								style="text-align: right; position: relative; top: 3px;"
+								name="comsel" onClick="CountChecked(this);"
+								value="${Restaurant.rId }" /> </font></td>
+					</tr>
+				</c:forEach>
+				<tr>
+
+					<td colspan="6" style="border: #000022; text-align: center"><br>
+						<input type="submit" id="STATICMENU" class="btn btn-primary" value="비교하기"></td>
+				</tr>
+
+			</table>
+		</div>
+	</form>
+<body onload="document.form.reset();">
+
 	<footer id="footer" class="footer">
 	<div class="container text-center">
 		<div class="row">
