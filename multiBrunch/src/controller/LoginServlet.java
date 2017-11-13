@@ -50,8 +50,8 @@ public class LoginServlet extends HttpServlet{
 			User uVo = uDao.selectUser(uEmail);
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
-			req.setAttribute("message", "로그인에 성공했습니다.");
-			url="user/main.jsp";
+			//req.setAttribute("message", "로그인에 성공했습니다.");
+			url="index.do";
 		}else if(result==0) {
 			req.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		}else if(result==-1) {
