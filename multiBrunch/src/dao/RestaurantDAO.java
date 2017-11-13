@@ -286,7 +286,7 @@ public class RestaurantDAO {
 		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate "
 				+ "from restaurant r, menu m "
 				+ "where r.rId=m.rId and r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=? "
-				+ "group by r.rName";
+				+ "group by r.rId";
 		List<Restaurant> list = new ArrayList<Restaurant>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -349,7 +349,7 @@ public class RestaurantDAO {
 
 	public List<Restaurant> selectOneRestaurantByMenu(String mName) {
 		List<Restaurant> list = new ArrayList<>();
-		String sql = "select * from menu m, restaurant r where r.rid=m.rid and m.mName like ?";
+		String sql = "select * from menu m, restaurant r where r.rid=m.rid and m.mName like ? group by r.rId";
 		System.out.println(sql);
 		Restaurant rst = null;
 		PreparedStatement pstmt = null;
