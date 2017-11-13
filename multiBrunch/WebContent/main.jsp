@@ -42,9 +42,11 @@
 	<div class="main_menu_bg">
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
-			<a href="RestaurantServlet?command=Restaurant_list" class="booking-1">　　　　　　　모든 맛집 보기</a>
-			
+			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
+			<a href="" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
+			
 		<div class="container">
 			<div class="row">
 				<nav class="navbar navbar-default">
@@ -134,8 +136,8 @@
 										items="${popularRestaurantList}" varStatus="myIndex">
 										<td>${myIndex.index+1}</td>
 										<td><a
-											href="ReMeservlet.do?userid=${popularRestaurantList.rId}">
-												${popularRestaurantList.rName } </a></td>
+											href="ReMeservlet.do?userid=${popularRestaurantList.rId}" style="color: white;">
+												. ${popularRestaurantList.rName } </a></td>
 										<br>
 										<br>
 									</c:forEach>
@@ -149,8 +151,8 @@
 										items="${recommendRestaurantList}" varStatus="myIndex">
 										<td>${myIndex.index+1}</td>
 										<td><a
-											href="ReMeservlet.do?userid=${recommendRestaurantList.rId}">
-												${recommendRestaurantList.rName } </a></td>
+											href="ReMeservlet.do?userid=${recommendRestaurantList.rId}" style="color: white;">
+												. ${recommendRestaurantList.rName } </a></td>
 										<br>
 										<br>
 									</c:forEach>
