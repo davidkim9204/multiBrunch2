@@ -79,8 +79,8 @@
 	<div id="wrap" align="center">
 
 		<form name="frm" method="post" action="RestaurantServlet">
-			<input type="hidden" name="command" value="Restaurant_write"> <input
-				type="hidden" name="num" value="${Restaurant.rId}">
+			<input type="hidden" name="command" value="Restaurant_write">
+
 			<table>
 			<tr>
 			<td colspan="6" style="border: #000022; text-align: center; padding-top: 150px;	">
@@ -89,37 +89,43 @@
 				<tr>
 					<th>이름</th>
 					<td><input type="text" size="70" name="rName"
-						value="${Restaurant.rName}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>주소</th>
 					<td><input type="text" size="70" name="rAddress"
-						value="${Restaurant.rAddress}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>거리</th>
 					<td><input type="text" size="70" name="rDistance"
-						value="${Restaurant.rDistance}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>운영시간</th>
 					<td><input type="text" size="70" name="rOpenhours"
-						value="${Restaurant.rOpenhours}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>전화번호</th>
 					<td><input type="text" size="70" name="rTel"
-						value="${Restaurant.rTel}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>평점</th>
 					<td><input type="text" size="70" name="rRate"
-						value="${Restaurant.rRate}"></td>
+						></td>
 				</tr>
 				<tr>
 					<th>분류</th>
-					<td><input type="text" size="70" name="rCategory"
-						value="${Restaurant.rCategory}"></td>
+					<td>
+						<select name="rCategory" id="categorySelect">
+						<option value="kor" style="color: black;">한식</option>
+						<option value="ch" style="color: black;">중식</option>
+						<option value="jp" style="color: black;">일식</option>
+						<option value="wf" style="color: black;">양식</option>
+						</select>
+						</td>
 				</tr>
 
 

@@ -181,11 +181,6 @@
 						<h2>맛집 목록</h2>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="6" style="border: #000022; text-align: right"><a
-						href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
-				</tr>
-
 				<c:forEach var="Restaurant" items="${RestaurantList }">
 					<tr class="record" align="center">
 						<td width="300px"><img src="img/chch.jpg" width="280px"
