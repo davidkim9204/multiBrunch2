@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "user/login.jsp";
+		String url = "user/index.do";
 		
 		String uEmail = req.getParameter("uEmail");
 		String uPassword = req.getParameter("uPassword");

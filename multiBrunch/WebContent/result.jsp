@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%  // 인증된 세션이 없는경우, 해당페이지를 볼 수 없게 함.
+    if (session.getAttribute("loginUser") == null) {
+        response.sendRedirect("login.do");
+    }
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -129,7 +134,7 @@
 
 	<div class="main_menu_bg">
 		<div style="position: absolute; z-index: 1;">
-			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+			<a href="login.do" class="booking-1"><br>　　　　MultiBrunch</a>
 		</div>
 		<div class="container">
 			<div class="row">

@@ -41,7 +41,7 @@
 
 	<div class="main_menu_bg">
 		<div style="position: absolute; z-index: 1;">
-			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+			<a href="login.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" class="booking-1">　　　　　　　모든 맛집 보기</a>
 			
 		</div>

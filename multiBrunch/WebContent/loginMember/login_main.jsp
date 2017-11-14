@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Food and Restaurant One page Template</title>
+<title>Food and Restorent One page Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -40,6 +40,11 @@
 	<header id="home" class="navbar-fixed-top"> <!-- End navbar-collapse-->
 
 	<div class="main_menu_bg">
+		<div style="position: absolute; z-index: 1;">
+			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+			<a href="RestaurantServlet?command=Restaurant_list" class="booking-1">　　　　　　　모든 맛집 보기</a>
+			
+		</div>
 		<div class="container">
 			<div class="row">
 				<nav class="navbar navbar-default">

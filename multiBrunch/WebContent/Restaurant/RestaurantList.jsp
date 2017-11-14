@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%  // 인증된 세션이 없는경우, 해당페이지를 볼 수 없게 함.
+    if (session.getAttribute("loginUser") == null) {
+        response.sendRedirect("login.do");
+    }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -129,7 +134,7 @@
 
 	<div class="main_menu_bg">
 		<div style="position: absolute; z-index: 1;">
-			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+			<a href="index.do" class="booking-1"><br>MultiBrunch</a>
 		</div>
 		<div class="container">
 			<div class="row">
