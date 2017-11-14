@@ -38,14 +38,13 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "user/index.do";
+		String url = "user/login.jsp";
 		
 		String uEmail = req.getParameter("uEmail");
 		String uPassword = req.getParameter("uPassword");
 		
 		UserDao uDao = UserDao.getInstance();
 		int result = uDao.userCheck(uEmail, uPassword);
-		System.out.println(111);
 		
 		if(result==1) {
 			User uVo = uDao.selectUser(uEmail);
@@ -59,7 +58,6 @@ public class LoginServlet extends HttpServlet{
 			req.setAttribute("message", "존재하지 않는 회원입니다.");
 
 		}
-		System.out.println(111111);
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		dispatcher.forward(req, resp);
 	}

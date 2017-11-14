@@ -4,6 +4,7 @@
 
 
 $(document).ready(function(){
+
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
   var $this = $(this),
@@ -47,11 +48,32 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+
+
+
+$('#emailcheck').on('click', function () {
+
+	alert($('#l_uEmail').val());
+	if ($('#uEmail').val() == null) {
+		alert("아이디를 써주세요");
+		$('#uEmail').focus();
+	};
+	if (document.frm.uPassword.value == "") {
+		alert("암호는 반드시 입력해야 합니다.");
+		frm.uPassword.focus();
+		return false;
+	}
 });
 
+}); // 다큐먼트 종료
 
-function loginCheck() {
-	if (document.frm.uEmail.value.length == 0) {
+
+
+
+$('#uEmail').on('click', function (e) {
+	  
+	if (this)
+	if (this.value.length == 0) {
 		alert("아이디를 써주세요");
 		frm.uEmail.focus();
 		return false;
@@ -59,6 +81,21 @@ function loginCheck() {
 	if (document.frm.uPassword.value == "") {
 		alert("암호는 반드시 입력해야 합니다.");
 		frm.uPassword.focus();
+		return false;
+	}
+});
+
+
+function loginCheck() {
+	alert("실행중");
+	if (document.form.tab.login.frm.field.uEmail.value.length == 0) {
+		alert("아이디를 써주세요");
+		document.form.tab.login.frm.field.uEmail.focus();
+		return false;
+	}
+	if (document.form.tab.login.frm.field.uPassword.value == "") {
+		alert("암호는 반드시 입력해야 합니다.");
+		document.form.tab.login.frm.field.uPassword.focus();
 		return false;
 	}
 	return true;
