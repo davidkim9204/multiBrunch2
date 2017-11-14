@@ -10,9 +10,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js">
 </script>
 
-<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 
-<script type="text/javascript" src="../script/user.js">
+<script type="text/javascript" src="script/user.js">
 
 </script>
 
