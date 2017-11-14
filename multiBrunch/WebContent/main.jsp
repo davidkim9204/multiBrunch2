@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Food and Restorent One page Template</title>
+<title>MultiBrunch</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -43,7 +43,9 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<c:forEach var="randomRestaurantList" items="${randomRestaurantList}" varStatus="myIndex">
+			<a href="ReMeservlet.do?userid=${randomRestaurantList.rId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			</c:forEach>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 			
@@ -168,6 +170,7 @@
 
 	</section>
 
+	<body onload="document.form.reset();">
 	<footer id="footer" class="footer">
 	<div class="container text-center">
 		<div class="row">
