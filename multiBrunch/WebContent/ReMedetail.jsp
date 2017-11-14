@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%  // 인증된 세션이 없는경우, 해당페이지를 볼 수 없게 함.
+    if (session.getAttribute("loginUser") == null) {
+        response.sendRedirect("login.do");
+    }
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -42,7 +47,9 @@ img {
 
 	<form action="btn.do" method="get" align="right">
 		<input type="submit" value="로그아웃" name=Restaurant.rId+1> <input
-			type="submit" value="수정" name=Restaurant.rId+2> <input
+			type="submit" value="수정" name=Restaurant.rId+2>
+			<a href="RestaurantServlet?command=Restaurant_update_form">수정</a>
+			 <input
 			type="submit" value="삽입" name=Restaurant.rId+3> <input
 			type="submit" value="삭제" name=Restaurant.rId+4>
 	</form>

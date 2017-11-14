@@ -36,6 +36,12 @@ public class ChosenRestaurantsServlet extends HttpServlet{
 		}
 		List<Restaurant> RestaurantList = bDao.selectChosenRestaurants(category,distance1,distance2,price1,price2);
 		req.setAttribute("RestaurantList", RestaurantList);
+		
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+		req.setAttribute("randomRestaurant", r);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		req.getRequestDispatcher(url).forward(req, resp);
 		

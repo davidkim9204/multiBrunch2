@@ -9,7 +9,6 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js">
 </script>
 
-
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
 <script src="script/user.js">

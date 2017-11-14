@@ -12,14 +12,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.sun.org.apache.bcel.internal.classfile.DescendingVisitor;
+import javax.servlet.http.HttpSession;
 
 import dao.RestaurantDAO;
 import dto.Restaurant;
+import dto.User;
 
 @WebServlet("/index.do")
 public class mainSearchServlet extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
@@ -27,9 +28,12 @@ public class mainSearchServlet extends HttpServlet {
 		List<Restaurant> popularRestaurantList = new ArrayList<>();
 		List<Restaurant> recommendRestaurantList = new ArrayList<>();
 		Random random = new Random();
-
 		MiniComparator comp = new MiniComparator();
 		Collections.sort(RestaurantList, comp);
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+
 
 		// popular랑 recommend랑 조건 줘서 popular는 평점 순으로 정렬해서 보내고 recommend는 그냥 랜덤
 		// 값으로 보내자?
@@ -43,10 +47,17 @@ public class mainSearchServlet extends HttpServlet {
 				recommendRestaurantList.add(RestaurantList.get(a));
 			}
 		}
-
+		
 		req.setAttribute("popularRestaurantList", popularRestaurantList);
 		req.setAttribute("recommendRestaurantList", recommendRestaurantList);
-		req.getRequestDispatcher("main.jsp").forward(req, resp);
+		req.setAttribute("randomRestaurant", r);
+		HttpSession session = req.getSession();
+		if(session.getAttribute("loginUser") == null) {
+			req.getRequestDispatcher("main.jsp").forward(req, resp);
+		}else{
+			req.getRequestDispatcher("login_main.jsp").forward(req, resp);
+		}
+		
 	}
 	
 	@Override
@@ -56,9 +67,14 @@ public class mainSearchServlet extends HttpServlet {
 		List<Restaurant> popularRestaurantList = new ArrayList<>();
 		List<Restaurant> recommendRestaurantList = new ArrayList<>();
 		Random random = new Random();
-
+		//HttpSession session = req.getSession(false);
+		//User user = (User) session.getAttribute("uId");
 		MiniComparator comp = new MiniComparator();
 		Collections.sort(RestaurantList, comp);
+		//List<Restaurant> randomRestaurantList = new ArrayList<>();
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
 
 		// popular랑 recommend랑 조건 줘서 popular는 평점 순으로 정렬해서 보내고 recommend는 그냥 랜덤
 		// 값으로 보내자?
@@ -75,11 +91,12 @@ public class mainSearchServlet extends HttpServlet {
 
 		req.setAttribute("popularRestaurantList", popularRestaurantList);
 		req.setAttribute("recommendRestaurantList", recommendRestaurantList);
-		req.getRequestDispatcher("loginMember/login_main.jsp").forward(req, resp);
+		req.setAttribute("randomRestaurant", r);
+		resp.sendRedirect("index.do");
+		//req.getRequestDispatcher("login_main.jsp").forward(req, resp);
 	}
 
 }
-
 
 
 class MiniComparator implements Comparator<Restaurant> {
@@ -98,3 +115,7 @@ class MiniComparator implements Comparator<Restaurant> {
 	}
 
 }
+
+
+
+

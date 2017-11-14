@@ -72,6 +72,12 @@ public class compare3servlet extends HttpServlet {
 
       // for(Menu mm : m )
       // System.out.println(m);
+      
+      makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+		req.setAttribute("randomRestaurant", r);
+      
       RequestDispatcher dispatcher = req.getRequestDispatcher("compare3.jsp");
       dispatcher.forward(req, resp);
 

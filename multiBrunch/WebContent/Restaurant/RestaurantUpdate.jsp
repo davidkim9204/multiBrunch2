@@ -2,6 +2,11 @@
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%  // 인증된 세션이 없는경우, 해당페이지를 볼 수 없게 함.
+    if (session.getAttribute("loginUser") == null) {
+        response.sendRedirect("login.do");
+    }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -79,7 +84,7 @@
 	 <div id="wrap" align="center">
 		<form name="frm" method="post" action="RestaurantServlet">
 			<input type="hidden" name="command" value="Restaurant_update"> <input
-				type="hidden" name="num" value="${Restaurant.rId}">
+				type="hidden" name="rId" value="${Restaurant.rId}">
 			<table>
 				<tr>
 					<td colspan="6" style="border: #000022; text-align: center; padding-top: 150px;	">
@@ -116,14 +121,19 @@
 				</tr>
 				<tr>
 					<th>분류</th>
-					<td><input type="text" size="70" name="rCategory"
-						value="${Restaurant.rCategory}"></td>
+					<td>						
+						<select name="rCategory" id="categorySelect">
+						<option value="kor" style="color: black;">한식</option>
+						<option value="ch" style="color: black;">중식</option>
+						<option value="jp" style="color: black;">일식</option>
+						<option value="wf" style="color: black;">양식</option>
+						</select></td>
 				</tr>
 
 
 			</table>
 			<br>
-			<br> <input type="submit" class="btn btn-primary" value="등록"
+			<br> <input type="submit" class="btn btn-primary" value="수정"
 				onclick="return RestaurantCheck()"> <input type="reset" class="btn btn-primary"
 				value="다시 작성"> <input type="button" class="btn btn-primary" value="목록"
 				onclick="location.href='RestaurantServlet?command=Restaurant_list'">

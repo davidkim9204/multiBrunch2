@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>MultiBrunch</title>
+<title>Food and Restorent One page Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -43,11 +44,9 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<c:forEach var="randomRestaurantList" items="${randomRestaurantList}" varStatus="myIndex">
-			<a href="ReMeservlet.do?userid=${randomRestaurantList.rId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-			</c:forEach>
+			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
-		</div> 
+		</div>
 			
 		<div class="container">
 			<div class="row">
@@ -79,8 +78,8 @@
 										type="submit">검색</button>
 								</form>
 							</li>
-							<li><a href="login.do" class="booking">로그인</a></li>
-							<li><a href="join.do" class="booking">회원가입</a></li>
+							<li><a href="logout.do" class="booking">로그아웃</a></li>
+							<li><a href="userUpdate.do" class="booking">정보수정</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -170,7 +169,6 @@
 
 	</section>
 
-	<body onload="document.form.reset();">
 	<footer id="footer" class="footer">
 	<div class="container text-center">
 		<div class="row">

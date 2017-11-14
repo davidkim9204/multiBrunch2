@@ -134,9 +134,9 @@
 
 	<div class="main_menu_bg">
 		<div style="position: absolute; z-index: 1;">
-			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
+			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch.</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
@@ -181,11 +181,6 @@
 						<h2>맛집 목록</h2>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="6" style="border: #000022; text-align: right"><a
-						href="RestaurantServlet?command=Restaurant_write_form">맛집 등록</a></td>
-				</tr>
-
 				<c:forEach var="Restaurant" items="${RestaurantList }">
 					<tr class="record" align="center">
 						<td width="300px"><img src="img/chch.jpg" width="280px"

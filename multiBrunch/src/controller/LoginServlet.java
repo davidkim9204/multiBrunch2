@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "user/login.jsp";
+		String url = "/user/login.jsp";
 		
 		HttpSession session = req.getSession();
 		
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
 			req.setAttribute("message", "로그인에 성공했습니다.");
-			url="user/main.jsp";
+			url="index.do";
 		}else if(result==0) {
 			req.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		}else if(result==-1) {
