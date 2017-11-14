@@ -11,7 +11,11 @@
 <body>
 	<h2>이메일주소 중복확인</h2>
 	<form action="emailCheck.do" method="get" name="frm">
+	
+	
 		이메일주소 <input type="text" name="uEmail" value="${uEmail}">
+		
+		
 		 <input type="submit" value="중복 체크"> <br>
 			
 		<c:if test="${result == 1 }">
