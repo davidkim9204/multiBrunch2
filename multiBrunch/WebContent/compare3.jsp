@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%  // 인증된 세션이 없는경우, 해당페이지를 볼 수 없게 함.
+    if (session.getAttribute("loginUser") == null) {
+        response.sendRedirect("login.do");
+    }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,6 +35,34 @@
 <link rel="stylesheet" href="assets/css/responsive.css" />
 
 <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+<style type="text/css">
+table.blue {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 3px solid #369;
+  margin : 20px 10px;
+}
+table.blue th {
+    width: 120px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+}
+table.blue td {
+    width: 300px;
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+</style>
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -81,19 +114,21 @@
       <form method="get" enctype="multipart/form-data" name="frm">
          <table>
 			<tr>
-				<td colspan="6" style="border: #000022; text-align: center; padding-top: 100px;">
-					<h2>맛집 비교</h2>
+				<td colspan="8" style="border: #000022; text-align: center; padding-top: 100px;">
+					<h2>맛집 비교<img src="img/cutlery.png"/></h2>
 				</td>
 			</tr>
+			</table>
+			<table class="blue">
             <tr>
-               <th>레스토랑 이름</th>
+               <th scope="row">레스토랑 이름</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
                   <td><a href="ReMeservlet.do?userid=${Restaurant.rId}">
                      ${Restaurant.rName } </a></td>
                </c:forEach>
             </tr>
             <tr>
-               <th>메뉴&사진 </th>
+               <th scope="row">메뉴&사진 </th>
                
                <c:forEach var="Restaurant" items="${Restaurant}">
                <td>
@@ -105,13 +140,13 @@
                
             </tr>
             <tr>
-               <th>멀캠으로부터 거리</th>
+               <th scope="row">멀캠으로부터 거리</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
                   <td>${Restaurant.rDistance}</td>
                </c:forEach>
             </tr>
             <tr>
-               <th>레스토랑 평점</th>
+               <th scope="row">레스토랑 평점</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
                   <td>${Restaurant.rRate}</td>
                </c:forEach>

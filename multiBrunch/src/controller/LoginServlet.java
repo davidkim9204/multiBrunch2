@@ -23,13 +23,13 @@ public class LoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "user/login.jsp";
+		String url = "/user/login.jsp";
 		
 		HttpSession session = req.getSession();
 		
 		
 		if(session.getAttribute("loginUser") != null) {
-			url = "user/main.jsp";
+			url = "user/login.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "user/index.do";
+		String url = "user/login.jsp";
 		
 		String uEmail = req.getParameter("uEmail");
 		String uPassword = req.getParameter("uPassword");
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet{
 			User uVo = uDao.selectUser(uEmail);
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
-			//req.setAttribute("message", "로그인에 성공했습니다.");
+			req.setAttribute("message", "로그인에 성공했습니다.");
 			url="index.do";
 		}else if(result==0) {
 			req.setAttribute("message", "비밀번호가 맞지 않습니다.");
@@ -58,7 +58,6 @@ public class LoginServlet extends HttpServlet{
 			req.setAttribute("message", "존재하지 않는 회원입니다.");
 
 		}
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		dispatcher.forward(req, resp);
 	}

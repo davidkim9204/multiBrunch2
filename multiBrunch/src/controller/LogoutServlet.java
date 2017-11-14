@@ -22,8 +22,9 @@ public class LogoutServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		session.invalidate();
-		RequestDispatcher dispatcher = req.getRequestDispatcher("index.do");
-		dispatcher.forward(req, resp);
+		resp.sendRedirect("index.do");
+		//RequestDispatcher dispatcher = req.getRequestDispatcher("index.do");
+		//dispatcher.forward(req, resp);
 	}
 
 	@Override
