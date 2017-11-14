@@ -26,6 +26,7 @@ public class mainSearchServlet extends HttpServlet {
 		List<Restaurant> RestaurantList = bDao.selectAllRestaurants();
 		List<Restaurant> popularRestaurantList = new ArrayList<>();
 		List<Restaurant> recommendRestaurantList = new ArrayList<>();
+		List<Restaurant> randomRestaurantList = new ArrayList<>();
 		Random random = new Random();
 
 		MiniComparator comp = new MiniComparator();
@@ -43,9 +44,17 @@ public class mainSearchServlet extends HttpServlet {
 				recommendRestaurantList.add(RestaurantList.get(a));
 			}
 		}
+		
+		while(randomRestaurantList.size()<1){
+			int a = random.nextInt(RestaurantList.size());
+			if(!randomRestaurantList.contains(RestaurantList.get(a))){
+				randomRestaurantList.add(RestaurantList.get(a));
+			}
+		}
 
 		req.setAttribute("popularRestaurantList", popularRestaurantList);
 		req.setAttribute("recommendRestaurantList", recommendRestaurantList);
+		req.setAttribute("randomRestaurantList", randomRestaurantList);
 		req.getRequestDispatcher("main.jsp").forward(req, resp);
 	}
 	
