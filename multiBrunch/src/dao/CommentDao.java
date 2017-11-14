@@ -18,7 +18,7 @@ public class CommentDao {
 	private CommentDao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_db", "root", "mysql");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/multibrunch_db", "root", "mysql");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
