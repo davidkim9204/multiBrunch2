@@ -27,11 +27,13 @@ public class mainSearchServlet extends HttpServlet {
 		List<Restaurant> RestaurantList = bDao.selectAllRestaurants();
 		List<Restaurant> popularRestaurantList = new ArrayList<>();
 		List<Restaurant> recommendRestaurantList = new ArrayList<>();
-		List<Restaurant> randomRestaurantList = new ArrayList<>();
 		Random random = new Random();
 		MiniComparator comp = new MiniComparator();
 		Collections.sort(RestaurantList, comp);
-		
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+
 
 		// popular랑 recommend랑 조건 줘서 popular는 평점 순으로 정렬해서 보내고 recommend는 그냥 랜덤
 		// 값으로 보내자?
@@ -46,21 +48,16 @@ public class mainSearchServlet extends HttpServlet {
 			}
 		}
 		
-		while(randomRestaurantList.size()<1){
-			int a = random.nextInt(RestaurantList.size());
-			if(!randomRestaurantList.contains(RestaurantList.get(a))){
-				randomRestaurantList.add(RestaurantList.get(a));
-			}
-		}
-
 		req.setAttribute("popularRestaurantList", popularRestaurantList);
 		req.setAttribute("recommendRestaurantList", recommendRestaurantList);
+		req.setAttribute("randomRestaurant", r);
 		HttpSession session = req.getSession();
 		if(session.getAttribute("loginUser") == null) {
 			req.getRequestDispatcher("main.jsp").forward(req, resp);
 		}else{
 			req.getRequestDispatcher("login_main.jsp").forward(req, resp);
 		}
+		
 	}
 	
 	@Override
@@ -74,6 +71,10 @@ public class mainSearchServlet extends HttpServlet {
 		//User user = (User) session.getAttribute("uId");
 		MiniComparator comp = new MiniComparator();
 		Collections.sort(RestaurantList, comp);
+		//List<Restaurant> randomRestaurantList = new ArrayList<>();
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
 
 		// popular랑 recommend랑 조건 줘서 popular는 평점 순으로 정렬해서 보내고 recommend는 그냥 랜덤
 		// 값으로 보내자?
@@ -90,12 +91,12 @@ public class mainSearchServlet extends HttpServlet {
 
 		req.setAttribute("popularRestaurantList", popularRestaurantList);
 		req.setAttribute("recommendRestaurantList", recommendRestaurantList);
+		req.setAttribute("randomRestaurant", r);
 		resp.sendRedirect("index.do");
 		//req.getRequestDispatcher("login_main.jsp").forward(req, resp);
 	}
 
 }
-
 
 
 class MiniComparator implements Comparator<Restaurant> {
@@ -114,3 +115,7 @@ class MiniComparator implements Comparator<Restaurant> {
 	}
 
 }
+
+
+
+

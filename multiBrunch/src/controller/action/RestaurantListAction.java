@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.makeRandomRestaurantList;
 import dao.RestaurantDAO;
 import dto.Restaurant;
 
@@ -19,6 +20,12 @@ public class RestaurantListAction implements Action{
 		RestaurantDAO bDao = RestaurantDAO.getInstance();
 		List<Restaurant> RestaurantList = bDao.selectAllRestaurants();
 		request.setAttribute("RestaurantList", RestaurantList);
+		
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+		request.setAttribute("randomRestaurant", r);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
