@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원 관리</title>
+<title>회원 관리d</title>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js">
 </script>
