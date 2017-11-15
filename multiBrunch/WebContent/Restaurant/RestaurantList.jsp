@@ -87,13 +87,6 @@
 
 		   }
 
-<<<<<<< HEAD
-		
-=======
-		   function random()	{
-	            var random = (int) (Math.random() * 10);
-		   }
->>>>>>> branch 'master' of https://github.com/davidkim9204/multiBrunch2.git
 </script>
 <!-- <link rel="stylesheet" type="text/css" href="css/shop.css"> -->
 

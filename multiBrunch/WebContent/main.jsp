@@ -46,7 +46,7 @@
 			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
 			<a href="ReMeservlet.do?userid=1" ><font size=2 style="color: white; margin-bottom: 6px;">아무거나</font></a>
 			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
-			<a href="ladder.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
 		</div>
 			
 		<div class="container">
