@@ -283,7 +283,7 @@ public class RestaurantDAO {
 	
 	public List<Restaurant> selectChosenRestaurants(String rCategory, int rDistance1, int rDistance2, int mPrice1,
 			int mPrice2) {
-		String sql = "select r.rId, r.rName, rCategory, r.rDistance, r.rRate "
+		String sql = "select * "
 				+ "from restaurant r, menu m "
 				+ "where r.rId=m.rId and r.rCategory=? and r.rDistance>? and r.rDistance<=? and m.mPrice>? and m.mPrice<=? "
 				+ "group by r.rId";
@@ -306,6 +306,9 @@ public class RestaurantDAO {
 				rst.setrId(rs.getInt("rId"));
 				rst.setrName(rs.getString("rName"));
 				rst.setrCategory(rs.getString("rCategory"));
+				rst.setrAddress(rs.getString("rAddress"));
+				rst.setrOpenHours(rs.getString("rOpenhours"));
+				rst.setrTel(rs.getString("rTel"));
 				rst.setrDistance(rs.getInt("rDistance"));
 				rst.setrRate(rs.getInt("rRate"));
 				list.add(rst);
@@ -365,6 +368,9 @@ public class RestaurantDAO {
 				rst.setrId(rs.getInt("rId"));
 				rst.setrName(rs.getString("rName"));
 				rst.setrCategory(rs.getString("rCategory"));
+				rst.setrAddress(rs.getString("rAddress"));
+				rst.setrOpenHours(rs.getString("rOpenhours"));
+				rst.setrTel(rs.getString("rTel"));
 				rst.setrDistance(rs.getInt("rDistance"));
 				rst.setrRate(rs.getInt("rRate"));
 				list.add(rst);

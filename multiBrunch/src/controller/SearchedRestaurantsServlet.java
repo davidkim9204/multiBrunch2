@@ -23,7 +23,6 @@ public class SearchedRestaurantsServlet extends HttpServlet{
 		
 		List<Restaurant> RestaurantList = bDao.selectOneRestaurantByMenu(searchedMenu);
 		
-		System.out.println(RestaurantList);
 		req.setAttribute("RestaurantList", RestaurantList);
 		
 		makeRandomRestaurantList randomRestaurant;
