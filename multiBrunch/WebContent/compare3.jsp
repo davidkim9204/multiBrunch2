@@ -42,7 +42,7 @@ table.blue {
     text-align: left;
     line-height: 1.5;
     border-top: 1px solid #ccc;
-    border-left: 3px solid #369;
+    border-left: 3px solid #8c6c0c;
   margin : 20px 10px;
 }
 table.blue th {
@@ -77,7 +77,7 @@ table.blue td {
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
@@ -114,8 +114,8 @@ table.blue td {
       <form method="get" enctype="multipart/form-data" name="frm">
          <table>
 			<tr>
-				<td colspan="8" style="border: #000022; text-align: center; padding-top: 100px;">
-					<h2>맛집 비교<img src="img/cutlery.png"/></h2>
+				<td colspan="10" style="border: #000022; text-align: center; padding-top: 100px;">
+					<h2><img src="img/spoon.png"/><img src="img/dish.png"/><img src="img/fork.png"/></h2>
 				</td>
 			</tr>
 			</table>

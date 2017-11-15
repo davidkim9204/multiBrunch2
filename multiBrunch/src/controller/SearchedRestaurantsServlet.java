@@ -25,6 +25,12 @@ public class SearchedRestaurantsServlet extends HttpServlet{
 		
 		System.out.println(RestaurantList);
 		req.setAttribute("RestaurantList", RestaurantList);
+		
+		makeRandomRestaurantList randomRestaurant;
+		randomRestaurant = new makeRandomRestaurantList();
+		int r = randomRestaurant.getRandomRestaurantId();
+		req.setAttribute("randomRestaurant", r);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		req.getRequestDispatcher(url).forward(req, resp);
 		

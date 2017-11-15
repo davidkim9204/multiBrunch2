@@ -11,11 +11,16 @@
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
-<script type="text/javascript" src="script/user.js">
+<script src="script/user.js">
+
+
 
 </script>
 
+
 </head>
+
+
 <body>
 
 
@@ -36,27 +41,18 @@
 				<form action="login.do" method="post" name="frm">
 
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span>
-						</label> <input type="email" name="uEmail" />
+						<label> Email Address<span class="req">*</span></label> 
+						<input type="email" name="uEmail" id="l_uEmail"/>
 					</div>
 
 					<div class="field-wrap">
-						<label> Password<span Sinclass="req">*</span>
+						<label> Password<span class="req">*</span>
 						</label> <input type="password" name="uPassword" />
 					</div>
 
-					<p class="forgot">
-						<a href="#">Rewrite?</a>
-					</p>
+					<input type="submit" id="emailcheck" class="button button-block" value="Log in">
 
-<input type="submit" class="button button-block" 
-value="Log in" onclick="return loginCheck()">
-
-
-
-					<p class="forgot">
-						<a>${message}</a>
-					</p>
+					<h3>${message}</h3>
 				</form>
 			</div>
 			<!-- signup -->
@@ -75,7 +71,7 @@ value="Log in" onclick="return loginCheck()">
 					</div>
 					<div class="field-wrap">
 						<label> Email Address<span class="req">*</span></label> <input
-							type="text" name="uEmail" id="uEmail" /> <input type="hidden"
+							type="text" name="uEmail" id="s_uEmail" /> <input type="hidden"
 							name="re_uEmail" size="20">
 					</div>
 					<p class="forgot">
@@ -105,14 +101,11 @@ value="Log in" onclick="return loginCheck()">
 					<div class="field-wrap">
 						<span>Preferences : </span> <span><input type="checkbox"
 							name="uPreference" value="kor" checked="checked" />한식</span> <span><input
-							type="checkbox" name="uPreference" value="jp"/>일식</span> <span><input
-							type="checkbox" name="uPreference" value="ch"/>중식</span> <span><input
-							type="checkbox" name="uPreference" value="wf"/>양식</span>
+							type="checkbox" name="uPreference" value="jp" />일식</span> <span><input
+							type="checkbox" name="uPreference" value="ch" />중식</span> <span><input
+							type="checkbox" name="uPreference" value="wf" />양식</span>
 					</div>
-
-					<button type="submit" class="button button-block" />
-					Get Started
-					</button>
+                    <input type="submit" id="signup" class="button button-block" value="Get Started">
 				</form>
 
 			</div>
