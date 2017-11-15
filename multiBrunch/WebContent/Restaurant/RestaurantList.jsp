@@ -87,8 +87,8 @@
 
 		   }
 
-		   function random	{
-	            int random = (int) (Math.random() * 10);
+		   function random()	{
+	            var random = (int) (Math.random() * 10);
 		   }
 </script>
 <!-- <link rel="stylesheet" type="text/css" href="css/shop.css"> -->
@@ -140,7 +140,6 @@
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
 			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
@@ -153,9 +152,10 @@
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<form class="form-inline" id="header_search">
+							<form class="form-inline" role="search" id="header_search" method="get" action=SearchedRestaurantsServlet>
+<!-- 									<input type="text" name="m.Mname" value="menuSearch" hidden="true"> -->
 									<input class="form-control mr-sm-2" type="text"
-										style="color: white; width: 250px;" placeholder="메뉴 검색">
+										style="color: white; width: 250px;" placeholder="메뉴 검색" name="m.mName">
 									<button class="btn btn-outline-success my-2 my-sm-0"
 										type="submit">검색</button>
 								</form>

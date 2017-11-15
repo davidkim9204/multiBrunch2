@@ -90,9 +90,10 @@ table.blue td {
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<form class="form-inline" id="header_search">
+								<form class="form-inline" role="search" id="header_search" method="get" action=SearchedRestaurantsServlet>
+<!-- 									<input type="text" name="m.Mname" value="menuSearch" hidden="true"> -->
 									<input class="form-control mr-sm-2" type="text"
-										style="color: white; width: 250px;" placeholder="메뉴 검색">
+										style="color: white; width: 250px;" placeholder="메뉴 검색" name="m.mName">
 									<button class="btn btn-outline-success my-2 my-sm-0"
 										type="submit">검색</button>
 								</form>
