@@ -43,10 +43,10 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-<%-- 			<c:forEach var="randomRestaurantList" items="${randomRestaurantList}" varStatus="myIndex"> --%>
-			<a href="ReMeservlet.do?userid=1" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-<%-- 			</c:forEach> --%>
-			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="ReMeservlet.do?userid=1" ><font size=2 style="color: white; margin-bottom: 6px;">아무거나</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="ladder.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
 		</div>
 			
 		<div class="container">
@@ -58,7 +58,7 @@
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse"
 							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span> <span
+							<span class="sr-only"></span> <span
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>

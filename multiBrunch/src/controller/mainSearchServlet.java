@@ -113,7 +113,6 @@ class MiniComparator implements Comparator<Restaurant> {
 			return 0;
 		}
 	}
-
 }
 
 
