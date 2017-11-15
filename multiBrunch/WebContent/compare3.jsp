@@ -38,15 +38,17 @@
 
 <style type="text/css">
 table.blue {
+	width: 820px;
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
     border-top: 1px solid #ccc;
     border-left: 3px solid #8c6c0c;
-  margin : 20px 10px;
+  	margin : 20px 200px;
+
 }
 table.blue th {
-    width: 120px;
+	width: 440px;
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
@@ -56,8 +58,8 @@ table.blue th {
 
 }
 table.blue td {
-    width: 300px;
-    padding: 10px;
+    width: 400px;
+    padding: 12px;
     vertical-align: top;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -114,7 +116,7 @@ table.blue td {
       <form method="get" enctype="multipart/form-data" name="frm">
          <table>
 			<tr>
-				<td colspan="10" style="border: #000022; text-align: center; padding-top: 100px;">
+				<td colspan="10" style="border: #000022; text-align: center; padding-top: 130px;">
 					<h2><img src="img/spoon.png"/><img src="img/dish.png"/><img src="img/fork.png"/></h2>
 				</td>
 			</tr>
