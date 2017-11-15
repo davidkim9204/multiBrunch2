@@ -10,102 +10,53 @@ import java.io.Serializable;
  */
 public class Menu implements Serializable {
 
-	/** serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
-	/** mId. */
-	private Integer mId;
-
-	/** mName. */
+	private int mId;
 	private String mName;
-
-	/** mPrice. */
-	private Integer mPrice;
-
-	/** mPicture1. */
+	private int mPrice;
 	private String mPicture1;
-
-	/** mPicture2. */
 	private String mPicture2;
-
-	/** 새 테이블. */
-	private Restaurant restaurant;
-
-	/** mCategory. */
-	private String mCategory;
-	
-	public Menu(){
-		
-	}
-	
-
-	public Integer getmId() {
+	private int rId;
+	public int getmId() {
 		return mId;
 	}
-
-	public void setmId(Integer mId) {
+	public void setmId(int mId) {
 		this.mId = mId;
 	}
-
 	public String getmName() {
 		return mName;
 	}
-
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
-
-	public Integer getmPrice() {
+	public int getmPrice() {
 		return mPrice;
 	}
-
-	public void setmPrice(Integer mPrice) {
+	public void setmPrice(int mPrice) {
 		this.mPrice = mPrice;
 	}
-
 	public String getmPicture1() {
 		return mPicture1;
 	}
-
 	public void setmPicture1(String mPicture1) {
 		this.mPicture1 = mPicture1;
 	}
-
 	public String getmPicture2() {
 		return mPicture2;
 	}
-
 	public void setmPicture2(String mPicture2) {
 		this.mPicture2 = mPicture2;
 	}
-
-	public Restaurant getRestaurant() {
-		return restaurant;
+	public int getrId() {
+		return rId;
 	}
-
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
+	public void setrId(int rId) {
+		this.rId = rId;
 	}
-
-	public String getmCategory() {
-		return mCategory;
-	}
-
-	public void setmCategory(String mCategory) {
-		this.mCategory = mCategory;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Menu [mId=" + mId + ", mName=" + mName + ", mPrice=" + mPrice + ", mPicture1=" + mPicture1
-				+ ", mPicture2=" + mPicture2 + ", restaurant=" + restaurant + ", mCategory=" + mCategory + "]";
+				+ ", mPicture2=" + mPicture2 + ", rId=" + rId + "]";
 	}
-	
 	
 
 
