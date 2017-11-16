@@ -17,9 +17,13 @@ a {
 	transition: .5s ease;
 }
 
+
+
 a:hover {
 	color: #179b77;
 }
+
+
 
 .form {
 	background: rgba(19, 35, 47, 0.9);
@@ -69,6 +73,49 @@ a:hover {
 .tab-content>div:last-child {
 	display: none;
 }
+
+
+
+.tab1-group {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 40px 0;
+}
+
+.tab1-group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.tab1-group li a {
+	display: block;
+	text-decoration: none;
+	padding: 15px;
+	background: rgba(160, 179, 176, 0.25);
+	color: #a0b3b0;
+	font-size: 20px;
+	float: left;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	transition: .5s ease;
+}
+
+.tab1-group li a:hover {
+	background: #179b77;
+	color: #ffffff;
+}
+
+.tab1-group .active a {
+	background: #1ab188;
+	color: #ffffff;
+}
+
+.tab1-content>div:last-child {
+	display: none;
+}
+
 
 h1{
 	text-align: center;

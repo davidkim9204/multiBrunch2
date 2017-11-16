@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +12,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
-<script type="text/javascript" src="script/user.js">
-
-</script>
+<script src="script/user.js"> </script>
 
 </head>
 <body>
@@ -22,9 +20,8 @@
 
 	<div class="form">
 
-		<ul class="tab-group">
+		<ul class="tab1-group">
 			<li class="tab active"><a href="#Update">Update</a></li>
-			<li class="tab"><a href="#emailCheck">Email</a></li>
 		</ul>
 
 		<!-- Join -->
@@ -39,27 +36,26 @@
 
 					<div class="field-wrap">
 						<label> Name<span class="req">*</span>
-						</label> <input type="text" name="uName" />
+						</label> <input type="text" name="uName" id="s_uName"/>
 					</div>
 					<div class="field-wrap">
 						<label> Age<span class="req">*</span>
-						</label> <input type="text" name="uAge" />
+						</label> <input type="text" name="uAge" id="s_uAge"/>
 					</div>
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span></label> <input
-							type="text" name="uEmail" id="uEmail" value="${uVo.uEmail}"
-							readonly />
+						<label><span class="req">*</span></label> <input type="text"
+							name="uEmail" id="uEmail" value="${uVo.uEmail}" readonly />
 					</div>
 
 					<div class="top-row">
 						<div class="field-wrap">
 							<label> Set Password<span class="req">*</span>
-							</label> <input type="password" name="uPassword" />
+							</label> <input type="password" name="uPassword" id="s_uPassword"/>
 						</div>
 
 						<div class="field-wrap">
 							<label> Confirm Password<span class="req">*</span>
-							</label> <input type="password" name="uPassword_check" />
+							</label> <input type="password" name="uPassword_check"id="s_uPassword_check"/>
 						</div>
 					</div>
 
@@ -72,55 +68,58 @@
 					</div>
 
 					<div class="field-wrap">
-						<span>Preferences : </span> <span><input type="checkbox"
+						<span>Preferences : </span> <span><input type="radio"
 							name="uPreference" value="kor" checked="checked" />한식</span> <span><input
-							type="checkbox" name="uPreference" value="jp">일식</input></span> <span><input
-							type="checkbox" name="uPreference" value="ch">중식</input></span> <span><input
-							type="checkbox" name="uPreference" value="wf">양식</input></span>
+							type="radio" name="uPreference" value="jp"/>일식</span> <span><input
+							type="radio" name="uPreference" value="ch"/>중식</span> <span><input
+							type="radio" name="uPreference" value="wf"/>양식</span>
 					</div>
 
 
-					<button type="submit" class="button button-block" value="확인"
-						onclick="return joinCheck()" />
-					Get Started
-					</button>
-
+						<input type="submit" id="signup_c" class="button button-block"
+						value="Get Started">
 				</form>
+
 
 			</div>
 			<!-- login -->
-			<div id="emailCheck">
-				<h1>Check your Email</h1>
+<!-- 			<div id="a_emailCheck"> -->
+<!-- 				<h1>Check your Email</h1> -->
 
-				<form action="emailCheck.do" method="get" name="frm">
+<!-- 				<form action="emailCheck.do" method="get" name="frm"> -->
 
-					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span>
-						</label> <input type="email" name="uEmail" value="${uEmail}" />
-					</div>
-
-					<button class="button button-block" type="submit" value="중복 체크" />
-					Confirm
-					</button>
-
-					<c:if test="${result == 1 }">
-						<script type="text/javascript">
-				opener.document.frm.uEmail.value = "";
-			</script>
-			${uEmail}는 이미 사용중입니다.
-		</c:if>
-
-					<c:if test="${result == -1 }">
-			${uEmail}은 사용 가능합니다.
-			<input type="button" value="사용" class="cancel" onclick="emailok()">
-					</c:if>
+<!-- 					<div class="field-wrap"> -->
+<!-- 						<label> <span class="req">*</span> -->
+<%-- 						</label> <input type="text" name="uEmail" id="c_uEmail" value="${uEmail}" /> --%>
+<!-- 					</div> -->
 
 
-				</form>
-				<!-- email check form-->
+
+<!-- 					<button class="button button-block" type="submit" value="중복 체크" /> -->
+<!-- 					Confirm -->
+<!-- 					</button> -->
 
 
-			</div>
+
+
+<%-- 					<c:if test="${result == 1 }"> --%>
+<!-- 						<script type="text/javascript"> -->
+<!-- // 				opener.document.frm.uEmail.value = ""; -->
+<!-- 			</script> -->
+<%-- 			${uEmail}는 이미 사용중입니다. --%>
+<%-- 		</c:if> --%>
+
+<%-- 					<c:if test="${result == -1 }"> --%>
+<%-- 			${uEmail}은 사용 가능합니다. --%>
+<!-- 			<input type="button" value="사용" class="cancel" id="emailok"> -->
+<%-- 					</c:if> --%>
+
+
+<!-- 				</form> -->
+<!-- 				email check form -->
+
+
+<!-- 			</div> -->
 			<!-- email check -->
 		</div>
 		<!-- tab-content -->

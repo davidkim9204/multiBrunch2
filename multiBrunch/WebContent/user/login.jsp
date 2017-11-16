@@ -9,13 +9,12 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js">
 </script>
 
+
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
-<script src="script/user.js">
+<script src="script/user.js"> </script>
 
 
-
-</script>
 
 
 </head>
@@ -41,52 +40,53 @@
 				<form action="login.do" method="post" name="frm">
 
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span></label> 
-						<input type="email" name="uEmail" id="l_uEmail"/>
+						<label> Email Address<span class="req">*</span></label> <input
+							type="email" name="uEmail" id="l_uEmail" />
 					</div>
 
 					<div class="field-wrap">
 						<label> Password<span class="req">*</span>
-						</label> <input type="password" name="uPassword" />
+						</label> <input type="password" name="uPassword" id="l_uPassword" />
 					</div>
 
-					<input type="submit" id="emailcheck" class="button button-block" value="Log in">
+					<input type="submit" id="l_emailcheck" class="button button-block"
+						value="Log in">
 
 					<h3>${message}</h3>
 				</form>
 			</div>
 			<!-- signup -->
 			<div id="signup">
-				<h1>Join with us~~</h1>
+				<h1>Join us~~</h1>
 
 				<form action="join.do" method="post" name="frm">
 
 					<div class="field-wrap">
 						<label> Name<span class="req">*</span>
-						</label> <input type="text" name="uName" />
+						</label> <input type="text" name="uName" id="s_uName" />
 					</div>
 					<div class="field-wrap">
 						<label> Age<span class="req">*</span>
-						</label> <input type="text" name="uAge" />
+						</label> <input type="text" name="uAge" id="s_uAge" />
 					</div>
 					<div class="field-wrap">
 						<label> Email Address<span class="req">*</span></label> <input
-							type="text" name="uEmail" id="s_uEmail" /> <input type="hidden"
-							name="re_uEmail" size="20">
+							type="email" name="uEmail" id="s_uEmail" /> <input type="hidden"
+							name="re_uEmail" id="re_uEmail" size="20"> <input
+							type="button" value="Check-Email!" id="s_emailcheck">
 					</div>
-					<p class="forgot">
-						<a href="emailCheck()">EmailCheck</a>
-					</p>
+
 
 					<div class="top-row">
 						<div class="field-wrap">
 							<label> Set Password<span class="req">*</span>
-							</label> <input type="password" name="uPassword" />
+							</label> <input type="password" name="uPassword" id="s_uPassword" />
 						</div>
 
 						<div class="field-wrap">
 							<label> Confirm Password<span class="req">*</span>
-							</label> <input type="password" name="uPassword_check" />
+							</label> <input type="password" name="uPassword_check"
+								id="s_uPassword_check" />
 						</div>
 					</div>
 
@@ -99,13 +99,14 @@
 					</div>
 
 					<div class="field-wrap">
-						<span>Preferences : </span> <span><input type="checkbox"
+						<span>Preferences : </span> <span><input type="radio"
 							name="uPreference" value="kor" checked="checked" />한식</span> <span><input
-							type="checkbox" name="uPreference" value="jp" />일식</span> <span><input
-							type="checkbox" name="uPreference" value="ch" />중식</span> <span><input
-							type="checkbox" name="uPreference" value="wf" />양식</span>
+							type="radio" name="uPreference" value="jp" />일식</span> <span><input
+							type="radio" name="uPreference" value="ch" />중식</span> <span><input
+							type="radio" name="uPreference" value="wf" />양식</span>
 					</div>
-                    <input type="submit" id="signup" class="button button-block" value="Get Started">
+					<input type="submit" id="signup_c" class="button button-block"
+						value="Get Started">
 				</form>
 
 			</div>
