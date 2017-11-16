@@ -8,15 +8,18 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript">
-var onStar = '여기다가 별점 숫자 입력(데이터 받는 부분)';
-var stars = $('#stars li').parent().children('li.star');
-for (i = 0; i < stars.length; i++) {
-	$(stars[i]).removeClass('selected');
-}
+$(document).ready(function(){
+	var onStar = '여기다가 별점 숫자 입력(데이터 받는 부분)';
+	var stars = $('#stars li').parent().children('li.star');
+	for (i = 0; i < stars.length; i++) {
+		$(stars[i]).removeClass('selected');
+	}
 
-for (i = 0; i < onStar; i++) {
-	$(stars[i]).addClass('selected');
-}
+	for (i = 0; i < onStar; i++) {
+		$(stars[i]).addClass('selected');
+	}
+})
+
 </script>
 
 <style type="text/css">

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RestaurantDAO;
+import dao.DB;
 import dto.Menu;
 import dto.Restaurant;
 
@@ -25,7 +25,7 @@ public class MenuInsert extends HttpServlet {
 		String mPicture1=request.getParameter("mPicture1");
 		String mPicture2=request.getParameter("mPicture2");
 		
-		RestaurantDAO pDao =RestaurantDAO.getInstance();
+		DB pDao =DB.getInstance();
 		
 		Menu mVo = new Menu();
 		mVo.setrId(rId);
@@ -34,7 +34,7 @@ public class MenuInsert extends HttpServlet {
 		mVo.setmPicture1(mPicture1);
 		mVo.setmPicture2(mPicture2);
 		
-		int result=RestaurantDAO.getInstance().insertMenu(mVo);
+		int result=DB.getInstance().insertMenu(mVo);
 		
 		System.out.println(result);
 		

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MenuDao;
+import dao.DB;
 import dto.Menu;
 
 @WebServlet("/menumodify.do")
@@ -29,7 +29,7 @@ public class MenuModify extends HttpServlet {
 		mVo.setmPicture1(mPicture1);
 		mVo.setmPicture2(mPicture2);
 		
-		int result=MenuDao.getInstance().ModifyMenu(mVo);
+		int result=DB.getInstance().ModifyMenu(mVo);
 		
 		response.sendRedirect("ReMeservlet.do?userid="+rId);
 	}

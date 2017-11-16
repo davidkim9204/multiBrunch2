@@ -135,7 +135,7 @@ var Yl = {
    this.getEl("div_body").appendChild(this.arrHorDiv[nLen]);
   }
 
-  this.getEl("div_step2").innerHTML = "GO 버튼을 눌러 주세요.";
+  this.getEl("div_step2").innerHTML = "GO 버튼을 눌러 주세요.<br><br>";
 
  }
  ,sRndTop : ""
@@ -325,11 +325,11 @@ document.onkeydown = function(e){
 </head>
 
 <body>
+<div style="position: relative; z-index: 1; width:100%; height:100%; text-align: center; margin-top: 80px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
+<img alt="" src="img/bg.png"><img alt="" src="img/ladder.png"></div>
+<div id="div_step1" style="font-size:18px; text-align: center;"><br>
 
-
-<div id="div_step1" style="font-size:12px;">
-
-갯수 선택
+갯수 선택<br><br>
 <select id="sel_num">
  <option value="2">2</option>
  <option value="3">3</option>
@@ -356,15 +356,15 @@ document.onkeydown = function(e){
 <input type="button" value="만들기" onclick="Yl.init();">
 
 </div>
+<br><br>
 
-
-<div id="div_step2" style="font-size:12px;display:none;">
- 입력후 게임 시작 <input type="button" value="시작" onclick="Yl.create();">
+<div id="div_step2" style="font-size:18px;display:none; text-align:center;">
+ 입력후 게임 시작 <input type="button" value="시작" onclick="Yl.create();"><br><br>
 </div>
 
 
 
-<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative;"></div>
+<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative;margin:auto"></div>
 
 </body>
 </html>

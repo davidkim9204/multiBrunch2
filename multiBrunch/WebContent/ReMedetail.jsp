@@ -11,31 +11,31 @@
 <title>Insert title here</title>
 <style>
 table {
-   width: 820px;
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-left: 3px solid #8c6c0c;
-     margin : 20px 200px;
-
+	width: 820px;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	border-left: 3px solid #8c6c0c;
+	margin: 20px 200px;
 }
+
 th {
-   width: 440px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #153d73;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-
+	width: 440px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #153d73;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
+
 td {
-    width: 400px;
-    padding: 12px;
-    vertical-align: top;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+	width: 400px;
+	padding: 12px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 /* table { */
@@ -51,7 +51,6 @@ td {
 /* 	font-size: 15px; */
 /* 	height: 150px; */
 /* } */
-
 h1 {
 	text-align: center;
 	font-size: 25px;
@@ -60,23 +59,25 @@ h1 {
 img {
 	width: 150px;
 	height: 150px;
-	
 }
-#mi{
+
+#mi {
 	position: absolute;
-	right:170px;
+	right: 170px;
 }
-#md{
+
+#md {
 	position: absolute;
-	right:30px;
+	right: 30px;
 }
-#mf{
+
+#mf {
 	position: absolute;
-	right:100px;
+	right: 100px;
 }
 </style>
 <script type="text/javascript">
-
+	var temp = null;
 	function popdelete() {
 		if (confirm("정말 지울거니??") == true) { //확인
 			document.del.submit();
@@ -85,6 +86,28 @@ img {
 			return false;
 		}
 	}
+	function popComment() {
+		// 		var CM=document.getElementById("comment").value;
+		// 		var RT=document.getElementById("RT").value;
+		// 		alert(RT);
+		var CM = document.getElementById("comment").value;
+		var RT = document.getElementById("RT").value;
+
+		if (CM == "") {
+			alert("코멘트가 없네영");
+			return false
+		} else if (RT == "") {
+			alert("평점 정보가 없네영");
+			return false;
+		} else {
+			if (confirm("댓글달거 맞죠??") == true) { //확인
+				document.Com.submit();
+			} else {
+				return false;
+			}
+		}
+	}
+
 	//------------------------메뉴 수정,삽입,삭제 버튼------------------------------
 	function popmenuinsert() {
 		if (confirm("메뉴를 추가하시겠습니까?") == true) { //확인
@@ -143,24 +166,23 @@ img {
 				</c:forEach></td>
 		</tr>
 		<tr>
-			<td >평점</td>
+			<td>평점</td>
 			<td colspan="3" align="left">${Restaurant.rRate}</td>
-			</tr>
-			<tr>
-			<td >거리</td>
+		</tr>
+		<tr>
+			<td>거리</td>
 			<td colspan="3" align="left">${Restaurant.rDistance}KM</td>
-			</tr>
-		
+		</tr>
+
 		<tr>
 			<td>댓글</td>
 			<td colspan="2"><c:forEach var="comment" items="${commentlist}">
-
 					<form name="del" action="commentdelete.do" method="get">
-						<input type="hidden" name="uId" value="${uId}"> 
-						<input type="hidden" name="cId" value="${comment.cId}"> 
-						<input type="hidden" name="rId" value="${Restaurant.rId}">
+						<input type="hidden" name="uId" value="${uId}"> <input
+							type="hidden" name="cId" value="${comment.cId}"> <input
+							type="hidden" name="rId" value="${Restaurant.rId}">
 						${comment.cContents} <input type="submit" value="삭제"
-							onclick="popdelete()">
+							onclick="return popdelete()">
 					</form>
 
 					<br>
@@ -192,12 +214,13 @@ img {
 		<tr>
 			<td>댓글쓰기</td>
 			<td colspan="3">
-				<form action="commentwrite.do" method="get" >
-					내&nbsp;&nbsp; 용&nbsp;<input type="text" name="comment" size="75"><br>
-					평&nbsp;&nbsp; 점&nbsp;<input type="text" name="Rate"><br>
-					<input type="hidden" name="uId" value="${uId}"><br>
-					<input type="hidden" name="rName" value="${Restaurant.rId}"><br>
-					<input type="submit" value="댓글달기">
+				<form name="Com" action="commentwrite.do" method="get">
+					내&nbsp;&nbsp; 용&nbsp;<input type="text" name="comment" size="75"
+						id="comment"><br> 평&nbsp;&nbsp; 점&nbsp;<input
+						type="text" name="Rate" id="RT"><br> <input
+						type="hidden" name="uId" value="${uId}"><br> <input
+						type="hidden" name="rName" value="${Restaurant.rId}"><br>
+					<input type="submit" value="댓글달기" onclick="return popComment()">
 				</form>
 			</td>
 		</tr>
