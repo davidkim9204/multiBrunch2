@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet{
 			User uVo = uDao.selectUser(uEmail);
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
+			
 			req.setAttribute("message", "로그인에 성공했습니다.");
 			url="index.do";
 		}else if(result==0) {

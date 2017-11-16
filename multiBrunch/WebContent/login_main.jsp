@@ -32,6 +32,8 @@
 <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
+	
+
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -44,8 +46,10 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">아무거나</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
 		</div>
 			
 		<div class="container">
@@ -57,7 +61,7 @@
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse"
 							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span> <span
+							<span class="sr-only"></span> <span
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
@@ -78,8 +82,8 @@
 										type="submit">검색</button>
 								</form>
 							</li>
-							<li><a href="logout.do" class="booking">로그아웃</a></li>
-							<li><a href="userUpdate.do?uEmail=${loginUser.uEmail}" class="booking">정보수정</a></li>
+							<li><a href="login.do" class="booking">로그인</a></li>
+							<li><a href="join.do" class="booking">회원가입</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
