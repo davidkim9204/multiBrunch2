@@ -136,7 +136,7 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch.</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
@@ -188,7 +188,7 @@
 							height="190px"></td>
 						<%-- 				${Restaurant.Picture1 } --%>
 						<td width="300px" style="text-align: left"><font size=5><a
-								href="ReMeservlet.do?userid=${Restaurant.rId}">
+								href="ReMeservlet.do?rId=${Restaurant.rId}&uId=${loginUser.uId}">
 									${Restaurant.rName } </a></font> <br> <font color=grey size=4>${Restaurant.rCategory}</font>
 							<br> <br> <br> <br> <font size=3>${Restaurant.rRate }
 								/ 10</font> <br>평점</td>

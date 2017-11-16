@@ -6,6 +6,7 @@
     if (session.getAttribute("loginUser") == null) {
         response.sendRedirect("login.do");
     }
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -193,7 +194,7 @@
 							height="190px"></td>
 						<%-- 				${Restaurant.Picture1 } --%>
 						<td width="300px" style="text-align: left"><font size=5><a
-								href="ReMeservlet.do?userid=${Restaurant.rId}">
+								href="ReMeservlet.do?rId=${Restaurant.rId}&uId=${loginUser.uId}">
 									${Restaurant.rName } </a></font> <br> <font color=grey size=4>${Restaurant.rCategory}</font>
 							<br> <br> <br> <br> <font size=3>${Restaurant.rRate }
 								/ 10</font> <br>평점</td>

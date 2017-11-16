@@ -31,7 +31,6 @@ public class LoginServlet extends HttpServlet{
 		if(session.getAttribute("loginUser") != null) {
 			url = "user/login.jsp";
 		}
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(url);
 		dispatcher.forward(req, resp);
 	}
@@ -51,7 +50,7 @@ public class LoginServlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", uVo);
 			req.setAttribute("message", "로그인에 성공했습니다.");
-			url="user/main.jsp";
+			url="index.do";
 		}else if(result==0) {
 			req.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		}else if(result==-1) {

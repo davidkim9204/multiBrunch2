@@ -56,8 +56,6 @@ public class UserUpdateServlet extends HttpServlet {
 
 		int result = uDao.updateUser(uVo);
 //		resp.sendRedirect("login.do");
-
-		
 		
 		HttpSession session = req.getSession();
 		

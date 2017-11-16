@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DB;
+import dao.RestaurantDAO;
 import dto.Comment;
 
 @WebServlet("/commentdelete.do")
@@ -20,10 +20,10 @@ public class commentdelete extends HttpServlet {
 		int uId=Integer.parseInt(request.getParameter("uId"));
 			
 		Comment cVo =new Comment();
-		cVo=DB.getInstance().selectOneComment(cId);
+		cVo=RestaurantDAO.getInstance().selectOneComment(cId);
 		
 		if(cVo.getuId()==uId) {
-			int result=DB.getInstance().deleteComment(cId);
+			int result=RestaurantDAO.getInstance().deleteCommentByRestaurantNum(cId);
 			response.sendRedirect("ReMeservlet.do?rid="+rId+"&uId="+uId);
 		}
 		else {

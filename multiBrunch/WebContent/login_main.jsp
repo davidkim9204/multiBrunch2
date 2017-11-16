@@ -44,7 +44,7 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 			
@@ -79,7 +79,7 @@
 								</form>
 							</li>
 							<li><a href="logout.do" class="booking">로그아웃</a></li>
-							<li><a href="userUpdate.do" class="booking">정보수정</a></li>
+							<li><a href="userUpdate.do?uEmail=${loginUser.uEmail}" class="booking">정보수정</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -137,7 +137,7 @@
 										items="${popularRestaurantList}" varStatus="myIndex">
 										<td>${myIndex.index+1}</td>
 										<td><a
-											href="ReMeservlet.do?userid=${popularRestaurantList.rId}" style="color: white;">
+											href="ReMeservlet.do?rId=${popularRestaurantList.rId}&uId=${loginUser.uId}" style="color: white;">
 												. ${popularRestaurantList.rName } </a></td>
 										<br>
 										<br>
@@ -152,7 +152,7 @@
 										items="${recommendRestaurantList}" varStatus="myIndex">
 										<td>${myIndex.index+1}</td>
 										<td><a
-											href="ReMeservlet.do?userid=${recommendRestaurantList.rId}" style="color: white;">
+											href="ReMeservlet.do?rId=${recommendRestaurantList.rId}&uId=${loginUser.uId}" style="color: white;">
 												. ${recommendRestaurantList.rName } </a></td>
 										<br>
 										<br>

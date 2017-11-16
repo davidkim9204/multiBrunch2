@@ -1,13 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DB;
+import dao.RestaurantDAO;
 import dto.Menu;
 
 @WebServlet("/menumodify.do")
@@ -29,7 +30,7 @@ public class MenuModify extends HttpServlet {
 		mVo.setmPicture1(mPicture1);
 		mVo.setmPicture2(mPicture2);
 		
-		int result=DB.getInstance().ModifyMenu(mVo);
+		int result=RestaurantDAO.getInstance().ModifyMenu(mVo);
 		
 		response.sendRedirect("ReMeservlet.do?userid="+rId);
 	}

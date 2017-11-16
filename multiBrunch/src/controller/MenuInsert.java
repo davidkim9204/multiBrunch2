@@ -1,18 +1,15 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Scanner;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DB;
+import dao.RestaurantDAO;
 import dto.Menu;
-import dto.Restaurant;
 
 @WebServlet("/menuinsert.do")
 public class MenuInsert extends HttpServlet {
@@ -25,7 +22,7 @@ public class MenuInsert extends HttpServlet {
 		String mPicture1=request.getParameter("mPicture1");
 		String mPicture2=request.getParameter("mPicture2");
 		
-		DB pDao =DB.getInstance();
+		RestaurantDAO pDao =RestaurantDAO.getInstance();
 		
 		Menu mVo = new Menu();
 		mVo.setrId(rId);
@@ -34,7 +31,7 @@ public class MenuInsert extends HttpServlet {
 		mVo.setmPicture1(mPicture1);
 		mVo.setmPicture2(mPicture2);
 		
-		int result=DB.getInstance().insertMenu(mVo);
+		int result=RestaurantDAO.getInstance().insertMenu(mVo);
 		
 		System.out.println(result);
 		

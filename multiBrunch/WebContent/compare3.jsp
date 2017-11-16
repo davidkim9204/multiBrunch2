@@ -6,6 +6,7 @@
     if (session.getAttribute("loginUser") == null) {
         response.sendRedirect("login.do");
     }
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -79,7 +80,7 @@ table.blue td {
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
 			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
@@ -126,7 +127,7 @@ table.blue td {
             <tr>
                <th scope="row">레스토랑 이름</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
-                  <td><a href="ReMeservlet.do?userid=${Restaurant.rId}">
+                  <td><a href="ReMeservlet.do?rId=${Restaurant.rId}&uId=${loginUser.uId}">
                      ${Restaurant.rName } </a></td>
                </c:forEach>
             </tr>
