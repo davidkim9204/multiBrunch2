@@ -283,12 +283,24 @@ img {
 			<td>댓글쓰기</td>
 			<td colspan="3">
 				<form name="Com" action="commentwrite.do" method="get">
+					평&nbsp;&nbsp; 점&nbsp;
+					<select name="Rate" id="RT">
+						<option value="10" style="color: black;">10</option>
+						<option value="9" style="color: black;">9</option>
+						<option value="8" style="color: black;">8</option>
+						<option value="7" style="color: black;">7</option>
+						<option value="6" style="color: black;">6</option>
+						<option value="5" style="color: black;">5</option>
+						<option value="4" style="color: black;">4</option>
+						<option value="3" style="color: black;">3</option>
+						<option value="2" style="color: black;">2</option>
+						<option value="1" style="color: black;">1</option>
+					</select><br><br>
 					내&nbsp;&nbsp; 용&nbsp;<input type="text" name="comment" size="75"
-						id="comment"><br> 평&nbsp;&nbsp; 점&nbsp;<input
-						type="text" name="Rate" id="RT"><br> <input
-						type="hidden" name="uId" value="${uId}"><br> <input
-						type="hidden" name="rName" value="${Restaurant.rId}"><br>
-					<input type="submit" value="댓글달기" class="btn btn-primary" onclick="return popComment()">
+						id="comment">　　　　<input type="submit" value="댓글달기" class="btn btn-primary" onclick="return popComment()">
+						<input type="hidden" name="uId" value="${uId}">
+						<input type="hidden" name="rName" value="${Restaurant.rId}">
+					
 				</form>
 			</td>
 		</tr>

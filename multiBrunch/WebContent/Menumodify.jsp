@@ -103,7 +103,7 @@
 	</header>
 	<!-- End Header Section -->
 
-	<form id="wrap" name="menumodify" action="menumodify.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px">
+	<form id="wrap" name="menumodify" action="menumodify.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px; padding: 20px;">
 		<h3>메뉴 수정</h3><br><br>
 		메뉴 id : &nbsp; <input type="text" name="mId"><br><br>
 		식점 id : &nbsp; <input type="text" name="rId"><br><br>

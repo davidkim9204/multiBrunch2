@@ -102,7 +102,8 @@
 	</div>
 	</header>
 	<!-- End Header Section -->
-		<form id="wrap" name="menudelete" action="menudelete.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px">
+	
+	<form id="wrap" name="menudelete" action="menudelete.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px; padding: 20px;">
 		<h3>메뉴 삭제</h3><br><br>
 		음식 이름 : &nbsp; <input type="text" name="mMenu"><br><br>
 		음식점 id : &nbsp; <input type="text" name="rId"><br><br>
