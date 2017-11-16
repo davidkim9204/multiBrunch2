@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -142,7 +141,12 @@ img {
 			return false;
 		}
 	}
+	
 </script>
+
+<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=TQHL3aV0s7CKyPelavqy"></script>
+	
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -284,11 +288,28 @@ img {
 						type="text" name="Rate" id="RT"><br> <input
 						type="hidden" name="uId" value="${uId}"><br> <input
 						type="hidden" name="rName" value="${Restaurant.rId}"><br>
-					<input type="submit" value="댓글달기" onclick="return popComment()">
+					<input type="submit" value="댓글달기" class="btn btn-primary" onclick="return popComment()">
 				</form>
 			</td>
 		</tr>
 	</table>
+	<div id="map" style="width: 600px; height: 400px; align: center; margin: auto">
+		<script>
+			
+			var position = new naver.maps.LatLng(37.504298, 127.039659);
+			
+			var map = new naver.maps.Map('map', {
+			    center: position,
+			    zoom: 10
+			});
+
+			var marker = new naver.maps.Marker({
+			    position: position,
+			    map: map
+			});
+			
+		</script>
+	</div>
 	<div style="margin-bottom: 70px;"></div>
 
 	
