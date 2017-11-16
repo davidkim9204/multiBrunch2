@@ -105,12 +105,12 @@
 
 	<form id="wrap" name="menumodify" action="menumodify.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px">
 		<h3>메뉴 수정</h3><br><br>
-		메뉴 아이디: &nbsp; <input type="text" name="mId"><br><br>
-		식점 아뒤: &nbsp; <input type="text" name="rId"><br><br>
-		음식 이름: &nbsp; <input type="text" name="mMenu"><br><br>
-		음식 가격: &nbsp; <input type="text" name="mPrice"><br><br>
-		음식 그림1: <input type="text" name="mPicture1"><br><br>
-		음식 그림2: <input type="text" name="mPicture2"><br><br>
+		메뉴 id : &nbsp; <input type="text" name="mId"><br><br>
+		식점 id : &nbsp; <input type="text" name="rId"><br><br>
+		음식 이름 : &nbsp; <input type="text" name="mMenu"><br><br>
+		음식 가격 : &nbsp; <input type="text" name="mPrice"><br><br>
+		음식 그림1 : <input type="text" name="mPicture1"><br><br>
+		음식 그림2 : <input type="text" name="mPicture2"><br><br>
 		<input type="submit" class="btn btn-primary" value="메뉴 수정" onclick="return popmenumodify1()">
 	</form>
 

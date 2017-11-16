@@ -416,12 +416,9 @@ document.onkeydown = function(e){
 	</header>
 	<!-- End Header Section -->
 	
-<div style="position: relative; z-index: 1; width:100%; height:100%; text-align: center; margin-top: 80px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
+<div style="position: relative; z-index: 1; width:100%; text-align: center; margin-top: 100px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
 <img alt="" src="img/bg.png"><img alt="" src="img/ladder.png"></div>
-<div id="div_step1" style="font-size:18px; text-align: center;"><br>
-
-갯수 선택<br><br>
-<select id="sel_num">
+<div id="div_step1" style="font-size:18px; text-align: center;">갯수 선택　<select id="sel_num">
  <option value="2">2</option>
  <option value="3">3</option>
  <option value="4">4</option>
@@ -444,16 +441,16 @@ document.onkeydown = function(e){
 </select>
 개
 
-<input type="button" value="만들기" onclick="Yl.init();">
+<br><br><input type="button" class="btn btn-primary" value="만들기" onclick="Yl.init();">
 
 </div>
-<br><br>
+<br>	
 
 <div id="div_step2" style="font-size:18px;display:none; text-align:center;">
- 입력후 게임 시작 <input type="button" value="시작" onclick="Yl.create();"><br><br>
+ 입력후 게임 <input type="button" class="btn btn-primary" value="시작" onclick="Yl.create();"><br><br>
 </div>
 
-<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative;margin:auto"></div>
+<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative; margin-bottom: 80px; margin-left: auto; margin-right: auto;"></div>
 
 
 

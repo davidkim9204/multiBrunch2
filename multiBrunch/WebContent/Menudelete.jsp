@@ -104,8 +104,8 @@
 	<!-- End Header Section -->
 		<form id="wrap" name="menudelete" action="menudelete.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px">
 		<h3>메뉴 삭제</h3><br><br>
-		음식 이름: &nbsp; <input type="text" name="mMenu"><br><br>
-		식점 아뒤: &nbsp; <input type="text" name="rId"><br><br>
+		음식 이름 : &nbsp; <input type="text" name="mMenu"><br><br>
+		음식점 id : &nbsp; <input type="text" name="rId"><br><br>
 		<input type="submit" class="btn btn-primary" value="메뉴 삭제" onclick="return popmenudelete1()">
 	</form>
 	

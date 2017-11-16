@@ -111,11 +111,11 @@
 
 	<form id="wrap" name="menuinsert" action="menuinsert.do" method="get" align="center" style="margin-top: 100px; margin-bottom: 80px">
 		<h3>메뉴 추가</h3><br><br>
-		식점 아뒤: &nbsp; <input type="text" name="rId"><br><br>
-		음식 이름: &nbsp; <input type="text" name="mMenu"><br><br>
-		음식 가격: &nbsp; <input type="text" name="mPrice"><br><br>
-		음식 그림1: <input type="text" name="mPicture1"><br><br>
-		음식 그림2: <input type="text" name="mPicture2"><br><br>
+		음식점 id : &nbsp; <input type="text" name="rId"><br><br>
+		음식 이름 : &nbsp; <input type="text" name="mMenu"><br><br>
+		음식 가격 : &nbsp; <input type="text" name="mPrice"><br><br>
+		음식 그림1 : <input type="text" name="mPicture1"><br><br>
+		음식 그림2 : <input type="text" name="mPicture2"><br><br>
 		
 		<input type="submit" class="btn btn-primary" value="메뉴 삽입" onclick="return popmenuinsert1()">
 	</form>
