@@ -111,8 +111,8 @@ var Yl = {
    this.arrBotDiv[i].align = "center";
    this.arrGoDiv[i].align = "center";
 
-   this.arrTopDiv[i].innerHTML = (i+1)+'<br><input type="text" id="inp_top_'+i+'" value="" style="width:90%" tabindex="'+(i+1)+'" />';
-   this.arrBotDiv[i].innerHTML = '<input type="text" id="inp_bot_'+i+'" value="" style="width:90%" tabindex="'+((i+1)+50)+'" />';
+   this.arrTopDiv[i].innerHTML = (i+1)+'<br><input type="text" id="inp_top_'+i+'" value="" style="text-align:center; width:90%" tabindex="'+(i+1)+'" />';
+   this.arrBotDiv[i].innerHTML = '<input type="text" id="inp_bot_'+i+'" value="" style="text-align:center; width:90%" tabindex="'+((i+1)+50)+'" />';
 
    this.getEl("div_body").appendChild(this.arrTopDiv[i]);
    this.getEl("div_body").appendChild(this.arrBotDiv[i]);
