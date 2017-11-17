@@ -38,7 +38,7 @@
 				<form action="login.do" method="post" name="frm">
 
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span></label> <input
+						<label> Email Address<span class="req">**</span></label> <input
 							type="email" name="uEmail" id="l_uEmail" />
 					</div>
 
