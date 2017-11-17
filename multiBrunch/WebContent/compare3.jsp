@@ -6,13 +6,14 @@
     if (session.getAttribute("loginUser") == null) {
         response.sendRedirect("login.do");
     }
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>맛집 비교</title>
+<title>MultiBrunch</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -67,7 +68,7 @@ table.blue td {
 </style>
 </head>
 <body>
-	<!--[if lt IE 8]>
+<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 	<div class='preloader'>
@@ -79,14 +80,34 @@ table.blue td {
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">아무거나</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
+
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+
 		</div>
+			
 		<div class="container">
 			<div class="row">
 				<nav class="navbar navbar-default">
 				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only"></span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
 
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 
@@ -100,7 +121,8 @@ table.blue td {
 										type="submit">검색</button>
 								</form>
 							</li>
-							<li><a href="logout.do" class="booking">로그아웃</a></li>
+							<li><a href="login.do" class="booking">로그인</a></li>
+							<li><a href="join.do" class="booking">회원가입</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -126,7 +148,7 @@ table.blue td {
             <tr>
                <th scope="row">레스토랑 이름</th>
                <c:forEach var="Restaurant" items="${Restaurant}">
-                  <td><a href="ReMeservlet.do?userid=${Restaurant.rId}">
+                  <td><a href="ReMeservlet.do?rId=${Restaurant.rId}&uId=${loginUser.uId}">
                      ${Restaurant.rName } </a></td>
                </c:forEach>
             </tr>

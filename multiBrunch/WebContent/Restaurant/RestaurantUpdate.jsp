@@ -49,27 +49,44 @@
 		<div style="position: absolute; z-index: 1;">
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
-			<a href="" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">아무거나</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">　|　</font>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">사다리타기</font></a>
 		</div>
+			
 		<div class="container">
 			<div class="row">
 				<nav class="navbar navbar-default">
 				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only"></span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
 
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<form class="form-inline" id="header_search">
+								<form class="form-inline" role="search" id="header_search" method="get" action=SearchedRestaurantsServlet>
+<!-- 									<input type="text" name="m.Mname" value="menuSearch" hidden="true"> -->
 									<input class="form-control mr-sm-2" type="text"
-										style="color: white; width: 250px;" placeholder="검색어">
+										style="color: white; width: 250px;" placeholder="메뉴 검색" name="m.mName">
 									<button class="btn btn-outline-success my-2 my-sm-0"
 										type="submit">검색</button>
 								</form>
 							</li>
-							<li><a href="logout.do" class="booking">로그아웃</a></li>
+							<li><a href="login.do" class="booking">로그인</a></li>
+							<li><a href="join.do" class="booking">회원가입</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->

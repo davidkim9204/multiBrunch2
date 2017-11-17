@@ -24,18 +24,13 @@ public class commentwrite extends HttpServlet {
 		com.setcRate(Integer.parseInt(request.getParameter("Rate")));
 		String k=request.getParameter("rName");
 		int rName=Integer.parseInt(k);
-//		System.out.println(rName);
-		com.setrId(rName);
 		
-//		System.out.println(com.getrId());
-//		System.out.println(Integer.parseInt(request.getParameter("uId")));
-//		System.out.println(request.getParameter("comment"));
-//		System.out.println(Integer.parseInt(request.getParameter("Rate")));
+		com.setrId(rName);
+		System.out.println(com.getuId());
 		
 		int result=RestaurantDAO.getInstance().insertComment(com);
-		
-//		System.out.println(result);
-		response.sendRedirect("ReMeservlet.do?userid="+rName);
+	
+		response.sendRedirect("ReMeservlet.do?rid="+rName+"&uId="+com.getuId());
 		
 	}
 

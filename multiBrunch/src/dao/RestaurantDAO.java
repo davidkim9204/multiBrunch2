@@ -541,7 +541,7 @@ public class RestaurantDAO {
 
 //	// 하나의 커멘트를 삭제하는 기능
 	public int deleteCommentByRestaurantNum(int cId) {
-		String sql = "DELETE FROM comment WHERE c_id = ?";
+		String sql = "DELETE FROM comment WHERE cId = ?";
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
@@ -593,7 +593,26 @@ public class RestaurantDAO {
 		return maxNum;
 	}
 	
-	
+	public Comment selectOneComment(int cId) {
+		String sql = "select * from comment where cId = ?";
+		Comment bVo = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bVo = new Comment();
+				bVo.setuId(rs.getInt("uId"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		return bVo;
+	}
 
 	
 

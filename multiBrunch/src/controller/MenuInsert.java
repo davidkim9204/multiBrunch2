@@ -1,9 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Scanner;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.RestaurantDAO;
 import dto.Menu;
-import dto.Restaurant;
 
 @WebServlet("/menuinsert.do")
 public class MenuInsert extends HttpServlet {

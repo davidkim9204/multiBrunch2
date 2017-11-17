@@ -1,14 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>»ç´Ù¸® °ÔÀÓ</title>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>MultiBrunch</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Pacifico'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+<!--For Plugins external css-->
+<link rel="stylesheet" href="assets/css/animate/animate.css" />
+<link rel="stylesheet" href="assets/css/plugins.css" />
+
+<!--Theme custom css -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!--Theme Responsive css-->
+<link rel="stylesheet" href="assets/css/responsive.css" />
+
+<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 <script language="javascript" type="text/javascript">
 
 /*
-¸¸µç »ç¶÷ : ±è¿ëÁØ.
-¸¸µç ³¯Â¥ : 2008³â 8¿ù¿¡
+ë§Œë“  ì‚¬ëŒ : ê¹€ìš©ì¤€.
+ë§Œë“  ë‚ ì§œ : 2008ë…„ 8ì›”ì—
 */
 
 var Yl = {
@@ -16,7 +44,7 @@ var Yl = {
   if (document.getElementById) return document.getElementById(strId);
   if (document.all) return document.all[strId];
  }
- //div ¸®ÅÏ
+ //div ë¦¬í„´
  ,getDiv : function(sWidth, sHeight, sBgColor){
   var d = document.createElement("div");
   if(sWidth) d.style.width = sWidth;
@@ -32,30 +60,30 @@ var Yl = {
   ,'#c9a601','#d6006d','#01b6de','#80adaf','#a44201'
   ,'#e0b800','#ec0078','#0021b0','#92b7d7','#013add'
   ]
- ,arrVerDiv : [] //¼öÁ÷ ¼± div
- ,arrHorDiv : [] //¼öÆò ¼± div
- ,arrMovDiv : [] //ÀÌµ¿ ¼± div
+ ,arrVerDiv : [] //ìˆ˜ì§ ì„  div
+ ,arrHorDiv : [] //ìˆ˜í‰ ì„  div
+ ,arrMovDiv : [] //ì´ë™ ì„  div
 
- ,arrIng : [] //ÁøÇà¿©ºÎ Ã¼Å©¿ë
+ ,arrIng : [] //ì§„í–‰ì—¬ë¶€ ì²´í¬ìš©
 
- ,arrMDiv : [] //ÀÌµ¿¼± ¹è¿­ ¹øÈ£°ª ÀúÀå, ÀÌµ¿ÈÄ È®ÀÎ¿ë
+ ,arrMDiv : [] //ì´ë™ì„  ë°°ì—´ ë²ˆí˜¸ê°’ ì €ì¥, ì´ë™í›„ í™•ì¸ìš©
 
- ,nMaxWidth : 1000 //ÃÖ°í ³ĞÀÌ
- ,nWidth : 0 //»ç´Ù¸® ³ĞÀÌ
- ,nHeight : 300 //»ç´Ù¸® ³ôÀÌ
+ ,nMaxWidth : 1000 //ìµœê³  ë„“ì´
+ ,nWidth : 0 //ì‚¬ë‹¤ë¦¬ ë„“ì´
+ ,nHeight : 300 //ì‚¬ë‹¤ë¦¬ ë†’ì´
 
  ,nNum : 0
 
- ,arrTopDiv : [] //Å¾ div
- ,arrBotDiv : [] //¾Æ·¡ div
- ,arrGoDiv : [] //go ¹öÆ° div
+ ,arrTopDiv : [] //íƒ‘ div
+ ,arrBotDiv : [] //ì•„ë˜ div
+ ,arrGoDiv : [] //go ë²„íŠ¼ div
 
  ,init : function(){
 
-  //°¹¼ö
+  //ê°¯ìˆ˜
   this.nNum = parseInt(this.getEl("sel_num").value);
 
-  //³ĞÀÌ
+  //ë„“ì´
   this.nWidth = parseInt(this.nMaxWidth/this.nNum);
 
   for(var i=0; i<this.nNum; i++){
@@ -83,8 +111,8 @@ var Yl = {
    this.arrBotDiv[i].align = "center";
    this.arrGoDiv[i].align = "center";
 
-   this.arrTopDiv[i].innerHTML = (i+1)+'<br><input type="text" id="inp_top_'+i+'" value="" style="width:90%" tabindex="'+(i+1)+'" />';
-   this.arrBotDiv[i].innerHTML = '<input type="text" id="inp_bot_'+i+'" value="" style="width:90%" tabindex="'+((i+1)+50)+'" />';
+   this.arrTopDiv[i].innerHTML = (i+1)+'<br><input type="text" id="inp_top_'+i+'" value="" style="text-align:center; width:90%" tabindex="'+(i+1)+'" />';
+   this.arrBotDiv[i].innerHTML = '<input type="text" id="inp_bot_'+i+'" value="" style="text-align:center; width:90%" tabindex="'+((i+1)+50)+'" />';
 
    this.getEl("div_body").appendChild(this.arrTopDiv[i]);
    this.getEl("div_body").appendChild(this.arrBotDiv[i]);
@@ -104,7 +132,7 @@ var Yl = {
   this.getEl("div_step2").style.display = "";
 
  }
- ,create : function(){ //»ç´Ù¸® »ı¼º
+ ,create : function(){ //ì‚¬ë‹¤ë¦¬ ìƒì„±
 
   for(var i=0; i<this.nNum; i++){
 
@@ -135,7 +163,7 @@ var Yl = {
    this.getEl("div_body").appendChild(this.arrHorDiv[nLen]);
   }
 
-  this.getEl("div_step2").innerHTML = "GO ¹öÆ°À» ´­·¯ ÁÖ¼¼¿ä.";
+  this.getEl("div_step2").innerHTML = "GO ë²„íŠ¼ì„ ëˆŒëŸ¬ ì£¼ì„¸ìš”.<br><br>";
 
  }
  ,sRndTop : ""
@@ -170,7 +198,7 @@ var Yl = {
 
    this.moveStart("y", no, nSx, nSy);
 
-   this.arrIng[no] = true; //ÁøÇà
+   this.arrIng[no] = true; //ì§„í–‰
   }
 
  }
@@ -215,7 +243,7 @@ var Yl = {
     }
    }else{
 
-    //¹İº¹ÇÏ¸é¼­ Å«°ÍÁß¿¡¼­ Á¦ÀÏ ÀÛÀº°ÍÀ¸·Î
+    //ë°˜ë³µí•˜ë©´ì„œ í°ê²ƒì¤‘ì—ì„œ ì œì¼ ì‘ì€ê²ƒìœ¼ë¡œ
     if( ny>nSy ){
 
      if( nx==nEx || (nx+nw)==nEx ){
@@ -298,7 +326,7 @@ var Yl = {
 
       this.arrBotDiv[i].innerHTML = "<b>"+(pno+1)+"</b><br>"+this.arrBotDiv[i].innerHTML;
 
-      this.arrGoDiv[pno].innerHTML = '<input type="button" value="È®ÀÎ" onClick="Yl.start('+pno+')">';
+      this.arrGoDiv[pno].innerHTML = '<input type="button" value="í™•ì¸" onClick="Yl.start('+pno+')">';
 
       break;
      }
@@ -308,11 +336,11 @@ var Yl = {
  }
 };
 
-//F5 »õ·Î°íÄ§ ¸·±â
+//F5 ìƒˆë¡œê³ ì¹¨ ë§‰ê¸°
 document.onkeydown = function(e){
  if(!e) e = window.event;
  if (e.keyCode == 116){
-  if( confirm("»õ·Î °íÄ§ ÇÏ½Ã°Ú½À´Ï±î?") ){
+  if( confirm("ìƒˆë¡œ ê³ ì¹¨ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?") ){
   }else{
    e.keyCode = 0;
    return false;
@@ -327,10 +355,70 @@ document.onkeydown = function(e){
 <body>
 
 
-<div id="div_step1" style="font-size:12px;">
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<div class='preloader'>
+		<div class='loaded'>&nbsp;</div>
+	</div>
+	<header id="home" class="navbar-fixed-top"> <!-- End navbar-collapse-->
 
-°¹¼ö ¼±ÅÃ
-<select id="sel_num">
+	<div class="main_menu_bg">
+		<div style="position: absolute; z-index: 1;">
+			<a href="index.do" class="booking-1"><br>ã€€ã€€ã€€ã€€MultiBrunch</a>
+			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">ã€€ëª¨ë“  ë§›ì§‘ ë³´ê¸°</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">ã€€|ã€€</font>
+			<a href="ReMeservlet.do?rId=${randomRestaurant}&uId=${loginUser.uId}" ><font size=2 style="color: white; margin-bottom: 6px;">ì•„ë¬´ê±°ë‚˜</font></a>
+			<font size=2 style="color: white; margin-bottom: 6px;">ã€€|ã€€</font>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">ì‚¬ë‹¤ë¦¬íƒ€ê¸°</font></a>
+		</div>
+			
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only"></span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<form class="form-inline" role="search" id="header_search" method="get" action=SearchedRestaurantsServlet>
+<!-- 									<input type="text" name="m.Mname" value="menuSearch" hidden="true"> -->
+									<input class="form-control mr-sm-2" type="text"
+										style="color: white; width: 250px;" placeholder="ë©”ë‰´ ê²€ìƒ‰" name="m.mName">
+									<button class="btn btn-outline-success my-2 my-sm-0"
+										type="submit">ê²€ìƒ‰</button>
+								</form>
+							</li>
+							<li><a href="login.do" class="booking">ë¡œê·¸ì¸</a></li>
+							<li><a href="join.do" class="booking">íšŒì›ê°€ì…</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid --> </nav>
+			</div>
+		</div>
+	</div>
+	</header>
+	<!-- End Header Section -->
+	
+<div style="position: relative; z-index: 1; width:100%; text-align: center; margin-top: 100px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+<img alt="" src="img/bg.png"><img alt="" src="img/ladder.png"></div>
+<div id="div_step1" style="font-size:18px; text-align: center;">ê°¯ìˆ˜ ì„ íƒã€€<select id="sel_num">
  <option value="2">2</option>
  <option value="3">3</option>
  <option value="4">4</option>
@@ -351,20 +439,44 @@ document.onkeydown = function(e){
  <option value="19">19</option>
  <option value="20">20</option>
 </select>
-°³
+ê°œ
 
-<input type="button" value="¸¸µé±â" onclick="Yl.init();">
+<br><br><input type="button" class="btn btn-primary" value="ë§Œë“¤ê¸°" onclick="Yl.init();">
 
 </div>
+<br>	
 
-
-<div id="div_step2" style="font-size:12px;display:none;">
- ÀÔ·ÂÈÄ °ÔÀÓ ½ÃÀÛ <input type="button" value="½ÃÀÛ" onclick="Yl.create();">
+<div id="div_step2" style="font-size:18px;display:none; text-align:center;">
+ ì…ë ¥í›„ ê²Œì„ <input type="button" class="btn btn-primary" value="ì‹œì‘" onclick="Yl.create();"><br><br>
 </div>
 
+<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative; margin-bottom: 80px; margin-left: auto; margin-right: auto;"></div>
 
 
-<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative;"></div>
 
+	<footer id="footer" class="footer">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="copyright wow zoomIn" data-wow-duration="3s">
+					<p>
+						Made with <i class="fa fa-heart"></i> by <a
+							href="http://bootstrapthemes.co">MultiBrunch</a>2017. All Rights
+						Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+
+	<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+	<script src="assets/js/jquery-easing/jquery.easing.1.3.js"></script>
+	<script src="assets/js/wow/wow.min.js"></script>
+	<script src="assets/js/plugins.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>

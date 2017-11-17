@@ -23,8 +23,10 @@ public class ResMeServlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=UTF-8");	
 		
-		int num=Integer.parseInt(request.getParameter("userid"));
+		int num=Integer.parseInt(request.getParameter("rId"));
+		int uId =Integer.parseInt(request.getParameter("uId"));
 		
+			
 		RestaurantDAO pDao =RestaurantDAO.getInstance();
 		
 		Restaurant resvo =pDao.selectOneRestaurantByNum(num);
@@ -35,6 +37,7 @@ public class ResMeServlet extends HttpServlet {
 //		for(Comment c : commentlist) 
 //			System.out.println(c.getcId()+" "+c.getcContents()+ " "+ c.getcRate());
 		
+		request.setAttribute("uId", uId);
 		request.setAttribute("commentlist", commentlist);
 		request.setAttribute("menulist", Menulist);
 		request.setAttribute("Restaurant", resvo);

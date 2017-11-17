@@ -6,6 +6,7 @@
     if (session.getAttribute("loginUser") == null) {
         response.sendRedirect("login.do");
     }
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -137,7 +138,7 @@
 			<a href="index.do" class="booking-1"><br>　　　　MultiBrunch</a>
 			<a href="RestaurantServlet?command=Restaurant_list" ><font size=2 style="color: white; margin-bottom: 6px;">　모든 맛집 보기</font></a>
 			<a href="ReMeservlet.do?userid=${randomRestaurant}" ><font size=2 style="color: white; margin-bottom: 6px;">　|　아무거나</font></a>
-			<a href="https://www.baemin.com/service/sadari_game" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
+			<a href="laddergame.html" ><font size=2 style="color: white; margin-bottom: 6px;">　|　사다리타기</font></a>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -193,22 +194,20 @@
 							height="190px"></td>
 						<%-- 				${Restaurant.Picture1 } --%>
 						<td width="300px" style="text-align: left"><font size=5><a
-								href="ReMeservlet.do?userid=${Restaurant.rId}">
+								href="ReMeservlet.do?rId=${Restaurant.rId}&uId=${loginUser.uId}">
 									${Restaurant.rName } </a></font> <br> <font color=grey size=4>${Restaurant.rCategory}</font>
 							<br> <br> <br> <br> <font size=3>${Restaurant.rRate }
 								/ 10</font> <br>평점</td>
 
-						<td width="350px" style="text-align: left"> <img alt="" src="assets/images/map.png" /><font size=3>　:　</font><font id="rDistance_${Restaurant.rId}" onmouseover="mover(${Restaurant.rId},${Restaurant.rDistance})" onmouseout="mout(${Restaurant.rId},${Restaurant.rDistance})" size=3>${Restaurant.rDistance}
-                        m</font> <br> <br> <img alt=""
-								src="assets/images/home.png"><font size=3>　:　${Restaurant.rAddress}</font> <br>
-								<br> <img alt="" src="assets/images/phone.png"><font size=3>　:　
-								${Restaurant.rTel} </font><br> <img class="line"
+						<td width="350px" style="text-align: left"> <img alt="" src="assets/images/map.png" /><font size=3>　:　</font><font id="rDistance_${Restaurant.rId}" onmouseover="mover(${Restaurant.rId},${Restaurant.rDistance})" onmouseout="mout(${Restaurant.rId},${Restaurant.rDistance})" size=3>${Restaurant.rDistance} m</font><br><br>
+								<img alt="" src="assets/images/home.png"><font size=3>　:　${Restaurant.rAddress}</font> <br>
+								<br> <img alt="" src="assets/images/phone.png"><font size=3>　:　${Restaurant.rTel} </font><br> <img class="line"
 								src="assets/images/line.png" width="300px" height="10px"
 								style="margin-top: 7px;"> <br> <font size=2">&nbsp;선택&nbsp;</font><input
 								type="checkbox"
 								style="text-align: right; position: relative; top: 3px;"
 								name="comsel" onClick="CountChecked(this);"
-								value="${Restaurant.rId }" /> </font></td>
+								value="${Restaurant.rId }" /> </td>
 					</tr>
 				</c:forEach>
 				<tr>
