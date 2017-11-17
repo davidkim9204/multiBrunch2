@@ -95,18 +95,24 @@ $('#l_emailcheck').on('click', function () {
 // singup joincheck
 	
 	$('#signup_c').on('click', function () {
-
+		
 		if ($('#s_uName').val() == "") {
 			alert("이름을 써주세요");
 			$('#s_uName').focus();
 			return false;
 		};
+		
+		if ( isNaN($('#s_uAge').val()) ) {
+			alert("나이는 숫자로 입력해주세요");
+			$('#s_uAge').focus();
+			return false;
+		};
+		
 		if ($('#s_uEmail').val() == "") {
 			alert("이메일을 입력하셔야죠");
 			$('#s_uEmail').focus();
 			return false;
 		};
-		
 		
 		if ($('#s_uPassword').val() == "") {
 			alert("암호는 반드시 입력해야 하죠");

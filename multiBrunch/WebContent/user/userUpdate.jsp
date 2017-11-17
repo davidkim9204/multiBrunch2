@@ -20,30 +20,32 @@
 
 	<div class="form">
 
-		<ul class="tab1-group">
-			<li class="tab active"><a href="#Update">Update</a></li>
-		</ul>
+<!-- 		<ul class="tab1-group"> -->
+		
+<!-- 			<li class="tab active"><a href="#Update">Update</a></li> -->
+
+<!-- 		</ul> -->
 
 		<!-- Join -->
-		<div class="tab-content">
+<!-- 		<div class="tab-content"> -->
 
 
 			<!-- signup -->
 			<div id="Update">
-				<h1>Change Yours</h1>
+				<h1>Update Yours</h1>
 
 				<form action="userUpdate.do" method="post" name="frm">
 
 					<div class="field-wrap">
-						<label> Name<span class="req">*</span>
-						</label> <input type="text" name="uName" id="s_uName"/>
+						<label>Name<span class="req">*</span>
+						</label> <input type="text" name="uName" id="s_uName" value="${uVo.uName}"/>
 					</div>
 					<div class="field-wrap">
-						<label> Age<span class="req">*</span>
-						</label> <input type="text" name="uAge" id="s_uAge"/>
+						<label>Age<span class="req">*</span>
+						</label> <input type="text" name="uAge" id="s_uAge" value="${uVo.uAge}"/>
 					</div>
 					<div class="field-wrap">
-						<label><span class="req">*</span></label> <input type="text"
+						<label><span class="req"></span></label> <input type="text"
 							name="uEmail" id="uEmail" value="${uVo.uEmail}" readonly />
 					</div>
 
@@ -124,7 +126,7 @@
 		</div>
 		<!-- tab-content -->
 
-	</div>
+<!-- 	</div> -->
 
 </body>
 </html>

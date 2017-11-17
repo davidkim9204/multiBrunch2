@@ -63,9 +63,9 @@ public class UserUpdateServlet extends HttpServlet {
 		
 		if(result == 1) {
 			session.setAttribute("uEmail", uVo.getuEmail());
-			req.setAttribute("message", "회원 정보수정에 성공했습니다.");
+			req.setAttribute("message", "회원 정보변경에 성공했습니다.");
 		}else {
-			req.setAttribute("message", "회원 정보수정에 실패했습니다.");
+			req.setAttribute("message", "회원 정보변경에 실패했습니다.");
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("user/login.jsp");

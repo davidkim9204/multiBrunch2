@@ -15,8 +15,6 @@
 <script src="script/user.js"> </script>
 
 
-
-
 </head>
 
 
@@ -72,8 +70,8 @@
 					<div class="field-wrap">
 						<label> Email Address<span class="req">*</span></label> <input
 							type="email" name="uEmail" id="s_uEmail" /> <input type="hidden"
-							name="re_uEmail" id="re_uEmail" size="20"> <input
-							type="button" value="Check-Email!" id="s_emailcheck">
+							name="re_uEmail" id="re_uEmail" size="20"> 
+							<input type="button" value="Check-Email" id="s_emailcheck">
 					</div>
 
 
